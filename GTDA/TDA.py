@@ -1,4 +1,4 @@
-from .GTDA_utils import filter_components
+from .GTDA_utils import find_components
 import numpy as np
 import scipy.sparse as sp
 from collections import defaultdict, Counter
@@ -136,7 +136,7 @@ class TDA(object):
         print("Find reeb nodes...")
         for bin_id,curr_bin in tqdm(self.bins.items()):
             curr_bin = np.array(curr_bin)
-            _,components = filter_components(Ar[curr_bin,:][:,curr_bin],size_thd=0)
+            _,components = find_components(Ar[curr_bin,:][:,curr_bin],size_thd=0)
             for component in components:
                 self.final_components[self.num_total_components] = curr_bin[component].tolist()
                 self.component_bin_id[self.num_total_components] = bin_id

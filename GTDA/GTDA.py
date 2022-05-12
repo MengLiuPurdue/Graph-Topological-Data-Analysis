@@ -1,17 +1,12 @@
-from .GTDA_utils import build_knn_graph, filter_components
+from .GTDA_utils import find_components
 from bisect import bisect_right
-import torch
 import numpy as np
 import scipy.sparse as sp
 from collections import defaultdict, Counter
-from sklearn.cluster import KMeans
-from sklearn.metrics import pairwise_distances
 import itertools
 import seaborn as sns
-from matplotlib.colors import to_rgba
 from tqdm import tqdm
 from joblib import Parallel, delayed
-import bisect
 import copy
 import time
 import faiss
@@ -32,49 +27,42 @@ class GTDA(object):
         self.preds = np.copy(nn_model.preds)
         self.labels_to_eval = copy.copy(labels_to_eval)
     
-    def _compute_bin_lbs(self,kmeans_id,inner_id,overlap,col_id,nbins):
-        k = len(self.bin_sizes[col_id])
-        if kmeans_id >= k or inner_id >= nbins or kmeans_id < 0 or inner_id < 0:
+    def _compute_bin_lbs(self,inner_id,overlap,col_id,nbins):
+        if inner_id >= nbins or inner_id < 0:
             return float("inf")
-        new_kmeans_id,new_inner_id = kmeans_id,inner_id
-        curr_lb = self.pre_lbs[col_id][kmeans_id]+self.bin_sizes[col_id][kmeans_id]*inner_id
+        new_inner_id = inner_id
+        curr_lb = self.pre_lbs[col_id]+self.bin_sizes[col_id]*inner_id
         flag = False
-        for offset in range(int(np.ceil(overlap))):
-            if new_kmeans_id == 0 and new_inner_id == 0:
+        for _ in range(int(np.ceil(overlap))):
+            if new_inner_id == 0:
                 flag = False
                 break
-            new_kmeans_id = new_kmeans_id+(new_inner_id-1)//nbins
-            new_inner_id = (new_inner_id-1)%nbins
-            curr_lb -= self.bin_sizes[col_id][new_kmeans_id]
+            new_inner_id = new_inner_id-1
+            curr_lb -= self.bin_sizes[col_id]
             flag = True
         if flag:
-            curr_lb += (np.ceil(overlap)-overlap)*self.bin_sizes[col_id][new_kmeans_id]
+            curr_lb += (np.ceil(overlap)-overlap)*self.bin_sizes[col_id]
         return curr_lb
     
-    def _compute_bin_ubs(self,kmeans_id,inner_id,overlap,col_id,nbins):
-        k = len(self.bin_sizes[col_id])
-        if kmeans_id >= k or inner_id >= nbins or kmeans_id < 0 or inner_id < 0:
+    def _compute_bin_ubs(self,inner_id,overlap,col_id,nbins):
+        if inner_id >= nbins or inner_id < 0:
             return -1*float("inf")
-        new_kmeans_id,new_inner_id = kmeans_id,inner_id
-        curr_ub = self.pre_lbs[col_id][kmeans_id]+self.bin_sizes[col_id][kmeans_id]*(1+inner_id)
+        new_inner_id = inner_id
+        curr_ub = self.pre_lbs[col_id]+self.bin_sizes[col_id]*(1+inner_id)
         flag = False
-        for offset in range(int(np.ceil(overlap))):
-            if new_kmeans_id == k-1 and new_inner_id == nbins-1:
+        for _ in range(int(np.ceil(overlap))):
+            if new_inner_id == nbins-1:
                 flag = False
                 break
-            new_kmeans_id = new_kmeans_id+(new_inner_id+1)//nbins
-            new_inner_id = (new_inner_id+1)%nbins
-            curr_ub += self.bin_sizes[col_id][new_kmeans_id]
+            new_inner_id = new_inner_id+1
+            curr_ub += self.bin_sizes[col_id]
             flag = True
         if flag:
-            curr_ub -= (np.ceil(overlap)-overlap)*self.bin_sizes[col_id][new_kmeans_id]
+            curr_ub -= (np.ceil(overlap)-overlap)*self.bin_sizes[col_id]
         return curr_ub
 
     def build_mixing_matrix(
-        self,alpha=0.5,nsteps=3,selected_nodes=None,normalize=True,extra_lens=None,standardize=False,
-        degree_normalize=1):
-        if selected_nodes is None:
-            selected_nodes = list(range(self.preds.shape[0]))
+        self,alpha=0.5,nsteps=3,normalize=True,extra_lens=None,standardize=False,degree_normalize=1):
         Ar = (self.A>0).astype(np.float64)
         degs = np.sum(Ar,0)
         dinv = 1/degs
@@ -98,7 +86,7 @@ class GTDA(object):
         selected_col = self.labels_to_eval
         if extra_lens is not None:
             selected_col += list(range(self.preds.shape[1],total_mixing_all.shape[1]))
-        M = total_mixing_all[selected_nodes,:][:,selected_col].copy()
+        M = total_mixing_all[:,selected_col].copy()
         if standardize:
             for i in range(M.shape[1]):
                 M[:,i] = (M[:,i]-np.mean(M[:,i]))/np.std(M[:,i])
@@ -108,172 +96,56 @@ class GTDA(object):
                     M[:,i] = (M[:,i]-np.min(M[:,i]))/(np.max(M[:,i])-np.min(M[:,i]))
         return M,Ar
     
-    def _clustering_single_col(self,
-        M,filter_cols,k,nbins,seed=0):
-        self.pre_assignments = np.zeros((len(filter_cols),M.shape[0]),dtype=np.int64)
-        self.pre_lbs = np.zeros((len(filter_cols),k))
-        self.pre_ubs = np.zeros((len(filter_cols),k))
-        self.bin_sizes = np.zeros((len(filter_cols),k))
-        if k == 1:
-            self.lbs = np.min(M,0)
-            self.ubs = np.max(M,0)
-            for i,col in enumerate(filter_cols):
-                self.pre_assignments[i] = [0]*M.shape[0]
-                self.pre_lbs[i,0] = self.lbs[col]
-                self.pre_ubs[i,0] = self.ubs[col]
-                self.bin_sizes[i,0] = (self.ubs[col]-self.lbs[col])/nbins
-        else:
-            for i,col in enumerate(filter_cols):
-                prefilter = KMeans(n_clusters=k,random_state=seed)
-                prefilter.fit(M[:,[col]])
-                prefilter.cluster_centers_=np.sort(prefilter.cluster_centers_,0)
-                self.pre_assignments[i] = prefilter.predict(M[:,[col]])
-                for center_id in range(k):
-                    cluster = np.nonzero(self.pre_assignments[i]==center_id)
-                    self.pre_lbs[i][center_id] = np.min(M[cluster,col])
-                for center_id in range(k-1):
-                    self.pre_ubs[i][center_id] = self.pre_lbs[i][center_id+1]
-                self.pre_ubs[i][k-1] = np.max(M[:,col])
-                for center_id in range(k):
-                    self.bin_sizes[i][center_id] = (
-                        self.pre_ubs[i][center_id]-self.pre_lbs[i][center_id])/nbins
-    
     def _clustering_single_col_pyramid(self,
-        M,filter_cols,k,nbins,seed=0,lbs=None,ubs=None):
-        self.pre_assignments = np.zeros((len(filter_cols),M.shape[0]),dtype=np.int64)
-        self.pre_lbs = np.zeros((len(filter_cols),k))
-        self.pre_ubs = np.zeros((len(filter_cols),k))
-        self.bin_sizes = np.zeros((len(filter_cols),k))
-        if k == 1:
-            self.lbs = np.min(M,0) if lbs is None else lbs
-            self.ubs = np.max(M,0) if ubs is None else ubs
-            for i,col in enumerate(filter_cols):
-                self.pre_assignments[i] = [0]*M.shape[0]
-                self.pre_lbs[i,0] = self.lbs[col]
-                self.pre_ubs[i,0] = self.ubs[col]
-                self.bin_sizes[i,0] = (self.ubs[col]-self.lbs[col])/nbins
-        else:
-            for i,col in enumerate(filter_cols):
-                prefilter = KMeans(n_clusters=k,random_state=seed)
-                prefilter.fit(M[:,[col]])
-                prefilter.cluster_centers_=np.sort(prefilter.cluster_centers_,0)
-                self.pre_assignments[i] = prefilter.predict(M[:,[col]])
-                for center_id in range(k):
-                    cluster = np.nonzero(self.pre_assignments[i]==center_id)
-                    self.pre_lbs[i][center_id] = np.min(M[cluster,col])
-                for center_id in range(k-1):
-                    self.pre_ubs[i][center_id] = self.pre_lbs[i][center_id+1]
-                self.pre_ubs[i][k-1] = np.max(M[:,col])
-                for center_id in range(k):
-                    self.bin_sizes[i][center_id] = (
-                        self.pre_ubs[i][center_id]-self.pre_lbs[i][center_id])/nbins
-
-
-    def compute_bin_id(self,point,overlap,nbins,i):
-        assignments = []
-        for j,val in enumerate(point):
-            kmeans_id = self.pre_assignments[j][i]
-            bin_size = self.bin_sizes[j][kmeans_id]
-            if val == self.pre_ubs[j][kmeans_id]:
-                inner_id = nbins-1
-            elif val == self.pre_lbs[j][kmeans_id]:
-                inner_id = 0
-            else:
-                inner_id = int(
-                    np.floor((val-self.pre_lbs[j][kmeans_id])/bin_size))
-            bin_id = nbins*kmeans_id+inner_id
-            bin_ids = [bin_id]
-            for offset in range(1,1+int(np.ceil(max(overlap)))):
-                new_kmeans_id = kmeans_id+(inner_id+offset)//nbins
-                new_inner_id = (inner_id+offset)%nbins
-                if val >= self._compute_bin_lbs(
-                    new_kmeans_id,new_inner_id,overlap[0],j,nbins):
-                    bin_ids.append(nbins*new_kmeans_id+new_inner_id)
-                new_kmeans_id = kmeans_id+(inner_id-offset)//nbins
-                new_inner_id = (inner_id-offset)%nbins
-                if val <= self._compute_bin_ubs(
-                    new_kmeans_id,new_inner_id,overlap[1],j,nbins):
-                    bin_ids.append(nbins*new_kmeans_id+new_inner_id)
-            assignments.append(bin_ids)
-        return itertools.product(*assignments)
-
-    def _find_bins(self,M,filter_cols,overlap,nbins):
-        bin_nums = 0
-        self.bin_key_map = {}
-        self.bin_center = {}
-        bin_map = {}
-        bins = defaultdict(list)
-        print("Generate bins...")
-        for i in tqdm(range(M.shape[0])):
-            point = M[i,filter_cols]
-            for bin_key in self.compute_bin_id(point,overlap,nbins,i):
-                if bin_key not in self.bin_key_map:
-                    self.bin_key_map[bin_key] = bin_nums
-                    self.bin_center[bin_nums] = [
-                        (self.lbs[j]+bin_key[j]*self.bin_sizes[j][self.pre_assignments[j][i]]+self.bin_sizes[j][self.pre_assignments[j][i]]/2).item() for j in range(len(filter_cols))]
-                    bin_map[bin_nums] = bin_key
-                    bins[bin_nums].append(i)
-                    bin_nums += 1
-                else:
-                    assigned_id = self.bin_key_map[bin_key]
-                    bins[assigned_id].append(i)
-        return bins
+        M,filter_cols,nbins,lbs=None,ubs=None):
+        self.pre_lbs = np.zeros(len(filter_cols))
+        self.pre_ubs = np.zeros(len(filter_cols))
+        self.bin_sizes = np.zeros(len(filter_cols))
+        self.lbs = np.min(M,0) if lbs is None else lbs
+        self.ubs = np.max(M,0) if ubs is None else ubs
+        for i,col in enumerate(filter_cols):
+            self.pre_lbs[i] = self.lbs[col]
+            self.pre_ubs[i] = self.ubs[col]
+            self.bin_sizes[i] = (self.ubs[col]-self.lbs[col])/nbins
     
-    def _find_bins_pyramid(self,M,filter_cols,overlap,nbins,k):
+    def _find_bins_pyramid(self,M,filter_cols,overlap,nbins):
         bin_nums = 0
         bin_key_map = {}
         bin_map = {}
         bins = defaultdict(list)
         all_assignments = [[[] for _ in range(len(filter_cols))] for _ in range(M.shape[0])]
         for j,col in enumerate(filter_cols):
-            kmeans_id = self.pre_assignments[j,:]
-            bin_size = self.bin_sizes[j,kmeans_id]
-            inner_id = np.floor((M[:,col]-self.pre_lbs[j,kmeans_id])/bin_size).astype(np.int64)
-            boundary = np.nonzero(M[:,col] == self.pre_ubs[j,kmeans_id])[0]
+            bin_size = self.bin_sizes[j]
+            inner_id = np.floor((M[:,col]-self.pre_lbs[j])/bin_size).astype(np.int64)
+            boundary = np.nonzero(M[:,col] == self.pre_ubs[j])[0]
             inner_id[boundary] = nbins-1
-            bin_ids = nbins*kmeans_id+inner_id
+            bin_ids = inner_id
             for i,bin_id in enumerate(bin_ids):
                 all_assignments[i][j].append(bin_id)
             bin_lbs = []
             bin_ubs = []
-            for s in range(k):
-                for t in range(nbins):
-                    bin_lbs.append(self._compute_bin_lbs(s,t,overlap[0],j,nbins))
-                    bin_ubs.append(self._compute_bin_ubs(s,t,overlap[1],j,nbins))
+            for t in range(nbins):
+                bin_lbs.append(self._compute_bin_lbs(t,overlap[0],j,nbins))
+                bin_ubs.append(self._compute_bin_ubs(t,overlap[1],j,nbins))
             bin_lbs = np.array(bin_lbs)
             bin_ubs = np.array(bin_ubs)
             for offset in range(1,1+int(np.ceil(max(overlap)))):
-                new_kmeans_id = kmeans_id+(inner_id+offset)//nbins
-                new_inner_id = (inner_id+offset)%nbins
-                valid_ids = np.nonzero((new_kmeans_id>=0)*(new_inner_id>=0)*(new_kmeans_id<k)*(new_inner_id<nbins))[0]
-                valid_bin_ids = new_kmeans_id[valid_ids]*nbins+new_inner_id[valid_ids]
+                new_inner_id = inner_id+offset
+                valid_ids = np.nonzero((new_inner_id>=0)*(new_inner_id<nbins))[0]
+                valid_bin_ids = new_inner_id[valid_ids]
                 filtered_ids = np.nonzero(M[valid_ids,col] >= bin_lbs[valid_bin_ids])[0]
                 valid_ids = valid_ids[filtered_ids]
                 valid_bin_ids = valid_bin_ids[filtered_ids]
                 for i,valid_id in enumerate(valid_ids):
                     all_assignments[valid_id][j].append(valid_bin_ids[i])
-                new_kmeans_id = kmeans_id+(inner_id-offset)//nbins
-                new_inner_id = (inner_id-offset)%nbins
-                valid_ids = np.nonzero((new_kmeans_id>=0)*(new_inner_id>=0)*(new_kmeans_id<k)*(new_inner_id<nbins))[0]
-                valid_bin_ids = new_kmeans_id[valid_ids]*nbins+new_inner_id[valid_ids]
+                new_inner_id = inner_id-offset
+                valid_ids = np.nonzero((new_inner_id>=0)*(new_inner_id<nbins))[0]
+                valid_bin_ids = new_inner_id[valid_ids]
                 filtered_ids = np.nonzero(M[valid_ids,col] <= bin_ubs[valid_bin_ids])[0]
                 valid_ids = valid_ids[filtered_ids]
                 valid_bin_ids = valid_bin_ids[filtered_ids]
                 for i,valid_id in enumerate(valid_ids):
                     all_assignments[valid_id][j].append(valid_bin_ids[i])
-            # for offset in range(1,1+int(np.ceil(max(overlap)))):
-            #     new_kmeans_id = kmeans_id+(inner_id+offset)//nbins
-            #     new_inner_id = (inner_id+offset)%nbins
-            #     for i in range(new_kmeans_id.shape[0]):
-            #         if M[i,col] >= self._compute_bin_lbs(
-            #             new_kmeans_id[i],new_inner_id[i],overlap[0],j,nbins):
-            #             all_assignments[i][j].append(nbins*new_kmeans_id[i]+new_inner_id[i])
-            #     new_kmeans_id = kmeans_id+(inner_id-offset)//nbins
-            #     new_inner_id = (inner_id-offset)%nbins
-            #     for i in range(new_kmeans_id.shape[0]):
-            #         if M[i,col] <= self._compute_bin_ubs(
-            #             new_kmeans_id[i],new_inner_id[i],overlap[1],j,nbins):
-            #             all_assignments[i][j].append(nbins*new_kmeans_id[i]+new_inner_id[i])
         for i in range(M.shape[0]):
             for bin_key in itertools.product(*all_assignments[i]):
                 if bin_key not in bin_key_map:
@@ -287,9 +159,9 @@ class GTDA(object):
         return bins,bin_map
 
     def filtering(
-        self,M,filter_cols,nbins=10,k=3,seed=0,overlap=(0.05,0.05),**kwargs):
-        self._clustering_single_col_pyramid(M,filter_cols,k,nbins,seed=seed,**kwargs)
-        return self._find_bins_pyramid(M,filter_cols,overlap,nbins,k)
+        self,M,filter_cols,nbins=2,overlap=(0.05,0.05),**kwargs):
+        self._clustering_single_col_pyramid(M,filter_cols,nbins,**kwargs)
+        return self._find_bins_pyramid(M,filter_cols,overlap,nbins)
 
     def graph_clustering(self,G,bins,component_size_thd=10):
         graph_clusters = defaultdict(list)
@@ -298,7 +170,7 @@ class GTDA(object):
             if len(points) < component_size_thd:
                 continue
             Gr = G[points,:][:,points].copy()
-            _,components = filter_components(Gr,component_size_thd)
+            _,components = find_components(Gr,component_size_thd)
             for component in components:
                 graph_clusters[key].append([points[node] for node in component])
         return graph_clusters
@@ -321,7 +193,7 @@ class GTDA(object):
         return np.any(diam>bin_diam_thd*(Dxqs+Dxqs_inv))
 
     def find_reeb_nodes(self,M,Ar,
-        filter_cols=None,nbins_pyramid=2,overlap=(0.5,0.5),k=1,node_size_thd=10,
+        filter_cols=None,nbins_pyramid=2,overlap=(0.5,0.5),node_size_thd=10,
         smallest_component=50,component_size_thd=0,split_criteria="diff",split_thd=0.01,max_iters=50):
         self.component_records_all = {}
         self.final_components_all = {}
@@ -330,7 +202,7 @@ class GTDA(object):
         self.component_counts = [0]
         self.split_lens = {}
         self.component_id_map = defaultdict(list)
-        _,components = filter_components(Ar,size_thd=0)
+        _,components = find_components(Ar,size_thd=0)
         curr_level = []
         num_final_components = 0
         num_total_components = 0
@@ -344,7 +216,7 @@ class GTDA(object):
             num_total_components += 1
         self.component_counts.append(len(self.component_records))
         iters = 0
-        def worker(M_sub,G_sub,component_id,nbins_pyramid,overlap,k,component_size_thd,
+        def worker(M_sub,G_sub,component_id,nbins_pyramid,overlap,component_size_thd,
             split_thd):
             if split_criteria == 'std':
                 diffs = np.std(M_sub,0)
@@ -356,7 +228,7 @@ class GTDA(object):
                 return [list(range(M_sub.shape[0]))],component_id,largest_diff,col_to_filter
             else:
                 bins,_ = self.filtering(
-                    M_sub,[col_to_filter],nbins=nbins_pyramid,overlap=overlap,k=k)
+                    M_sub,[col_to_filter],nbins=nbins_pyramid,overlap=overlap)
                 graph_clusters = self.graph_clustering(G_sub,bins,
                         component_size_thd=component_size_thd)
                 return graph_clusters,component_id,largest_diff,col_to_filter
@@ -390,7 +262,7 @@ class GTDA(object):
             for _,i in tqdm(process_order):
                 ret = worker(
                     all_M_sub[i],all_G_sub[i],curr_level[i],
-                    nbins_pyramid,overlap,k,component_size_thd,split_thd)
+                    nbins_pyramid,overlap,component_size_thd,split_thd)
                 graph_clusters,component_id,largest_diff,col_to_filter = ret
                 min_largest_diff = min(min_largest_diff,largest_diff)
                 max_largest_diff = max(max_largest_diff,largest_diff)
@@ -511,7 +383,7 @@ class GTDA(object):
     
     def _merging_tiny_nodes(self,merging_map,node_size_thd):
         keys_to_remove = set()
-        components_to_merge = filter_components(merging_map,size_thd=1)[1]
+        components_to_merge = find_components(merging_map,size_thd=1)[1]
         for component_to_merge in components_to_merge:
             component_to_connect = component_to_merge[0]
             for k in component_to_merge:
@@ -561,7 +433,7 @@ class GTDA(object):
     
     def generate_node_info(
         self,nn_model,Ar,g_reeb,extra_edges=None,class_colors=None,alpha=0.5,nsteps=10,
-        pre_labels=None,test_only=True,known_nodes=None,combine_uncertainty=0.0,degree_normalize=True):
+        pre_labels=None,known_nodes=None,degree_normalize=1):
         if known_nodes is None:
             known_mask_np = nn_model.train_mask+nn_model.val_mask
             known_nodes = np.nonzero(known_mask_np)[0]
@@ -578,23 +450,13 @@ class GTDA(object):
         self.node_colors_error = np.zeros(max_key+1)
         self.node_colors_uncertainty = np.zeros(max_key+1)
         self.node_colors_mixing = np.zeros(max_key+1)
-        self.node_colors_combined = np.zeros(max_key+1)
         self.sample_colors_mixing = np.zeros(nn_model.preds.shape[0])
-        self.sample_colors_simple_mixing = np.zeros(nn_model.preds.shape[0])
-        self.sample_colors_combined = np.zeros(nn_model.preds.shape[0])
         uncertainty = 1-np.max(nn_model.preds,1)
         self.sample_colors_uncertainty = uncertainty
-        self.sample_colors_uncertainty_truncated = np.zeros(nn_model.preds.shape[0])
-        selected = np.argsort(-1*uncertainty)[0:int(combine_uncertainty*len(uncertainty))]
-        self.sample_colors_uncertainty_truncated[selected] = uncertainty[selected]
         self.sample_colors_error = np.zeros(nn_model.preds.shape[0])
-        self.edge_colors = np.zeros((max_key+1,4))
-        self.reeb_node_labels = np.zeros((max_key+1,nn_model.preds.shape[1]))
-        self.corrected_labels = pre_labels.copy()
-        self.corrected_labels_simple_mixing = pre_labels.copy()
         if class_colors is None:
             class_colors = sns.color_palette(n_colors=nn_model.preds.shape[1])
-        reeb_components = filter_components(g_reeb,size_thd=0)[1]
+        reeb_components = find_components(g_reeb,size_thd=0)[1]
         ei,ej = [],[]
         for reeb_component in reeb_components:
             for reeb_node in reeb_component:
@@ -606,8 +468,9 @@ class GTDA(object):
                     for i,j in zip(sub_A.row,sub_A.col):
                         ei.append(mapping[i])
                         ej.append(mapping[j])
-        ei += extra_edges[0]
-        ej += extra_edges[1]
+        if extra_edges is not None:
+            ei += extra_edges[0]
+            ej += extra_edges[1]
         self.A_reeb = sp.csr_matrix((np.ones(len(ei)),(ei,ej)),shape=Ar.shape)
         self.A_reeb = self.A_reeb+self.A_reeb.T
         self.A_reeb = (self.A_reeb>0).astype(int)
@@ -618,14 +481,6 @@ class GTDA(object):
         dinv = 1/degs
         dinv[dinv==np.inf] = 0
         Dinv = sp.spdiags(dinv,0,Ar.shape[0],Ar.shape[0])
-        if degree_normalize == 1:
-            self.An_simple = Dinv@Ar
-        elif degree_normalize == 2:
-            self.An_simple = Ar@Dinv
-        elif degree_normalize == 3:
-            self.An_simple = np.sqrt(Dinv)@Ar@np.sqrt(Dinv)
-        else:
-            self.An_simple = Ar
         degs = np.sum(self.A_reeb,0)
         dinv = 1/degs
         dinv[dinv==np.inf] = 0
@@ -639,33 +494,12 @@ class GTDA(object):
         else:
             self.An = self.A_reeb
         self.total_mixing_all = np.copy(training_node_labels)
-        self.simple_mixing_all = np.copy(training_node_labels)
-        self.total_uncertainty_all = np.zeros((Ar.shape[0],nn_model.preds.shape[1]))
-        self.total_uncertainty_all[known_nodes,:] = nn_model.preds[known_nodes,:] - training_node_labels[known_nodes]
-        self.total_uncertainty_all_init = np.copy(self.total_uncertainty_all)
-        self.sample_colors_uncertainty_smoothed = np.copy(self.sample_colors_uncertainty)
         for i in range(nsteps):
-            self.simple_mixing_all = (1-alpha)*training_node_labels + alpha*self.An_simple@self.simple_mixing_all
             self.total_mixing_all = (1-alpha)*training_node_labels + alpha*self.An@self.total_mixing_all
-            self.total_uncertainty_all = (1-alpha)*self.total_uncertainty_all_init + alpha*self.An@self.total_uncertainty_all
-            self.sample_colors_uncertainty_smoothed = (1-alpha)*self.sample_colors_uncertainty + alpha*self.An@self.sample_colors_uncertainty_smoothed
-        self.total_uncertainty_all = np.abs(self.total_uncertainty_all)
         for i in range(self.total_mixing_all.shape[0]):
-            if np.sum(self.simple_mixing_all[i,:]) > 0:
-                d = self.simple_mixing_all[i,pre_labels[i]]/np.sum(self.simple_mixing_all[i,:])
-                self.sample_colors_simple_mixing[i] = 1-d
-                new_label = np.argmax(self.simple_mixing_all[i,:])
-                if self.simple_mixing_all[i,new_label]/np.sum(self.simple_mixing_all[i,:]) > nn_model.preds[i,pre_labels[i]]:
-                    self.corrected_labels_simple_mixing[i] = new_label
             if np.sum(self.total_mixing_all[i,:]) > 0:
                 d = self.total_mixing_all[i,pre_labels[i]]/np.sum(self.total_mixing_all[i,:])
                 self.sample_colors_mixing[i] = 1-d
-                new_label = np.argmax(self.total_mixing_all[i,:])
-                if self.total_mixing_all[i,new_label]/np.sum(self.total_mixing_all[i,:]) > nn_model.preds[i,pre_labels[i]]:
-                    self.corrected_labels[i] = new_label
-                self.sample_colors_combined[i] = self.sample_colors_mixing[i]
-                d = self.total_uncertainty_all[i,pre_labels[i]]
-                self.sample_colors_combined[i] = np.max([1-nn_model.preds[i,pre_labels[i]],self.sample_colors_combined[i]])
             else:
                 self.sample_colors_mixing[i] = uncertainty[i]
             self.sample_colors_error[i] = 1-(pre_labels[i]==labels[i])
@@ -674,25 +508,15 @@ class GTDA(object):
             component = np.array(self.final_components_filtered[key])
             self.node_sizes[key] = len(component)
             component_label_cnt = Counter(labels[component])
-            component_label = component_label_cnt.most_common()[0][0]
             for l,lc in component_label_cnt.items():
                 self.node_colors_class_truth[key,l] = lc
             component_label_cnt = Counter(pre_labels[component])
-            component_label = component_label_cnt.most_common()[0][0]
-            for label in component_label_cnt.keys():
-                self.reeb_node_labels[key][label] = component_label_cnt[label]/len(component)
             for l,lc in component_label_cnt.items():
                 self.node_colors_class[key,l] = lc
-            train_val_cnt = np.sum(known_mask_np[component])
-            if train_val_cnt > 0:
-                self.edge_colors[key,3] = train_val_cnt/np.sum(known_mask_np[component])
-            if test_only:
-                component = component[np.nonzero(known_mask_np[component] == False)[0]]
             if len(component) > 0:
                 self.node_colors_error[key] = np.mean(self.sample_colors_error[component])
                 self.node_colors_uncertainty[key] = np.mean(self.sample_colors_uncertainty[component])
                 self.node_colors_mixing[key] = np.mean(self.sample_colors_mixing[component])
-                self.node_colors_combined[key] = np.mean(self.sample_colors_combined[component])
     
                
     def build_reeb_graph(self,M,Ar,reeb_component_thd=10,max_iters=10,is_merging=True,edges_dists=None):
@@ -717,7 +541,7 @@ class GTDA(object):
             (np.ones(len(all_edge_index[1])),(all_edge_index[0],all_edge_index[1])),shape=(
                 reeb_dim,reeb_dim))
         A_tmp = ((A_tmp+A_tmp.T)>0).astype(np.float64)
-        _,components_left1 = filter_components(A_tmp,size_thd=0)
+        _,components_left1 = find_components(A_tmp,size_thd=0)
         components_removed = []
         self.filtered_nodes = []
         for c in components_left1:
@@ -768,7 +592,7 @@ class GTDA(object):
                 (np.ones(len(all_edge_index[1])),(all_edge_index[0],all_edge_index[1])),shape=(
                     reeb_dim,reeb_dim))
             A_tmp = ((A_tmp+A_tmp.T)>0).astype(np.float64)
-            _,components_left1 = filter_components(A_tmp,size_thd=0)
+            _,components_left1 = find_components(A_tmp,size_thd=0)
             components_removed = []
             self.filtered_nodes = []
             for c in components_left1:
@@ -780,10 +604,10 @@ class GTDA(object):
                             components_removed.append(c)
                             break
         nodes = []
+        self.filtered_nodes = np.intersect1d(self.filtered_nodes,list(self.final_components_filtered.keys()))
         for i in self.filtered_nodes:
-            if i in self.final_components_filtered:
-                component = np.array(self.final_components_filtered[i])
-                nodes += component.tolist()
+            component = np.array(self.final_components_filtered[i])
+            nodes += component.tolist()
         nodes = list(set(nodes))
         print("Number of samples included after merging reeb components:", len(set(nodes)))
         return A_tmp,extra_edges
