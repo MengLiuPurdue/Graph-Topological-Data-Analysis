@@ -30,39 +30,21 @@ class GTDA(object):
     def _compute_bin_lbs(self,inner_id,overlap,col_id,nbins):
         if inner_id >= nbins or inner_id < 0:
             return float("inf")
-        new_inner_id = inner_id
         curr_lb = self.pre_lbs[col_id]+self.bin_sizes[col_id]*inner_id
-        flag = False
-        for _ in range(int(np.ceil(overlap))):
-            if new_inner_id == 0:
-                flag = False
-                break
-            new_inner_id = new_inner_id-1
-            curr_lb -= self.bin_sizes[col_id]
-            flag = True
-        if flag:
-            curr_lb += (np.ceil(overlap)-overlap)*self.bin_sizes[col_id]
+        if inner_id != 0:
+            curr_lb -= overlap*self.bin_sizes[col_id]
         return curr_lb
     
     def _compute_bin_ubs(self,inner_id,overlap,col_id,nbins):
         if inner_id >= nbins or inner_id < 0:
             return -1*float("inf")
-        new_inner_id = inner_id
         curr_ub = self.pre_lbs[col_id]+self.bin_sizes[col_id]*(1+inner_id)
-        flag = False
-        for _ in range(int(np.ceil(overlap))):
-            if new_inner_id == nbins-1:
-                flag = False
-                break
-            new_inner_id = new_inner_id+1
-            curr_ub += self.bin_sizes[col_id]
-            flag = True
-        if flag:
-            curr_ub -= (np.ceil(overlap)-overlap)*self.bin_sizes[col_id]
+        if inner_id != nbins-1:
+            curr_ub += overlap*self.bin_sizes[col_id]
         return curr_ub
 
     def build_mixing_matrix(
-        self,alpha=0.5,nsteps=3,normalize=True,extra_lens=None,standardize=False,degree_normalize=1):
+        self,alpha=0.5,nsteps=3,normalize=True,extra_lens=None,standardize=False,degree_normalize=1,verbose=False):
         Ar = (self.A>0).astype(np.float64)
         degs = np.sum(Ar,0)
         dinv = 1/degs
@@ -81,7 +63,7 @@ class GTDA(object):
         if extra_lens is not None:
             total_mixing_all = np.hstack([total_mixing_all,extra_lens])
             init_mixing = np.hstack([init_mixing,extra_lens])
-        for i in tqdm(range(nsteps)):
+        for i in tqdm(range(nsteps),disable=1-verbose):
             total_mixing_all = (1-alpha)*init_mixing + alpha*An@total_mixing_all
         selected_col = self.labels_to_eval
         if extra_lens is not None:
@@ -129,23 +111,22 @@ class GTDA(object):
                 bin_ubs.append(self._compute_bin_ubs(t,overlap[1],j,nbins))
             bin_lbs = np.array(bin_lbs)
             bin_ubs = np.array(bin_ubs)
-            for offset in range(1,1+int(np.ceil(max(overlap)))):
-                new_inner_id = inner_id+offset
-                valid_ids = np.nonzero((new_inner_id>=0)*(new_inner_id<nbins))[0]
-                valid_bin_ids = new_inner_id[valid_ids]
-                filtered_ids = np.nonzero(M[valid_ids,col] >= bin_lbs[valid_bin_ids])[0]
-                valid_ids = valid_ids[filtered_ids]
-                valid_bin_ids = valid_bin_ids[filtered_ids]
-                for i,valid_id in enumerate(valid_ids):
-                    all_assignments[valid_id][j].append(valid_bin_ids[i])
-                new_inner_id = inner_id-offset
-                valid_ids = np.nonzero((new_inner_id>=0)*(new_inner_id<nbins))[0]
-                valid_bin_ids = new_inner_id[valid_ids]
-                filtered_ids = np.nonzero(M[valid_ids,col] <= bin_ubs[valid_bin_ids])[0]
-                valid_ids = valid_ids[filtered_ids]
-                valid_bin_ids = valid_bin_ids[filtered_ids]
-                for i,valid_id in enumerate(valid_ids):
-                    all_assignments[valid_id][j].append(valid_bin_ids[i])
+            new_inner_id = inner_id+1
+            valid_ids = np.nonzero((new_inner_id>=0)*(new_inner_id<nbins))[0]
+            valid_bin_ids = new_inner_id[valid_ids]
+            filtered_ids = np.nonzero(M[valid_ids,col] >= bin_lbs[valid_bin_ids])[0]
+            valid_ids = valid_ids[filtered_ids]
+            valid_bin_ids = valid_bin_ids[filtered_ids]
+            for i,valid_id in enumerate(valid_ids):
+                all_assignments[valid_id][j].append(valid_bin_ids[i])
+            new_inner_id = inner_id-1
+            valid_ids = np.nonzero((new_inner_id>=0)*(new_inner_id<nbins))[0]
+            valid_bin_ids = new_inner_id[valid_ids]
+            filtered_ids = np.nonzero(M[valid_ids,col] <= bin_ubs[valid_bin_ids])[0]
+            valid_ids = valid_ids[filtered_ids]
+            valid_bin_ids = valid_bin_ids[filtered_ids]
+            for i,valid_id in enumerate(valid_ids):
+                all_assignments[valid_id][j].append(valid_bin_ids[i])
         for i in range(M.shape[0]):
             for bin_key in itertools.product(*all_assignments[i]):
                 if bin_key not in bin_key_map:
@@ -194,7 +175,7 @@ class GTDA(object):
 
     def find_reeb_nodes(self,M,Ar,
         filter_cols=None,nbins_pyramid=2,overlap=(0.5,0.5),node_size_thd=10,
-        smallest_component=50,component_size_thd=0,split_criteria="diff",split_thd=0.01,max_iters=50):
+        smallest_component=50,component_size_thd=0,split_criteria="diff",split_thd=0.01,max_iters=50,verbose=False):
         self.component_records_all = {}
         self.final_components_all = {}
         self.component_records = {}
@@ -237,8 +218,9 @@ class GTDA(object):
             slice_columns = False
         while len(curr_level) > 0 and iters < max_iters:
             iters += 1
-            print(f"Iteration {iters}")
-            print(f"{len(curr_level)} components to split")
+            if verbose:
+                print(f"Iteration {iters}")
+                print(f"{len(curr_level)} components to split")
             sizes = []
             new_level = []
             all_G_sub = []
@@ -254,12 +236,13 @@ class GTDA(object):
                 all_G_sub.append(G_sub)
                 all_M_sub.append(M_sub)
             t2 = time.time()
-            print(f"Grouping took {t2-t1} seconds")
+            if verbose:
+                print(f"Grouping took {t2-t1} seconds")
             process_order = sorted([(-1*all_M_sub[i].shape[0],i) for i in range(len(all_M_sub))])
             t1 = time.time()
             min_largest_diff = float("inf")
             max_largest_diff = -1*float("inf")
-            for _,i in tqdm(process_order):
+            for _,i in process_order:
                 ret = worker(
                     all_M_sub[i],all_G_sub[i],curr_level[i],
                     nbins_pyramid,overlap,component_size_thd,split_thd)
@@ -285,19 +268,21 @@ class GTDA(object):
                                 self.final_components[num_final_components] = component[new_component].tolist()
                                 num_final_components += 1
                             num_total_components += 1
-            print(f"Min/max largest difference: {min_largest_diff}, {max_largest_diff}")
-            print("New components sizes:")
-            print(Counter(sizes))
+            if verbose:
+                print(f"Min/max largest difference: {min_largest_diff}, {max_largest_diff}")
+                print("New components sizes:")
+                print(Counter(sizes))
             curr_level = new_level
             t2 = time.time()
-            print(f"Splitting took {t2-t1} seconds")
+            if verbose:
+                print(f"Splitting took {t2-t1} seconds")
             self.component_counts.append(len(self.component_records))
         if len(curr_level) > 0:
             for i in curr_level:
                 self.final_components[num_final_components] = self.component_records[i]
                 num_final_components += 1
         self._remove_duplicate_components()
-        self._filter_tiny_components(Ar,node_size_thd)
+        self._filter_tiny_components(Ar,node_size_thd,verbose)
     
     def _remove_duplicate_components(self):
         all_c = sorted([
@@ -306,11 +291,12 @@ class GTDA(object):
         self.final_components_unique = {i:c for i,c in enumerate(filtered_c)}
 
 
-    def _filter_tiny_components(self,Ar,node_size_thd):
+    def _filter_tiny_components(self,Ar,node_size_thd,verbose):
         nodes = []
         for val in self.final_components_unique.values():
             nodes += val
-        print("Number of samples included before filtering:", len(set(nodes)))
+        if verbose:
+            print("Number of samples included before filtering:", len(set(nodes)))
         all_keys = self.final_components_unique.keys()
         filtered_keys = []
         removed_keys = []
@@ -333,9 +319,10 @@ class GTDA(object):
         for val in self.final_components_filtered.values():
             nodes += val
         nodes = list(set(nodes))
-        print("Number of samples included after filtering:", len(nodes))
+        if verbose:
+            print("Number of samples included after filtering:", len(nodes))
 
-    def merge_reeb_nodes(self,Ar,M,niters=1,node_size_thd=10,edges_dists=None,nprocs=10):
+    def merge_reeb_nodes(self,Ar,M,niters=1,node_size_thd=10,edges_dists=None,nprocs=10,verbose=False):
         num_components = len(self.final_components_filtered)+len(self.final_components_removed)
         def worker(tmp_edges_dists,nodes,k1):
             closest_neigh = -1
@@ -349,6 +336,7 @@ class GTDA(object):
             return closest_neigh,k1
         modified = True
         self.edges_to_merge = []
+        print("Merge reeb nodes...")
         for _ in range(niters):
             if modified:
                 modified = False
@@ -357,11 +345,10 @@ class GTDA(object):
             merging_ei = []
             merging_ej = []
             keys_to_check = self.final_components_removed.keys()
-            print("Merge reeb nodes...")
             processed_list = Parallel(n_jobs=nprocs)(
                 delayed(worker)(
                     edges_dists[self.final_components_removed[k1],:],
-                    self.final_components_removed[k1],k1) for k1 in tqdm(keys_to_check))
+                    self.final_components_removed[k1],k1) for k1 in tqdm(keys_to_check,disable=1-verbose))
             for closest_neigh,k1 in processed_list:
                 if closest_neigh != -1:
                     components_to_connect = list(self.node_assignments[closest_neigh])+list(self.node_assignments_tiny_components[closest_neigh])
@@ -379,9 +366,9 @@ class GTDA(object):
                         modified = True
             merging_map = sp.csr_matrix((np.ones(len(merging_ei)),(merging_ei,merging_ej)),shape=(num_components,num_components))
             merging_map = (merging_map+merging_map.T)>0
-            self._merging_tiny_nodes(merging_map,node_size_thd)
+            self._merging_tiny_nodes(merging_map,node_size_thd,verbose)
     
-    def _merging_tiny_nodes(self,merging_map,node_size_thd):
+    def _merging_tiny_nodes(self,merging_map,node_size_thd,verbose):
         keys_to_remove = set()
         components_to_merge = find_components(merging_map,size_thd=1)[1]
         for component_to_merge in components_to_merge:
@@ -429,7 +416,8 @@ class GTDA(object):
         for val in self.final_components_filtered.values():
             nodes += val
         nodes = list(set(nodes))
-        print("Number of samples included after merging:", len(nodes))
+        if verbose:
+            print("Number of samples included after merging:", len(nodes))
     
     def generate_node_info(
         self,nn_model,Ar,g_reeb,extra_edges=None,class_colors=None,alpha=0.5,nsteps=10,
@@ -519,7 +507,7 @@ class GTDA(object):
                 self.node_colors_mixing[key] = np.mean(self.sample_colors_mixing[component])
     
                
-    def build_reeb_graph(self,M,Ar,reeb_component_thd=10,max_iters=10,is_merging=True,edges_dists=None):
+    def build_reeb_graph(self,M,Ar,reeb_component_thd=10,max_iters=10,is_merging=True,edges_dists=None,verbose=False):
         all_edge_index = [[], []]
         extra_edges = [[],[]]
         print("Build reeb graph...")
@@ -531,7 +519,7 @@ class GTDA(object):
         bipartite_g = sp.csr_matrix((np.ones(len(ei)),(ei,ej)),shape=(reeb_dim,M.shape[0]))
         bipartite_g_t = bipartite_g.T.tocsr()
         ei,ej = [],[]
-        for i in tqdm(self.final_components_filtered.keys()):
+        for i in tqdm(self.final_components_filtered.keys(),disable=1-verbose):
             neighs = set(bipartite_g_t[bipartite_g[i,:].indices].indices)
             neighs.remove(i)
             neighs = list(neighs)
@@ -557,7 +545,7 @@ class GTDA(object):
         while modified and is_merging and len(components_removed) > 0 and curr_iter < max_iters:
             modified = False
             curr_iter += 1
-            for component_removed in tqdm(components_removed):
+            for component_removed in tqdm(components_removed,disable=1-verbose):
                 nodes_removed = []
                 for key in component_removed:
                     nodes_removed += self.final_components_filtered[key]
@@ -609,5 +597,6 @@ class GTDA(object):
             component = np.array(self.final_components_filtered[i])
             nodes += component.tolist()
         nodes = list(set(nodes))
-        print("Number of samples included after merging reeb components:", len(set(nodes)))
+        if verbose:
+            print("Number of samples included after merging reeb components:", len(set(nodes)))
         return A_tmp,extra_edges

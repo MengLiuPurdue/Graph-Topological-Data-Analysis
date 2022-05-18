@@ -288,25 +288,26 @@ nn_model: an instance of NN_model class
 labels_to_eval: list of Int, choose which labels to split
 smallest_component: Int, the smallest component to stop splitting
 overlap: Tuple(Float,Float), overlap ratio, first item represents how much to extend the left side of a bin, second is how much to extend the right side of a bin
+    If overlapping ratio is (r1,r2) and current bin size is s, after splitting, left bin has size s*(1+r1)/2, right bin has size s*(1+r2)/2
 extra_lens: Numpy array, any extra lens to use for splitting
 """
 def compute_reeb(GTDA,nn_model,labels_to_eval,smallest_component,overlap,extra_lens=None,
     node_size_thd=5,reeb_component_thd=5,alpha=0.5,nsteps_preprocess=5,nsteps_mixing=10,is_merging=True,
     split_criteria='diff',split_thd=0,is_normalize=True,is_standardize=False,merge_thd=1.0,max_split_iters=200,
-    max_merge_iters=10,nprocs=1,device='cuda',degree_normalize_preprocess=1,degree_normalize_mixing=1):
+    max_merge_iters=10,nprocs=1,device='cuda',degree_normalize_preprocess=1,degree_normalize_mixing=1,verbose=False):
     t1 = time.time()
     gtda = GTDA(nn_model,labels_to_eval)
-    print("Preprocess lens")
+    print("Preprocess lens..")
     M,Ar = gtda.build_mixing_matrix(
         alpha=alpha,nsteps=nsteps_preprocess,extra_lens=extra_lens,normalize=is_normalize,
-        standardize=is_standardize,degree_normalize=degree_normalize_preprocess)
+        standardize=is_standardize,degree_normalize=degree_normalize_preprocess,verbose=verbose)
     M = torch.tensor(M).to(device)
     A_knn = nn_model.A
     Au = sp.triu(A_knn).tocoo()
     ei,ej = Au.row,Au.col
     e = []
     n = A_knn.shape[0]
-    for i in tqdm(range(0,Au.nnz,10000)):
+    for i in tqdm(range(0,Au.nnz,10000),disable=1-verbose):
         start_i = i
         end_i = min(start_i+10000,Au.nnz)
         e.append(torch.max(torch.abs((
@@ -320,11 +321,11 @@ def compute_reeb(GTDA,nn_model,labels_to_eval,smallest_component,overlap,extra_l
         M,Ar,smallest_component=smallest_component,
         filter_cols=list(range(M.shape[1])),overlap=overlap,component_size_thd=0,
         node_size_thd=node_size_thd,split_criteria=split_criteria,
-        split_thd=split_thd,max_iters=max_split_iters)
+        split_thd=split_thd,max_iters=max_split_iters,verbose=verbose)
     if is_merging:
-        gtda.merge_reeb_nodes(Ar,M,niters=max_merge_iters,node_size_thd=node_size_thd,edges_dists=edges_dists,nprocs=nprocs)
+        gtda.merge_reeb_nodes(Ar,M,niters=max_merge_iters,node_size_thd=node_size_thd,edges_dists=edges_dists,nprocs=nprocs,verbose=verbose)
     g_reeb_orig,extra_edges = gtda.build_reeb_graph(
-        M,Ar,reeb_component_thd=reeb_component_thd,max_iters=max_merge_iters,is_merging=is_merging,edges_dists=edges_dists)
+        M,Ar,reeb_component_thd=reeb_component_thd,max_iters=max_merge_iters,is_merging=is_merging,edges_dists=edges_dists,verbose=verbose)
     filtered_nodes = gtda.filtered_nodes
     g_reeb = g_reeb_orig[filtered_nodes,:][:,filtered_nodes]
     t2 = time.time()

@@ -17,44 +17,32 @@ def is_overlap(x,y):
             return False
     return True
 
+
+"""
+nn_model: an instance of NN_model class
+labels_to_eval: list of Int, choose which labels to split
+nbins: Int, number of bins along each len
+overlap: Float, overlap ratio 
+    Unlike GTDA, we follow the exact definition of mapper by making each bin have the same length 
+    and the overlap ratio between two adjacent bins b_i, b_{i+1} is |b_i intersect b_{i+1}}|/|b_i|
+extra_lens: Numpy array, any extra lens to use for splitting
+"""
+
 class TDA(object):
-    def __init__(self,nn_model,labels_to_eval):
+    def __init__(self,nn_model,labels_to_eval,verbose=False):
         self.A = nn_model.A
         self.preds = np.copy(nn_model.preds)
         self.labels_to_eval = copy.copy(labels_to_eval)
-    
-    def _compute_bin_lbs(self,bin_id,overlap,col_id,nbins):
-        if bin_id >= nbins or bin_id < 0:
-            return float("inf")
-        curr_lb = self.pre_lbs[col_id]+self.bin_sizes[col_id]*bin_id
-        new_bin_id = bin_id
-        flag = False
-        for offset in range(int(np.ceil(overlap))):
-            if new_bin_id == 0:
-                flag = False
-                break
-            new_bin_id -= 1
-            curr_lb -= self.bin_sizes[col_id]
-            flag = True
-        if flag:
-            curr_lb += (np.ceil(overlap)-overlap)*self.bin_sizes[col_id]
-        return curr_lb
+        self.verbose = verbose
     
     def _compute_bin_ubs(self,bin_id,overlap,col_id,nbins):
+        r = self.bin_sizes[col_id]*overlap
+        gap = self.bin_sizes[col_id]-r
         if bin_id >= nbins or bin_id < 0:
             return -1*float("inf")
-        new_bin_id = bin_id
-        curr_ub = self.pre_lbs[col_id]+self.bin_sizes[col_id]*(1+bin_id)
-        flag = False
-        for offset in range(int(np.ceil(overlap))):
-            if new_bin_id == nbins-1:
-                flag = False
-                break
-            new_bin_id = new_bin_id+1
-            curr_ub += self.bin_sizes[col_id]
-            flag = True
-        if flag:
-            curr_ub -= (np.ceil(overlap)-overlap)*self.bin_sizes[col_id]
+        curr_ub = self.pre_lbs[col_id]+gap*(1+bin_id)
+        if bin_id != nbins-1:
+            curr_ub += r
         return curr_ub
 
     def build_mixing_matrix(
@@ -82,21 +70,18 @@ class TDA(object):
         assignments = []
         for j,val in enumerate(point):
             bin_size = self.bin_sizes[j]
-            if val == self.pre_ubs[j]:
+            r = bin_size*overlap
+            if val >= self.pre_ubs[j]-r:
                 bin_id = nbins-1
             elif val == self.pre_lbs[j]:
                 bin_id = 0
             else:
                 bin_id = int(
-                    np.floor((val-self.pre_lbs[j])/bin_size))
+                    np.floor((val-self.pre_lbs[j])/(bin_size-r)))
             bin_ids = [bin_id]
-            for offset in range(1,1+int(np.ceil(max(overlap)))):
-                new_bin_id = bin_id+offset
-                if val >= self._compute_bin_lbs(new_bin_id,overlap[0],j,nbins):
-                    bin_ids.append(new_bin_id)
-                new_bin_id = bin_id-offset
-                if val <= self._compute_bin_ubs(new_bin_id,overlap[1],j,nbins):
-                    bin_ids.append(new_bin_id)
+            new_bin_id = bin_id-1
+            if val <= self._compute_bin_ubs(new_bin_id,overlap,j,nbins):
+                bin_ids.append(new_bin_id)
             assignments.append(bin_ids)
         return itertools.product(*assignments)
 
@@ -109,11 +94,11 @@ class TDA(object):
         for col in range(M.shape[1]):
             self.pre_lbs[col] = np.min(M[:,col])
             self.pre_ubs[col] = np.max(M[:,col])
-            self.bin_sizes[col] = (self.pre_ubs[col]-self.pre_lbs[col])/nbins
+            self.bin_sizes[col] = (self.pre_ubs[col]-self.pre_lbs[col])/(nbins-(nbins-1)*overlap)
         bin_map = {}
         bins = defaultdict(list)
         print("Generate bins...")
-        for i in tqdm(range(M.shape[0])):
+        for i in tqdm(range(M.shape[0]),disable=1-self.verbose):
             point = M[i,:]
             for bin_key in self.compute_bin_id(point,overlap,nbins):
                 if bin_key not in self.bin_key_map:
@@ -127,16 +112,24 @@ class TDA(object):
         return bins
     
 
-    def find_reeb_nodes(self,M,Ar,nbins=2,overlap=(0.5,0.5)):
+    def find_reeb_nodes(self,M,Ar,nbins=2,overlap=0.1,cluster_fn=None):
         self.bins = self._find_bins(M,overlap,nbins)
         self.final_components = {}
         self.component_bin_id = {}
         self.bin_component_id = defaultdict(list)
         self.num_total_components = 0
         print("Find reeb nodes...")
-        for bin_id,curr_bin in tqdm(self.bins.items()):
+        for bin_id,curr_bin in tqdm(self.bins.items(),disable=1-self.verbose):
             curr_bin = np.array(curr_bin)
-            _,components = find_components(Ar[curr_bin,:][:,curr_bin],size_thd=0)
+            if cluster_fn is not None:
+                cluster_labels = cluster_fn.fit_predict(Ar[curr_bin,:])
+                components = defaultdict(list)
+                for i,l in enumerate(cluster_labels):
+                    if l != -1:
+                        components[l].append(i)
+                components = list(components.values())
+            else:
+                _,components = find_components(Ar[curr_bin,:][:,curr_bin],size_thd=0)
             for component in components:
                 self.final_components[self.num_total_components] = curr_bin[component].tolist()
                 self.component_bin_id[self.num_total_components] = bin_id
@@ -161,7 +154,7 @@ class TDA(object):
         bipartite_g = sp.csr_matrix((np.ones(len(ei)),(ei,ej)),shape=(reeb_dim,M.shape[0]))
         bipartite_g_t = bipartite_g.T.tocsr()
         ei,ej = [],[]
-        for i in tqdm(self.final_components_unique.keys()):
+        for i in tqdm(self.final_components_unique.keys(),disable=1-self.verbose):
             neighs = set(bipartite_g_t[bipartite_g[i,:].indices].indices)
             neighs.remove(i)
             neighs = list(neighs)

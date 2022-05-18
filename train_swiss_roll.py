@@ -122,7 +122,6 @@ model.eval()
 with torch.set_grad_enabled(False):
     preds = F.softmax(model(data.x, data.edge_index))
 preds = preds.cpu().detach().numpy()
-print(np.sum(preds[:,0]))
 with torch.set_grad_enabled(False):
     node_embs = F.relu(model.convs[0](data.x, data.edge_index))
 node_embs = node_embs.cpu().detach().numpy()
