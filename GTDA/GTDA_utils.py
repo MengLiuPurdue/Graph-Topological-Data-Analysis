@@ -1,3 +1,4 @@
+from requests import session
 import scipy.sparse as sp
 import numpy as np
 import torch.nn.functional as F
@@ -19,8 +20,8 @@ import gc
 import os
 import os.path as osp
 import time
-from rembg.detect import ort_session
 from rembg import remove
+from rembg.session_factory import new_session
 
 def extend_coords(origin, point, scale):
     ox, oy = origin
@@ -541,6 +542,5 @@ def align_images(start_pos,end_pos,scale,images,ax,nrows,is_padding,flipped=Fals
 
 
 def remove_img_bg(img):
-    session = ort_session("u2net")
-    new_img = remove(img,session=session)
+    new_img = remove(img,session=new_session('u2netp'))
     return new_img

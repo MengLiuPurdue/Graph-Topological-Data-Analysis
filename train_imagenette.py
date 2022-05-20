@@ -71,8 +71,6 @@ args = {
     "lr_warmup": 0.2,
     "lr_gamma": 0.1,
     "lr_step_size": 30,
-    "crop_size": 256,
-    "emb_crop_size": 256,
 }
 args = Namespace(**args)
 
