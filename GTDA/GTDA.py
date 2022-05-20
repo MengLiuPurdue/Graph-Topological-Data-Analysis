@@ -9,7 +9,6 @@ from tqdm import tqdm
 from joblib import Parallel, delayed
 import copy
 import time
-import faiss
 
 def is_overlap(x,y):
     for i in range(len(x)):
@@ -155,23 +154,6 @@ class GTDA(object):
             for component in components:
                 graph_clusters[key].append([points[node] for node in component])
         return graph_clusters
-    
-    def check_bin(self,curr_bin,bin_diam_thd,num_check,check_k_nodes,M,filter_cols,curr_indices):
-        if len(curr_bin) < check_k_nodes:
-            return False
-        d = len(filter_cols)
-        index = faiss.IndexFlatL2(d)
-        index.add(M[curr_bin,:][:,filter_cols].copy().astype(np.float32))
-        xqs = [np.random.choice([0,1],size=len(filter_cols)) for _ in range(num_check)]
-        xqs_inv = [1-xq for xq in xqs]
-        xqs = np.array([[curr_indices[i,c] for i,c in enumerate(xq)] for xq in xqs],dtype=np.float32)
-        xqs_inv = np.array([[curr_indices[i,c] for i,c in enumerate(xq)] for xq in xqs_inv],dtype=np.float32)
-        D, _ = index.search(xqs, check_k_nodes)
-        Dinv, _ = index.search(xqs_inv, check_k_nodes)
-        diam = np.sqrt(np.sum((curr_indices[:,1] - curr_indices[:,0])**2))
-        Dxqs = np.sqrt(np.mean(D,1))
-        Dxqs_inv = np.sqrt(np.mean(Dinv,1))
-        return np.any(diam>bin_diam_thd*(Dxqs+Dxqs_inv))
 
     def find_reeb_nodes(self,M,Ar,
         filter_cols=None,nbins_pyramid=2,overlap=(0.5,0.5),node_size_thd=10,
