@@ -288,7 +288,7 @@ GTDA: our GTDA framework class
 nn_model: an instance of NN_model class
 labels_to_eval: list of Int, choose which labels to split
 smallest_component: Int, the smallest component to stop splitting
-overlap: Tuple(Float,Float), overlap ratio, first item represents how much to extend the left side of a bin, second is how much to extend the right side of a bin
+overlap: Tuple(Float,Float) or Float, overlap ratio. If it is a tuple, first item represents how much to extend the left side of a bin, second is how much to extend the right side of a bin
     If overlapping ratio is (r1,r2) and current bin size is s, after splitting, left bin has size s*(1+r1)/2, right bin has size s*(1+r2)/2
 extra_lens: Numpy array, any extra lens to use for splitting
 """
@@ -296,6 +296,10 @@ def compute_reeb(GTDA,nn_model,labels_to_eval,smallest_component,overlap,extra_l
     node_size_thd=5,reeb_component_thd=5,alpha=0.5,nsteps_preprocess=5,nsteps_mixing=10,is_merging=True,
     split_criteria='diff',split_thd=0,is_normalize=True,is_standardize=False,merge_thd=1.0,max_split_iters=200,
     max_merge_iters=10,nprocs=1,device='cuda',degree_normalize_preprocess=1,degree_normalize_mixing=1,verbose=False):
+    if isinstance(overlap,tuple) == False:
+        assert(overlap > 0)
+        assert(overlap < 1)
+        overlap = (0,overlap)
     t1 = time.time()
     gtda = GTDA(nn_model,labels_to_eval)
     print("Preprocess lens..")

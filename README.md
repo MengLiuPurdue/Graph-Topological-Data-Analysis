@@ -76,7 +76,7 @@ Download ```variant_summary.txt``` from <https://ftp.ncbi.nlm.nih.gov/pub/clinva
 
 Download human reference genome ```hg19.fa```, ```hg38.fa``` and put under ```dataset/variants``` folder 
 ### Files: 
-* ```mutation_dataset.py``` preprocesses downloaded files
+* ```mutation_dataset.py``` preprocesses downloaded files, tensorflow is required
 * ```train_gene_mutation.py``` generates the dataset and trains the model
 
 * ```analyze_gene_mutation.ipynb``` creates and analyzes Reeb network 
