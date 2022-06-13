@@ -1,5 +1,5 @@
 # Graph-Topological-Data-Analysis
-This repo contains code for "Topological structure of deep learning predictions". 
+This repo contains code for "Topological structure of complex predictions". 
 ### packages requirement
 * pytorch
 * torchvision
@@ -81,3 +81,12 @@ Download human reference genome ```hg19.fa```, ```hg38.fa``` and put under ```da
 
 * ```analyze_gene_mutation.ipynb``` creates and analyzes Reeb network 
 * ```dataset/precomputed/variants``` contains precomputed lens and graph to run ```analyze_gene_mutation.ipynb``` directly
+
+## Additional experiments in supplement
+### Prerequisites:
+To run the CNN model comparison experiment, all training and validation images of ImageNet-1k dataset must be downloaded from <https://www.image-net.org/>. It also requires to install ```timm``` package to get the pretrained VOLO model.
+
+To run the chest X-ray experiment, all X-ray images and expert labels should be downloaded from <https://cloud.google.com/healthcare-api/docs/resources/public-datasets/nih-chest>. We also use the implementation from <https://github.com/zoogzog/chexnet> to train a DenseNet-121 model.
+### Files: 
+* ```train_analyze_imagenet_1k.py``` preprocesses downloaded files and build the reeb network
+* ```train_analyze_chest_xray.py``` preprocesses downloaded files, train a DenseNet-121 model from scratch, build the reeb network and find potential labeling errors for images with expert labels
