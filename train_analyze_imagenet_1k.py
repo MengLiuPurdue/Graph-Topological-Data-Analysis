@@ -59,7 +59,7 @@ test_transform = transforms.Compose(
 #%%
 args = {
     "batch_size": 128,
-    "data_root": "/scratch2/liu1740/ImageNet",
+    "data_root": "dataset/imagenet_1k",
     "num_workers": 8,
     "shuffle": False,
     "drop_last": False,
