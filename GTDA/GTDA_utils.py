@@ -22,6 +22,8 @@ import os.path as osp
 import time
 from rembg import remove
 from rembg.session_factory import new_session
+import json
+from collections import defaultdict
 
 def extend_coords(origin, point, scale):
     ox, oy = origin
@@ -286,11 +288,45 @@ def knn_cuda_graph(X,knn,batch_size,thd=0,device=None,batch_training=False,batch
 """
 GTDA: our GTDA framework class
 nn_model: an instance of NN_model class
-labels_to_eval: list of Int, choose which labels to split
-smallest_component: Int, the smallest component to stop splitting
-overlap: Tuple(Float,Float) or Float, overlap ratio. If it is a tuple, first item represents how much to extend the left side of a bin, second is how much to extend the right side of a bin
-    If overlapping ratio is (r1,r2) and current bin size is s, after splitting, left bin has size s*(1+r1)/2, right bin has size s*(1+r2)/2
-extra_lens: Numpy array, any extra lens to use for splitting
+labels_to_eval: list of Int 
+    -- choose which labels to split
+smallest_component: Int
+    -- the smallest component to stop splitting
+overlap: Tuple(Float,Float) or Float, overlap ratio. 
+    -- If it is a tuple, first item represents how much to extend the left side of a bin, second is how much to extend the right side of a bin
+    -- If overlapping ratio is (r1,r2) and current bin size is s, after splitting, left bin has size s*(1+r2)/2, right bin has size s*(1+r1)/2
+extra_lens: Numpy array
+    -- any extra lens to use for splitting
+node_size_thd: Int
+    -- all Reeb net nodes will have size larger than this number after merging
+reeb_component_thd: Int
+    -- all Reeb net components will have size larger than this number after merging
+alpha: 0~1 Float
+    -- smoothing parameters for lens preprocess and error estimation
+nsteps_preprocess: Int
+    -- number of steps in lens preprocess
+nsteps_mixing: Int
+    -- number of steps in error estimation
+is_merging: Bool
+    -- set to "False" to turn off merging completely
+split_criteria: String
+    -- choose between "diff" or "std", "diff" will split the dimension of lens with the largest absolute difference, 
+    -- while "std" will split the dimension of lens with the largest standard deviation
+split_thd: 0~1 Float
+    -- stop splitting early when split criteria is smaller than this value
+is_normalize: Bool
+    -- whether to normalize each dimension of lens to 0~1
+is_standardize: Bool
+    -- whether to standardize each dimension of lens
+merge_thd: 0~1 Float
+    -- set this number to only allow to merge two nodes when their distance is smaller than this value
+max_split_iters: Int
+    -- set the maximum number of splitting iterations to stop early
+max_merge_iters: Int
+    -- set the maximum number of merging iterations to stop early
+degree_normalize_preprocess: Int, choose among 1, 2, 3
+    -- an experimental parameter to normalize the graph in different ways during preprocess and error estimation
+    -- default is Dinv@A, set to 2 to use A@Dinv, set to 3 to use np.sqrt(Dinv)@A@np.sqrt(Dinv), where A is adjacency matrix, Dinv is inverse degree matrix
 """
 def compute_reeb(GTDA,nn_model,labels_to_eval,smallest_component,overlap,extra_lens=None,
     node_size_thd=5,reeb_component_thd=5,alpha=0.5,nsteps_preprocess=5,nsteps_mixing=10,is_merging=True,
@@ -548,3 +584,32 @@ def align_images(start_pos,end_pos,scale,images,ax,nrows,is_padding,flipped=Fals
 def remove_img_bg(img):
     new_img = remove(img,session=new_session('u2netp'))
     return new_img
+
+def save_to_json(GTDA_record,nn_model,savepath,filename="reeb_net.js"):
+    json_object = {}
+    nodes = []
+    links = []
+    node_set = defaultdict(list)
+    link_set = set()
+    pred_labels = np.argmax(nn_model.preds,1)
+    labels = nn_model.labels
+    gtda = GTDA_record['gtda']
+    A_reeb_components = find_components(gtda.A_reeb,size_thd=0)[1]
+    node_to_cid = np.zeros(gtda.A_reeb.shape[0],dtype=int)
+    for i,c in enumerate(A_reeb_components):
+        node_to_cid[c] = i
+    for i in range(len(gtda.filtered_nodes)):
+        for node_id in gtda.final_components_filtered[gtda.filtered_nodes[i]]:
+            node_set[int(node_id)].append(int(i))
+    for i,v in node_set.items():
+        nodes.append({"id":i, "group":v, "label":int(labels[i]), "prediction":int(pred_labels[i]), "cid":int(node_to_cid[i])})
+    A_reeb = gtda.A_reeb.tocoo()
+    for ei,ej in zip(A_reeb.row,A_reeb.col):
+        if (ei,ej) not in link_set and (ej,ei) not in link_set:
+            link_set.add((ei,ej))
+            links.append({"source":int(ei),"target":int(ej),"value":1})
+    json_object["nodes"] = nodes
+    json_object["links"] = links
+    json_object = json.dumps(json_object, indent = 4) 
+    with open(f"{savepath}/{filename}","w") as f:
+        f.write(f"net={json_object};")
