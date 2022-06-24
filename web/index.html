@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+    .container {
+        position: relative;
+        width: 1600px;
+        height: 960px;
+        margin: auto;
+        margin-bottom: 12px;
+    }
+    .topright {
+        position: absolute;
+        top: -5px;
+        left: 1600px;
+        font-size: 18px;
+        background-color: white;
+        width: 400px;
+        height: 958px;
+        border: 2px solid black;
+        padding-top: 0px;
+        padding-left: 10px;
+        margin: 5px;
+    }     
+    .legend {
+        position: absolute;
+        top: 10px;
+        left: 1600px;
+        font-size: 30px;
+        width: 300px;
+    }    
+    .zoom_in {
+       top:935px;
+       left:10px;
+       position: absolute;
+       z-index: 2;
+       width: 25px;
+       height: 20px;
+    }
+    .zoom_out {
+       top:935px;
+       left:40px;
+       position: absolute;
+       z-index: 2;
+       width: 25px;
+       height: 20px;
+    }
+    .apply_button {
+       font-size: 15px;
+    }
+</style>
+</head>
+<body>
+<div align='center' id="d3_selectable_force_directed_graph" class="container">
+    <svg />
+    <button id="zoom_in", class="zoom_in">+</button>
+    <button id="zoom_out", class="zoom_out">-</button>
+    <div align='left' class="topright", id="options">
+        <h2>Instructions</h2>
+        <ul>
+            <li>Use the scroll wheel or lower left "+/-" buttons to zoom.</li>
+            <li>Double click a Reeb net node to expand.</li>
+            <li>Double click a hull to collapse.</li>
+            <li>Click and hold empty area to pan the entire graph.</li>
+            <li>Click and hold a node while pressing shift key to pan a single component.</li>
+        </ul>
+        <h2>Options</h2>
+        <ul>
+        <li>Select by class:
+            <!-- <input type="text" id="cids" placeholder="0 or 0,1,2 etc."> -->
+        </li>
+        <li>Select by component ids:
+            <input type="text" id="cids" placeholder="type 0 or 0,1,2... or all">
+        </li>
+        <li>Color scheme:
+            <!-- <input type="text" id="cids" placeholder="0 or 0,1,2 etc."> -->
+        </li>
+        <li>Show legend:
+            <!-- <input type="text" id="cids" placeholder="0 or 0,1,2 etc."> -->
+        </li>
+        <li>Show training and validation:
+            <!-- <input type="text" id="cids" placeholder="0 or 0,1,2 etc."> -->
+        </li>
+        </ul>
+        <p>
+            <button id="apply" class="apply_button">apply options</button>
+            <button id="print" class="apply_button">save figure</button>
+            <button id="output" class="apply_button">save coordinates</button>
+        </p>
+    </div>
+    <!-- <div align='left' class="topright", id="demo", contenteditable="true">
+        Reeb net node ids: [1,2,3,4,5,6,7,8,9,10,11,12,13,1,2,3,4,5,6,7,8,9,10,11,12,13]
+        <br><br>
+        Graph node ids: [1,2,3,4,5,6,7,8,9,10,11,12,13,1,2,3,4,5,6,7,8,9,10,11,12,13]
+    </div>
+    <div class="legend">
+        Selected nodes info:
+    </div> -->
+</div>
+
+<link rel='stylesheet' href='d3v5-selectable-zoomable-force-directed-graph.css'>
+<script src="https://d3js.org/d3.v5.js"></script>
+<!-- <script src="d3v5-brush-lite.js"></script> -->
+<script src="node-pie.js"></script>
+<script src="d3v5-selectable-force-directed-graph.js"></script>
+<script src="reeb_net.js"></script>
+
+
+<script>
+    var color = d3.scaleOrdinal(d3.schemeCategory10);
+    var svg = d3.select('#d3_selectable_force_directed_graph');
+    createV4SelectableForceDirectedGraph(svg, net, document);
+</script>
+
+</body>
+</html>
