@@ -46,6 +46,14 @@
        width: 25px;
        height: 20px;
     }
+    .fit {
+       top:935px;
+       left:70px;
+       position: absolute;
+       z-index: 2;
+       width: 25px;
+       height: 20px;
+    }
     .apply_button {
        font-size: 15px;
     }
@@ -56,10 +64,12 @@
     <svg />
     <button id="zoom_in", class="zoom_in">+</button>
     <button id="zoom_out", class="zoom_out">-</button>
+    <button id="fit", class="fit">fit</button>
     <div align='left' class="topright", id="options">
         <h2>Instructions</h2>
         <ul>
             <li>Use the scroll wheel or lower left "+/-" buttons to zoom.</li>
+            <li>Use the "fit" button to zoom to fit the window.</li>
             <li>Double click a Reeb net node to expand.</li>
             <li>Double click a hull to collapse.</li>
             <li>Click and hold empty area to pan the entire graph.</li>
@@ -67,24 +77,25 @@
         </ul>
         <h2>Options</h2>
         <ul>
-        <li>Select by class:
+        <li>Select by:
+            <br>class: <select id="selectButton"></select>
+            <br>AND
+            <br>component ids: <input type="text" id="cids" placeholder="type 0 or 0,1,2 etc.">
+            <br><button id="apply" class="apply_button">apply</button>
+        </li>
+        <li>Color scheme: <select id="select_color"></select>
+        </li>
+        <li>Show legend: <input type="checkbox" id="legend">
             <!-- <input type="text" id="cids" placeholder="0 or 0,1,2 etc."> -->
         </li>
-        <li>Select by component ids:
-            <input type="text" id="cids" placeholder="type 0 or 0,1,2... or all">
-        </li>
-        <li>Color scheme:
+        <li>Show training and validation: <input type="checkbox" id="show_training">
             <!-- <input type="text" id="cids" placeholder="0 or 0,1,2 etc."> -->
         </li>
-        <li>Show legend:
-            <!-- <input type="text" id="cids" placeholder="0 or 0,1,2 etc."> -->
-        </li>
-        <li>Show training and validation:
+        <li>Color training and validation in true labels: <input type="checkbox" id="color_training">
             <!-- <input type="text" id="cids" placeholder="0 or 0,1,2 etc."> -->
         </li>
         </ul>
         <p>
-            <button id="apply" class="apply_button">apply options</button>
             <button id="print" class="apply_button">save figure</button>
             <button id="output" class="apply_button">save coordinates</button>
         </p>
@@ -104,6 +115,8 @@
 <!-- <script src="d3v5-brush-lite.js"></script> -->
 <script src="node-pie.js"></script>
 <script src="d3v5-selectable-force-directed-graph.js"></script>
+<script src='bin-packing/js/packer.growing.js'></script>
+<script src='bin-packing/js/packer.js'></script>
 <script src="reeb_net.js"></script>
 
 

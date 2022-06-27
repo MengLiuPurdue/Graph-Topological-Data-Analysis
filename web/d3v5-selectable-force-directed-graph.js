@@ -1,4 +1,7 @@
 const offset = 20;
+var is_dragging = false;
+const component_labels = {};
+var zoom;
 
 var curve = d3.line()
     .curve(d3.curveCardinal.tension(0.85));
@@ -47,7 +50,8 @@ function update_network(data, init_nodes, graph, expand, groups, is_initial, dbl
         });
     }
     // console.log(prev_locs);
-    for (var i=0; i<Object.keys(expand).length; i++){
+    for (var k in expand){
+        var i = parseInt(k);
         if (selected_components[groups[i][0].cid] == false) continue;
         if (expand[i]) {
             for (var j=0; j<groups[i].length; j++){
@@ -345,16 +349,26 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
     
     d3.select("#apply").on("click", function() {
         let text = document.getElementById("cids").value;
-        if (text == "all"){
+        for (var k in expand){
+            expand[k] = false;
+        }
+        Object.keys(selected_components).forEach(function(k){
+            selected_components[k] = false;
+        });
+        if (text == ""){
             Object.keys(selected_components).forEach(function(k){
                 selected_components[k] = true;
             });
         }else{
-            Object.keys(selected_components).forEach(function(k){
-                selected_components[k] = false;
-            });
             text.split(",").forEach(function(d){
                 selected_components[parseInt(d)] = true;
+            });
+        }
+        text = document.getElementById("selectButton").value;
+        if (text != "all"){
+            var selected_class = parseInt(text);
+            Object.keys(selected_components).forEach(function(k){
+                selected_components[k] = selected_components[k] & (component_labels[k] == selected_class);
             });
         }
         draw_graph(data, init_nodes, graph, expand, groups, is_initial, null, group_meta, component_init_pos, selected_components, gDraw,parentWidth,parentHeight);
@@ -450,8 +464,9 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
     var shiftKey = false;
 
     function keydown() {
-        shiftKey = d3.event.shiftKey;
-
+        if (is_dragging == false) {
+            shiftKey = d3.event.shiftKey;
+        }
         // if (shiftKey) {
         //     // if we already have a brush, don't do anything
         //     if (gBrush)
@@ -482,6 +497,7 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
     }
 
     function dragstarted(k) {
+        is_dragging = true;
         // document.getElementById("demo").innerHTML = d.id;
         if (!d3.event.active) simulation.alphaTarget(0.9).restart();
 
@@ -535,6 +551,7 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
     }
 
     function dragended(k) {
+        is_dragging = false;
         if (!d3.event.active) simulation.alphaTarget(0);
         if(!shiftKey){
             k.fx = null;
@@ -560,6 +577,35 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
             simulation.force("y").initialize(graph.nodes);
         }
     }
+    
+    d3.select("#select_color").on("change", function(d){
+        selectedGroup = this.value
+        update_color(selectedGroup)});
+    
+    function update_color(v){
+        if (v=="class") {
+            console.log("class");
+            node.each(function (d) {
+                for (var p in d.pieChart){
+                    d3.select(this)
+                    .selectAll("circle#child-pie-"+p.toString())
+                    .style("stroke-width",Math.min(Math.pow(d.size,0.25)*10,50));
+                }
+                d3.select(this)
+                .selectAll("circle#parent-pie").attr("fill","white").attr("stroke","white");
+            });
+        }else{
+            node.each(function (d) {
+                for (var p in d.pieChart){
+                    d3.select(this)
+                    .selectAll("circle#child-pie-"+p.toString())
+                    .style("stroke-width",0);
+                }
+                d3.select(this)
+                .selectAll("circle#parent-pie").attr("fill","rgba(255, 0, 0, 0.5)").attr("stroke","transparent");
+            });
+        }
+    }
 
     // var texts = ['Use the scroll wheel to zoom',
     //             //  'Hold the shift key to select nodes',
@@ -581,9 +627,11 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
 }
 
 function createV4SelectableForceDirectedGraph(svg, graph, document) {
+    var nclass = 0;
+    graph.nodes.forEach(function(d){nclass = Math.max(nclass,parseInt(d.label)+1);});
     let parentWidth = d3.select('svg').node().parentNode.clientWidth;
     let parentHeight = d3.select('svg').node().parentNode.clientHeight;
-    const groups = {}, expand = {}, init_nodes = {}, group_meta = {}, counter = {}, component_init_pos = {}, selected_components = {};
+    const groups = {}, expand = {}, init_nodes = {}, group_meta = {}, counter = {}, component_init_pos = {}, selected_components = {}, components_by_label = {}, components_size={};
     const data = JSON.parse(JSON.stringify(graph));
     graph.nodes.forEach(function(d){
         d.group.forEach(function(g){
@@ -596,18 +644,66 @@ function createV4SelectableForceDirectedGraph(svg, graph, document) {
             init_nodes[d.id] = d;
         });
         component_init_pos[d.cid] = [0,0];
+        if (d.cid in component_labels){
+            components_size[d.cid] += 1;
+            component_labels[d.cid][d.prediction] += 1;
+        }else{
+            components_size[d.cid] = 1;
+            component_labels[d.cid] = new Array(nclass).fill(0);
+            component_labels[d.cid][d.prediction] += 1;
+        }
         selected_components[d.cid] = true;
     });
+    // console.log(component_labels[0].indexOf(Math.max(...component_labels[0])));
+    for (k in component_labels){
+        var l = component_labels[k].indexOf(Math.max(...component_labels[k]));
+        if (l in components_by_label == false){
+            components_by_label[l] = [];
+        }
+        component_labels[k] = l;
+        components_by_label[l].push(parseInt(k));
+    }
     var ncomponents = Object.keys(component_init_pos).length;
     var nrows = Math.round(Math.sqrt(ncomponents));
     nrows = Math.min(Math.round(ncomponents/nrows),nrows);
     var block_size = [0.5*parentWidth/nrows,0.5*parentHeight/nrows];
     var center_loc = [0,0];
-    Object.keys(component_init_pos).forEach(function(k){
-        component_init_pos[k] = [block_size[0]/2+Math.floor(k/nrows)*block_size[0],block_size[1]/2+k%nrows*block_size[1]];
-        center_loc[0] += component_init_pos[k][0];
-        center_loc[1] += component_init_pos[k][1];
-    });
+    var cnt = 0;
+    var blocks = [], size_total = 0;
+    for (l in components_by_label){
+        components_by_label[l].forEach(function(k){
+            var s = Math.round(Math.sqrt(components_size[k]));
+            size_total += s;
+            blocks.push({"w":s,"h":s});
+            // component_init_pos[k] = [block_size[0]/2+Math.floor(cnt/nrows)*block_size[0],block_size[1]/2+cnt%nrows*block_size[1]];
+            // center_loc[0] += component_init_pos[k][0];
+            // center_loc[1] += component_init_pos[k][1];
+            // cnt += 1;
+        });
+    }
+    var packer = new Packer(size_total*2, size_total*2);
+    // blocks.sort(function(a,b) { return (b.h < a.h); });
+    packer.fit(blocks);
+    console.log(blocks);
+    for (l in components_by_label){
+        components_by_label[l].forEach(function(k){
+            var block = blocks[cnt];
+            while (true){
+                if (block.fit) break;
+                cnt += 1;
+                block = blocks[cnt];
+            }
+            component_init_pos[k] = [20*block.fit.y+20*block.w/2,20*block.fit.x+20*block.h/2];
+            center_loc[0] += component_init_pos[k][0];
+            center_loc[1] += component_init_pos[k][1];
+            cnt += 1;
+        });
+    }
+    // Object.keys(component_init_pos).forEach(function(k){
+    //     component_init_pos[k] = [block_size[0]/2+Math.floor(k/nrows)*block_size[0],block_size[1]/2+k%nrows*block_size[1]];
+    //     center_loc[0] += component_init_pos[k][0];
+    //     center_loc[1] += component_init_pos[k][1];
+    // });
     center_loc[0] /= ncomponents;
     center_loc[1] /= ncomponents;
     Object.keys(component_init_pos).forEach(function(k){
@@ -653,7 +749,7 @@ function createV4SelectableForceDirectedGraph(svg, graph, document) {
 
     var gDraw = gMain.append('g');
 
-    var zoom = d3.zoom()
+    zoom = d3.zoom()
     .on('zoom', zoomed);
 
     gMain.call(zoom).on("dblclick.zoom", null);
@@ -669,6 +765,47 @@ function createV4SelectableForceDirectedGraph(svg, graph, document) {
     d3.select("#zoom_out").on("click", function() {
         zoom.scaleBy(gMain.transition().duration(200), 0.8);
     });
+    
+    function zoomFit(transitionDuration) {
+        var bounds = gDraw.node().getBBox();
+        var parent = gDraw.node().parentElement;
+        var fullWidth  = parent.clientWidth  || parent.parentNode.clientWidth,
+            fullHeight = parent.clientHeight || parent.parentNode.clientHeight;
+        var width  = bounds.width,
+            height = bounds.height;
+        var midX = bounds.x + width / 2,
+            midY = bounds.y + height / 2;
+        if (width == 0 || height == 0) return; // nothing to fit
+        var scale = 0.85 / Math.max(width / fullWidth, height / fullHeight);
+        var translate = [
+            fullWidth  / 2 - scale * midX,
+            fullHeight / 2 - scale * midY
+        ];
+        
+        var transform = d3.zoomIdentity
+        .translate(translate[0], translate[1])
+        .scale(scale);
 
+        gMain
+        .transition()
+        .duration(transitionDuration || 0) // milliseconds
+        .call(zoom.transform, transform);
+    }
+
+    d3.select("#fit").on("click", function() {
+        zoomFit(1000);
+    });
+    d3.select("#selectButton").append("option").text("all");
+    for (var i = 0; i < nclass; i++){
+        d3.select("#selectButton").append("option").text(i);
+    }
+    var allGroup = ["class","estimated_error"];
+    d3.select("#select_color")
+        .selectAll('myOptions')
+        .data(allGroup)
+        .enter()
+        .append('option')
+        .text(function (d) { return d; }) 
+        .attr("value", function (d) { return d; });
     return draw_graph(data,init_nodes,graph,expand,groups,is_initial,null,group_meta,component_init_pos,selected_components,gDraw,parentWidth,parentHeight);
 };

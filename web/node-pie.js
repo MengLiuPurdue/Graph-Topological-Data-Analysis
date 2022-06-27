@@ -58,6 +58,7 @@ function drawPieChart(nodeElement, percentages, options) {
         percentToDraw += percentages[p].percent;
 
         nodeElement.insert('circle', '#parent-pie + *')
+            .attr("id","child-pie-"+p.toString())
             .attr("r", halfRadius)
             .attr("fill", 'transparent')
             .style('stroke', color(percentages[p].color))
