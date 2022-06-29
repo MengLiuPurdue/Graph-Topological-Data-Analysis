@@ -1,7 +1,10 @@
 const offset = 20;
 var is_dragging = false;
+var show_legend = true;
 const component_labels = {};
 var zoom;
+var nclass = 0;
+var name_to_id = {};
 
 var curve = d3.line()
     .curve(d3.curveCardinal.tension(0.85));
@@ -66,7 +69,7 @@ function update_network(data, init_nodes, graph, expand, groups, is_initial, dbl
                 }
                 // console.log(node);
                 if (!(node.id in node_map)){
-                    node["pieChart"] = [{"color":node.prediction+1,"percent":100}];
+                    node["pieChart"] = [{"color":node.prediction/nclass,"percent":100}];
                     nodes.push(node);
                     node_map[node.id] = cnt;
                     cnt += 1;
@@ -298,8 +301,8 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
             var num;
             if (d.node_type == "node") {
                 num = "Graph node id: "+d.id.toString();
-                num += "<br>Prediction: "+d.prediction.toString();
-                num += "<br>Truth: "+d.label.toString();
+                num += "<br>Prediction: "+class_names[d.prediction];
+                num += "<br>Truth: "+class_names[d.label];
                 num += "<br>Component id: "+d.cid.toString();
             }else{
                 num = "Reeb node id: "+d.group[0].toString();
@@ -364,7 +367,7 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
                 selected_components[parseInt(d)] = true;
             });
         }
-        text = document.getElementById("selectButton").value;
+        text = name_to_id[document.getElementById("selectButton").value];
         if (text != "all"){
             var selected_class = parseInt(text);
             Object.keys(selected_components).forEach(function(k){
@@ -386,7 +389,7 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
             .attr("x2", function(d) { return d.target.x; })
             .attr("y2", function(d) { return d.target.y; });
         
-        d3.selectAll("circle").attr("cx", function (d) {
+        d3.select("#drawing").selectAll("circle").attr("cx", function (d) {
                 return d.x;
             })
             .attr("cy", function (d) {
@@ -627,10 +630,13 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
 }
 
 function createV4SelectableForceDirectedGraph(svg, graph, document) {
-    var nclass = 0;
+    // var class_names = {0:"0",1:"1",2:"2"};
+    for (var i in class_names){
+        name_to_id[class_names[i]] = i;
+    }
     graph.nodes.forEach(function(d){nclass = Math.max(nclass,parseInt(d.label)+1);});
-    let parentWidth = d3.select('svg').node().parentNode.clientWidth;
-    let parentHeight = d3.select('svg').node().parentNode.clientHeight;
+    let parentWidth = d3.select('#drawing').node().parentNode.clientWidth;
+    let parentHeight = d3.select('#drawing').node().parentNode.clientHeight;
     const groups = {}, expand = {}, init_nodes = {}, group_meta = {}, counter = {}, component_init_pos = {}, selected_components = {}, components_by_label = {}, components_size={};
     const data = JSON.parse(JSON.stringify(graph));
     graph.nodes.forEach(function(d){
@@ -681,10 +687,28 @@ function createV4SelectableForceDirectedGraph(svg, graph, document) {
             // cnt += 1;
         });
     }
-    var packer = new Packer(size_total*2, size_total*2);
+    var fit_cnt = 0, fit_scale = 1;
+    var packer = new Packer(size_total*fit_scale, size_total*fit_scale);
     // blocks.sort(function(a,b) { return (b.h < a.h); });
     packer.fit(blocks);
-    console.log(blocks);
+    blocks.forEach(function(b){
+        if (b.fit){
+            fit_cnt += 1;
+        }
+    });
+    while (fit_cnt < ncomponents){
+        fit_cnt = 0;
+        fit_scale += 0.1;
+        packer = new Packer(size_total*fit_scale, size_total*fit_scale);
+        packer.fit(blocks);
+        // console.log(fit_scale,blocks);
+        blocks.forEach(function(b){
+            if (b.fit){
+                fit_cnt += 1;
+            }
+        });
+    }
+    console.log(packer);
     for (l in components_by_label){
         components_by_label[l].forEach(function(k){
             var block = blocks[cnt];
@@ -693,7 +717,7 @@ function createV4SelectableForceDirectedGraph(svg, graph, document) {
                 cnt += 1;
                 block = blocks[cnt];
             }
-            component_init_pos[k] = [20*block.fit.y+20*block.w/2,20*block.fit.x+20*block.h/2];
+            component_init_pos[k] = [15*block.fit.y+15*block.w/2,15*block.fit.x+15*block.h/2];
             center_loc[0] += component_init_pos[k][0];
             center_loc[1] += component_init_pos[k][1];
             cnt += 1;
@@ -725,14 +749,14 @@ function createV4SelectableForceDirectedGraph(svg, graph, document) {
         var cnt = g.length;
         var piechart = [];
         Object.keys(counter[k]).forEach(function(d){
-            piechart.push({"color":parseInt(d)+1,"percent":100*counter[k][d]/cnt});
+            piechart.push({"color":parseInt(d)/nclass,"percent":100*counter[k][d]/cnt});
         });
         group_meta[k] = piechart;
     });
     // console.log(group_meta);
     const is_initial = true;
 
-    var svg = d3.select('svg')
+    var svg = d3.select('#drawing')
     .attr('width', parentWidth)
     .attr('height', parentHeight);
 
@@ -792,12 +816,19 @@ function createV4SelectableForceDirectedGraph(svg, graph, document) {
         .call(zoom.transform, transform);
     }
 
+    function draw_legend(legend){
+        for (var i=0; i<nclass; i++){
+            legend.append("circle").attr("cx",50).attr("cy",50+45*i).attr("r", 20).style("fill", d3.interpolateRainbow(i/nclass));
+            legend.append("text").attr("x", 350).attr("y", 50+45*i).text(class_names[i]).style("font-size", "15px").attr("alignment-baseline","right");
+        }
+    }
+
     d3.select("#fit").on("click", function() {
         zoomFit(1000);
     });
     d3.select("#selectButton").append("option").text("all");
     for (var i = 0; i < nclass; i++){
-        d3.select("#selectButton").append("option").text(i);
+        d3.select("#selectButton").append("option").text(class_names[i]);
     }
     var allGroup = ["class","estimated_error"];
     d3.select("#select_color")
@@ -807,5 +838,21 @@ function createV4SelectableForceDirectedGraph(svg, graph, document) {
         .append('option')
         .text(function (d) { return d; }) 
         .attr("value", function (d) { return d; });
-    return draw_graph(data,init_nodes,graph,expand,groups,is_initial,null,group_meta,component_init_pos,selected_components,gDraw,parentWidth,parentHeight);
+    
+    var legend = d3.select("#drawing_legend").style("border","0px solid black");
+    draw_legend(legend);
+    d3.select("#show_legend").property("checked", show_legend).on("change", function(d){
+        show_legend = !show_legend; 
+        if (show_legend){
+            draw_legend(legend);
+        }else{
+            legend.selectAll("circle").remove();
+            legend.selectAll("text").remove();
+        }
+    });
+    // Handmade legend
+     
+    var ret = draw_graph(data,init_nodes,graph,expand,groups,is_initial,null,group_meta,component_init_pos,selected_components,gDraw,parentWidth,parentHeight);
+    setTimeout(zoomFit, 3000, 1000);
+    return ret;
 };

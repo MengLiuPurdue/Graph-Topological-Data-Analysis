@@ -61,7 +61,7 @@ function drawPieChart(nodeElement, percentages, options) {
             .attr("id","child-pie-"+p.toString())
             .attr("r", halfRadius)
             .attr("fill", 'transparent')
-            .style('stroke', color(percentages[p].color))
+            .style('stroke', d3.interpolateRainbow(percentages[p].color))
             .style('stroke-width', radius)
             .style('stroke-dasharray',
                     halfCircumference * percentToDraw / 100
