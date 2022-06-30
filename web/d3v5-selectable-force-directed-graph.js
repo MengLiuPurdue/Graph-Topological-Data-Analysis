@@ -1,10 +1,11 @@
 const offset = 20;
 var is_dragging = false;
-var show_legend = true;
-const component_labels = {};
-var zoom;
+var show_legend = true, show_training = false, color_training = false;
+const component_labels = {}, group_meta = {};
+var zoom, selectedGroup = "class";
 var nclass = 0;
 var name_to_id = {};
+var node, link, hull;
 
 var curve = d3.line()
     .curve(d3.curveCardinal.tension(0.85));
@@ -43,7 +44,7 @@ function create_hulls(groups,expands,offset) {
     return hulls;
   }
 
-function update_network(data, init_nodes, graph, expand, groups, is_initial, dblclick_id, group_meta, component_init_pos, selected_components) {
+function update_network(data, init_nodes, graph, expand, groups, is_initial, dblclick_id, component_init_pos, selected_components) {
     var nodes = [], links = [], cnt = 0, node_map = {}, prev_locs = {};
     const n = data.nodes.length;
     let link_set = new MySet();
@@ -69,7 +70,11 @@ function update_network(data, init_nodes, graph, expand, groups, is_initial, dbl
                 }
                 // console.log(node);
                 if (!(node.id in node_map)){
-                    node["pieChart"] = [{"color":node.prediction/nclass,"percent":100}];
+                    if (color_training & node.known_label){
+                        node["pieChart"] = [{"color":node.label/nclass,"percent":100}];
+                    }else{
+                        node["pieChart"] = [{"color":node.prediction/nclass,"percent":100}];
+                    }
                     nodes.push(node);
                     node_map[node.id] = cnt;
                     cnt += 1;
@@ -178,8 +183,8 @@ function update_network(data, init_nodes, graph, expand, groups, is_initial, dbl
     return {"nodes":nodes, "links":links, "hulls":create_hulls(groups,expand,offset)};
 }
 
-function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclick_id, group_meta, component_init_pos, selected_components,gDraw,parentWidth,parentHeight){
-    graph = update_network(data, init_nodes, graph, expand, groups, is_initial, dblclick_id, group_meta, component_init_pos, selected_components);
+function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclick_id, component_init_pos, selected_components,gDraw,parentWidth,parentHeight){
+    graph = update_network(data, init_nodes, graph, expand, groups, is_initial, dblclick_id, component_init_pos, selected_components);
     is_initial = false;
 
     gDraw.selectAll("*").remove();
@@ -232,7 +237,7 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
         .force("y", d3.forceY().y(function(d){return component_init_pos[d.cid][1]}));
     
     gDraw.selectAll("path").remove();
-    var hull = gDraw.append("g")
+    hull = gDraw.append("g")
         .attr("class", "hull")
         .selectAll("path")
         .data(graph.hulls)
@@ -244,18 +249,20 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
             // console.log(d);
             if (expand[d.group[0]]){
                 expand[d.group[0]] = !expand[d.group[0]];
-                draw_graph(data, init_nodes, graph, expand, groups, is_initial, d.id, group_meta, component_init_pos, selected_components, gDraw,parentWidth,parentHeight);
+                draw_graph(data, init_nodes, graph, expand, groups, is_initial, d.id, component_init_pos, selected_components, gDraw,parentWidth,parentHeight);
+                if (selectedGroup != "class") update_color_scheme(selectedGroup);
+                if (show_training != false) update_training_stroke(show_training);
             }
         });
 
-    var link = gDraw.append("g")
+    link = gDraw.append("g")
         .attr("class", "link")
         .selectAll("line")
         .data(graph.links)
         .enter().append("line")
         .attr("stroke-width", function(d) { return Math.sqrt(d.value); });
 
-    var node = gDraw.append("g")
+    node = gDraw.append("g")
         .attr("class", "node")
         .selectAll("g")
         .data(graph.nodes)
@@ -285,7 +292,9 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
             // console.log(d);
             if (expand[d.group[0]] == false){
                 expand[d.group[0]] = !expand[d.group[0]];
-                draw_graph(data, init_nodes, graph, expand, groups, is_initial, d.id, group_meta, component_init_pos, selected_components, gDraw,parentWidth,parentHeight);
+                draw_graph(data, init_nodes, graph, expand, groups, is_initial, d.id, component_init_pos, selected_components, gDraw,parentWidth,parentHeight);
+                if (selectedGroup != "class") update_color_scheme(selectedGroup);
+                if (show_training != false) update_training_stroke(show_training);
             }
         })
         .on("mouseover", function(d, i){
@@ -374,7 +383,9 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
                 selected_components[k] = selected_components[k] & (component_labels[k] == selected_class);
             });
         }
-        draw_graph(data, init_nodes, graph, expand, groups, is_initial, null, group_meta, component_init_pos, selected_components, gDraw,parentWidth,parentHeight);
+        draw_graph(data, init_nodes, graph, expand, groups, is_initial, null, component_init_pos, selected_components, gDraw,parentWidth,parentHeight);
+        if (selectedGroup != "class") update_color_scheme(selectedGroup);
+        if (show_training != false) update_training_stroke(show_training);
     });
 
     function ticked() {
@@ -580,35 +591,101 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
             simulation.force("y").initialize(graph.nodes);
         }
     }
-    
     d3.select("#select_color").on("change", function(d){
         selectedGroup = this.value
-        update_color(selectedGroup)});
+        update_color_scheme(selectedGroup)});
     
-    function update_color(v){
+    function update_color_scheme(v){
+        console.log("update");
         if (v=="class") {
             console.log("class");
             node.each(function (d) {
                 for (var p in d.pieChart){
                     d3.select(this)
                     .selectAll("circle#child-pie-"+p.toString())
-                    .style("stroke-width",Math.min(Math.pow(d.size,0.25)*10,50));
+                    .attr("opacity",1);
+                    // .style("stroke-width",Math.min(Math.pow(d.size,0.25)*10,50));
                 }
                 d3.select(this)
-                .selectAll("circle#parent-pie").attr("fill","white").attr("stroke","white");
+                .selectAll("circle#parent-pie").attr("fill","white").attr("fill-opacity",1).attr("stroke","white");
             });
         }else{
             node.each(function (d) {
                 for (var p in d.pieChart){
                     d3.select(this)
                     .selectAll("circle#child-pie-"+p.toString())
-                    .style("stroke-width",0);
+                    .attr("opacity",0);
+                }
+                var opacity_level = 0;
+                if (d.node_type == "node") {
+                    opacity_level = d.error_est;
+                }else{
+                    groups[d.group[0]].forEach(function(n){
+                        opacity_level += n.error_est;
+                    });
+                    opacity_level /= groups[d.group[0]].length;
                 }
                 d3.select(this)
-                .selectAll("circle#parent-pie").attr("fill","rgba(255, 0, 0, 0.5)").attr("stroke","transparent");
+                .selectAll("circle#parent-pie").attr("fill","red").attr("fill-opacity",opacity_level).attr("stroke","transparent");
             });
         }
     }
+
+    function update_training_stroke(show_training){
+        if (selectedGroup == "class"){
+            if (show_training){
+                node.each(function (d) {
+                    if (d.node_type == "node" & d.known_label){
+                        d3.select(this)
+                        .selectAll("circle#parent-pie").attr("stroke","black").attr("stroke-width",5);
+                    }
+                });
+            }else{
+                node.each(function (d) {
+                    if (d.node_type == "node" & d.known_label){
+                        d3.select(this)
+                        .selectAll("circle#parent-pie").attr("stroke","white").attr("stroke-width",3);
+                    }
+                });
+            }
+        }
+    }
+
+    d3.select("#show_training").property("checked", show_training).on("change", function(d){
+        show_training = !show_training; 
+        update_training_stroke(show_training);
+    });
+
+    d3.select("#color_training").property("checked", color_training);
+    d3.select("#color_training").on("change", function(d){
+        color_training = !color_training; 
+        const counter = {};
+        Object.keys(groups).forEach(function(k){
+            g = groups[k];
+            counter[k] = {};
+            for (var i=0; i<g.length; i++){
+                if (g[i].known_label & color_training){
+                    var l = g[i].label;
+                }else{
+                    var l = g[i].prediction;
+                }
+                if (l in counter[k]){
+                    counter[k][l] += 1;
+                }else{
+                    counter[k][l] = 1;
+                }
+            }
+            var cnt = g.length;
+            var piechart = [];
+            Object.keys(counter[k]).forEach(function(d){
+                piechart.push({"color":parseInt(d)/nclass,"percent":100*counter[k][d]/cnt});
+            });
+            group_meta[k] = piechart;
+        });
+        draw_graph(data, init_nodes, graph, expand, groups, is_initial, null, component_init_pos, selected_components, gDraw,parentWidth,parentHeight);
+        if (selectedGroup != "class") update_color_scheme(selectedGroup);
+        if (show_training != false) update_training_stroke(show_training);
+    });
 
     // var texts = ['Use the scroll wheel to zoom',
     //             //  'Hold the shift key to select nodes',
@@ -637,7 +714,7 @@ function createV4SelectableForceDirectedGraph(svg, graph, document) {
     graph.nodes.forEach(function(d){nclass = Math.max(nclass,parseInt(d.label)+1);});
     let parentWidth = d3.select('#drawing').node().parentNode.clientWidth;
     let parentHeight = d3.select('#drawing').node().parentNode.clientHeight;
-    const groups = {}, expand = {}, init_nodes = {}, group_meta = {}, counter = {}, component_init_pos = {}, selected_components = {}, components_by_label = {}, components_size={};
+    const groups = {}, expand = {}, init_nodes = {}, counter = {}, component_init_pos = {}, selected_components = {}, components_by_label = {}, components_size={};
     const data = JSON.parse(JSON.stringify(graph));
     graph.nodes.forEach(function(d){
         d.group.forEach(function(g){
@@ -852,7 +929,7 @@ function createV4SelectableForceDirectedGraph(svg, graph, document) {
     });
     // Handmade legend
      
-    var ret = draw_graph(data,init_nodes,graph,expand,groups,is_initial,null,group_meta,component_init_pos,selected_components,gDraw,parentWidth,parentHeight);
+    var ret = draw_graph(data,init_nodes,graph,expand,groups,is_initial,null,component_init_pos,selected_components,gDraw,parentWidth,parentHeight);
     setTimeout(zoomFit, 3000, 1000);
     return ret;
 };

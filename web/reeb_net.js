@@ -7,7 +7,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 610,
@@ -16,7 +18,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 483,
@@ -25,7 +29,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 453,
@@ -34,7 +40,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 101,
@@ -44,7 +52,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 7,
@@ -53,7 +63,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 158,
@@ -63,7 +75,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 330,
@@ -73,7 +87,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 362,
@@ -83,7 +99,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 845,
@@ -93,7 +111,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 911,
@@ -103,7 +123,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 915,
@@ -113,7 +135,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 539,
@@ -122,7 +146,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 638,
@@ -132,7 +158,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 1,
@@ -141,7 +169,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 2.530649919596506e-05,
+            "known_label": false
         },
         {
             "id": 42,
@@ -150,7 +180,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 2.1229324516203185e-05,
+            "known_label": false
         },
         {
             "id": 55,
@@ -159,7 +191,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 1.0088156976229001e-05,
+            "known_label": true
         },
         {
             "id": 98,
@@ -168,7 +202,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.0008096070873692129,
+            "known_label": false
         },
         {
             "id": 122,
@@ -177,7 +213,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.0008096070873692129,
+            "known_label": false
         },
         {
             "id": 312,
@@ -186,7 +224,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 3.6182368833737044e-05,
+            "known_label": true
         },
         {
             "id": 355,
@@ -195,7 +235,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 1.932918111591242e-05,
+            "known_label": false
         },
         {
             "id": 403,
@@ -204,7 +246,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 9.154274828060416e-06,
+            "known_label": true
         },
         {
             "id": 507,
@@ -214,7 +258,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.0025555733234420286,
+            "known_label": false
         },
         {
             "id": 527,
@@ -224,7 +270,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 1.4660233393137823e-05,
+            "known_label": false
         },
         {
             "id": 616,
@@ -234,7 +282,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 1.515356440173754e-05,
+            "known_label": false
         },
         {
             "id": 794,
@@ -243,7 +293,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 4.928653018043683e-05,
+            "known_label": true
         },
         {
             "id": 830,
@@ -252,7 +304,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 1.3525897999855374e-05,
+            "known_label": true
         },
         {
             "id": 878,
@@ -261,7 +315,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.0004230220583353317,
+            "known_label": false
         },
         {
             "id": 935,
@@ -270,7 +326,9 @@ net={
             ],
             "label": 1,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 8.914155589201389e-05,
+            "known_label": false
         },
         {
             "id": 995,
@@ -279,7 +337,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 7.614335641192849e-05,
+            "known_label": false
         },
         {
             "id": 2,
@@ -288,7 +348,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 121,
@@ -297,7 +359,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 363,
@@ -306,7 +370,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 435,
@@ -316,7 +382,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 479,
@@ -325,7 +393,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 697,
@@ -335,7 +405,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 709,
@@ -345,7 +417,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 816,
@@ -354,7 +428,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 836,
@@ -363,7 +439,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 515,
@@ -372,7 +450,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 3,
@@ -381,7 +461,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 139,
@@ -390,7 +472,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 143,
@@ -399,7 +483,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 276,
@@ -408,7 +494,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 23,
@@ -417,7 +505,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 664,
@@ -426,7 +516,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 537,
@@ -435,7 +527,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 663,
@@ -444,7 +538,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 415,
@@ -453,7 +549,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 164,
@@ -462,7 +560,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 40,
@@ -471,7 +571,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 52,
@@ -480,7 +582,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 948,
@@ -489,7 +593,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 310,
@@ -498,7 +604,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 316,
@@ -507,7 +615,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 61,
@@ -516,7 +626,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 69,
@@ -525,7 +637,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 842,
@@ -534,7 +648,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 75,
@@ -543,7 +659,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 332,
@@ -552,7 +670,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 856,
@@ -561,7 +681,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 94,
@@ -570,7 +692,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 871,
@@ -579,7 +703,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 371,
@@ -588,7 +714,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 758,
@@ -597,7 +725,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 127,
@@ -606,7 +736,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 130,
@@ -615,7 +747,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 4,
@@ -625,7 +759,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 406,
@@ -634,7 +770,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 22,
@@ -644,7 +782,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 24,
@@ -653,7 +793,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 543,
@@ -662,7 +804,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 288,
@@ -671,7 +815,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 301,
@@ -681,7 +827,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 191,
@@ -690,7 +838,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 63,
@@ -699,7 +849,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 73,
@@ -708,7 +860,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 716,
@@ -717,7 +871,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 717,
@@ -726,7 +882,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 79,
@@ -735,7 +893,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 731,
@@ -744,7 +904,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 95,
@@ -753,7 +915,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 881,
@@ -762,7 +926,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 252,
@@ -771,7 +937,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 384,
@@ -780,7 +948,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 996,
@@ -789,7 +959,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 725,
@@ -798,7 +970,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 90,
@@ -807,7 +981,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 608,
@@ -816,7 +992,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 97,
@@ -825,7 +1003,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 36,
@@ -834,7 +1014,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 5,
@@ -843,7 +1025,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 518,
@@ -852,7 +1036,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 43,
@@ -861,7 +1047,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 751,
@@ -870,7 +1058,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 592,
@@ -879,7 +1069,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 946,
@@ -888,7 +1080,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 978,
@@ -897,7 +1091,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 56,
@@ -906,7 +1102,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 857,
@@ -915,7 +1113,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 253,
@@ -924,7 +1124,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 6,
@@ -933,7 +1135,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.9989694434114519,
+            "known_label": false
         },
         {
             "id": 203,
@@ -942,7 +1146,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.9851049060212441,
+            "known_label": false
         },
         {
             "id": 221,
@@ -951,7 +1157,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.9996303745188532,
+            "known_label": false
         },
         {
             "id": 262,
@@ -960,7 +1168,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.9998276082178237,
+            "known_label": true
         },
         {
             "id": 426,
@@ -969,7 +1179,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.9999459637807739,
+            "known_label": true
         },
         {
             "id": 474,
@@ -978,7 +1190,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.999853665440735,
+            "known_label": false
         },
         {
             "id": 491,
@@ -987,7 +1201,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.9998244924330137,
+            "known_label": false
         },
         {
             "id": 620,
@@ -996,7 +1212,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.9989106496727042,
+            "known_label": false
         },
         {
             "id": 637,
@@ -1005,7 +1223,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.9996303745188532,
+            "known_label": false
         },
         {
             "id": 696,
@@ -1014,7 +1234,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.9998811682484637,
+            "known_label": false
         },
         {
             "id": 807,
@@ -1023,7 +1245,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.9981909793518856,
+            "known_label": false
         },
         {
             "id": 928,
@@ -1032,7 +1256,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.9981909793518856,
+            "known_label": false
         },
         {
             "id": 386,
@@ -1041,7 +1267,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 519,
@@ -1050,7 +1278,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 648,
@@ -1059,7 +1289,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 8,
@@ -1068,7 +1300,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 144,
@@ -1078,7 +1312,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 407,
@@ -1088,7 +1324,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 919,
@@ -1097,7 +1335,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 926,
@@ -1106,7 +1346,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 937,
@@ -1115,7 +1357,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 682,
@@ -1124,7 +1368,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 683,
@@ -1133,7 +1379,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 815,
@@ -1142,7 +1390,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 691,
@@ -1151,7 +1401,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 694,
@@ -1160,7 +1412,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 184,
@@ -1169,7 +1423,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 953,
@@ -1178,7 +1434,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 321,
@@ -1187,7 +1445,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 964,
@@ -1196,7 +1456,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 966,
@@ -1205,7 +1467,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 839,
@@ -1214,7 +1478,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 460,
@@ -1223,7 +1489,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 849,
@@ -1232,7 +1500,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 981,
@@ -1241,7 +1511,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 215,
@@ -1250,7 +1522,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 990,
@@ -1259,7 +1533,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 100,
@@ -1268,7 +1544,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 241,
@@ -1277,7 +1555,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 505,
@@ -1286,7 +1566,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 634,
@@ -1295,7 +1577,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 10,
@@ -1304,7 +1588,9 @@ net={
             ],
             "label": 1,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.000710014528997216,
+            "known_label": false
         },
         {
             "id": 25,
@@ -1313,7 +1599,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.0745545733423606,
+            "known_label": false
         },
         {
             "id": 104,
@@ -1322,7 +1610,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.08672256651180876,
+            "known_label": false
         },
         {
             "id": 166,
@@ -1331,7 +1621,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.05708629839094459,
+            "known_label": false
         },
         {
             "id": 347,
@@ -1341,7 +1633,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.431320579561697,
+            "known_label": false
         },
         {
             "id": 421,
@@ -1350,7 +1644,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.1317048150139818,
+            "known_label": false
         },
         {
             "id": 754,
@@ -1359,7 +1655,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.00022450243489746669,
+            "known_label": true
         },
         {
             "id": 778,
@@ -1368,7 +1666,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.5116781928013834,
+            "known_label": false
         },
         {
             "id": 877,
@@ -1378,7 +1678,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.08482579810761559,
+            "known_label": false
         },
         {
             "id": 949,
@@ -1387,7 +1689,9 @@ net={
             ],
             "label": 1,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.0854275545092763,
+            "known_label": false
         },
         {
             "id": 983,
@@ -1396,7 +1700,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.013689316524551187,
+            "known_label": true
         },
         {
             "id": 706,
@@ -1405,7 +1711,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 582,
@@ -1414,7 +1722,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 584,
@@ -1423,7 +1733,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 11,
@@ -1432,7 +1744,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 940,
@@ -1441,7 +1755,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 365,
@@ -1450,7 +1766,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 146,
@@ -1459,7 +1777,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 499,
@@ -1468,7 +1788,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 148,
@@ -1477,7 +1799,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 889,
@@ -1486,7 +1810,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 827,
@@ -1495,7 +1821,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 160,
@@ -1504,7 +1832,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 34,
@@ -1513,7 +1843,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 963,
@@ -1522,7 +1854,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 290,
@@ -1531,7 +1865,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 12,
@@ -1540,7 +1876,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 591,
@@ -1549,7 +1887,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 400,
@@ -1558,7 +1898,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 498,
@@ -1567,7 +1909,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 212,
@@ -1576,7 +1920,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 439,
@@ -1586,7 +1932,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 408,
@@ -1595,7 +1943,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 377,
@@ -1604,7 +1954,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 506,
@@ -1613,7 +1965,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 220,
@@ -1622,7 +1976,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 574,
@@ -1631,7 +1987,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 31,
@@ -1640,7 +1998,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 13,
@@ -1649,7 +2009,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 30,
@@ -1658,7 +2020,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 235,
@@ -1667,7 +2031,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 523,
@@ -1676,7 +2042,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 530,
@@ -1685,7 +2053,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 566,
@@ -1694,7 +2064,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": true
         },
         {
             "id": 719,
@@ -1704,7 +2076,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 783,
@@ -1713,7 +2087,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 826,
@@ -1722,7 +2098,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 853,
@@ -1731,7 +2109,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 864,
@@ -1740,7 +2120,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": true
         },
         {
             "id": 931,
@@ -1749,7 +2131,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 544,
@@ -1758,7 +2142,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 326,
@@ -1767,7 +2153,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 9,
@@ -1776,7 +2164,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 521,
@@ -1785,7 +2175,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 427,
@@ -1794,7 +2186,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 109,
@@ -1803,7 +2197,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 14,
@@ -1812,7 +2208,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 397,
@@ -1821,7 +2219,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 850,
@@ -1830,7 +2230,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 243,
@@ -1839,7 +2241,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 798,
@@ -1848,7 +2252,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 768,
@@ -1857,7 +2263,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 385,
@@ -1866,7 +2274,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 772,
@@ -1876,7 +2286,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 398,
@@ -1885,7 +2297,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 16,
@@ -1894,7 +2308,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 791,
@@ -1903,7 +2319,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 924,
@@ -1912,7 +2330,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 812,
@@ -1921,7 +2341,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 559,
@@ -1931,7 +2353,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 175,
@@ -1940,7 +2364,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 689,
@@ -1950,7 +2376,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 78,
@@ -1959,7 +2387,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 219,
@@ -1968,7 +2398,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 354,
@@ -1977,7 +2409,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 611,
@@ -1986,7 +2420,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 361,
@@ -1995,7 +2431,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 619,
@@ -2004,7 +2442,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 112,
@@ -2014,7 +2454,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 372,
@@ -2023,7 +2465,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 17,
@@ -2032,7 +2476,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 103,
@@ -2042,7 +2488,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 468,
@@ -2051,7 +2499,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 503,
@@ -2061,7 +2511,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 567,
@@ -2071,7 +2523,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 688,
@@ -2081,7 +2535,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 777,
@@ -2090,7 +2546,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 905,
@@ -2099,7 +2557,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 939,
@@ -2109,7 +2569,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 992,
@@ -2118,7 +2580,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 33,
@@ -2127,7 +2591,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 739,
@@ -2136,7 +2602,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 970,
@@ -2145,7 +2613,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 587,
@@ -2154,7 +2624,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 973,
@@ -2163,7 +2635,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 976,
@@ -2172,7 +2646,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 529,
@@ -2181,7 +2657,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 274,
@@ -2190,7 +2668,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 18,
@@ -2199,7 +2679,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 308,
@@ -2208,7 +2690,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 594,
@@ -2217,7 +2701,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 565,
@@ -2226,7 +2712,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 123,
@@ -2235,7 +2723,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 509,
@@ -2245,7 +2735,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 552,
@@ -2254,7 +2746,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 48,
@@ -2263,7 +2757,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 883,
@@ -2272,7 +2768,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 19,
@@ -2281,7 +2779,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 793,
@@ -2290,7 +2790,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 922,
@@ -2299,7 +2801,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 711,
@@ -2308,7 +2812,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0016170373266205518,
+            "known_label": false
         },
         {
             "id": 520,
@@ -2317,7 +2823,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 2.35505205116171e-05,
+            "known_label": false
         },
         {
             "id": 202,
@@ -2326,7 +2834,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0017056513686223296,
+            "known_label": false
         },
         {
             "id": 971,
@@ -2335,7 +2845,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.00014324790592890047,
+            "known_label": true
         },
         {
             "id": 464,
@@ -2344,7 +2856,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0017056513686223296,
+            "known_label": false
         },
         {
             "id": 49,
@@ -2353,7 +2867,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 1.889978360347655e-05,
+            "known_label": false
         },
         {
             "id": 560,
@@ -2362,7 +2878,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.00310707428184942,
+            "known_label": true
         },
         {
             "id": 532,
@@ -2371,7 +2889,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 8.491388728804061e-05,
+            "known_label": false
         },
         {
             "id": 20,
@@ -2380,7 +2900,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 6.0435065716957226e-05,
+            "known_label": false
         },
         {
             "id": 278,
@@ -2389,7 +2911,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0003415837797930976,
+            "known_label": false
         },
         {
             "id": 476,
@@ -2398,7 +2922,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0024708832189092034,
+            "known_label": false
         },
         {
             "id": 413,
@@ -2407,7 +2933,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 4.79601994241019e-06,
+            "known_label": true
         },
         {
             "id": 803,
@@ -2416,7 +2944,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 774,
@@ -2425,7 +2955,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 297,
@@ -2435,7 +2967,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 511,
@@ -2445,7 +2979,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 779,
@@ -2454,7 +2990,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 818,
@@ -2463,7 +3001,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 914,
@@ -2472,7 +3012,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 21,
@@ -2481,7 +3023,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 442,
@@ -2491,7 +3035,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 575,
@@ -2501,7 +3047,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 835,
@@ -2510,7 +3058,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 902,
@@ -2519,7 +3069,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 650,
@@ -2528,7 +3080,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 972,
@@ -2537,7 +3091,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 846,
@@ -2546,7 +3102,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 309,
@@ -2555,7 +3113,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 345,
@@ -2564,7 +3124,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 27,
@@ -2573,7 +3135,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 893,
@@ -2582,7 +3146,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 487,
@@ -2591,7 +3157,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 3.076125694057019e-06,
+            "known_label": false
         },
         {
             "id": 394,
@@ -2600,7 +3168,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 7.220975841715216e-07,
+            "known_label": true
         },
         {
             "id": 817,
@@ -2609,7 +3179,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 2.054264643835957e-06,
+            "known_label": false
         },
         {
             "id": 628,
@@ -2618,7 +3190,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 2.2330981626073054e-06,
+            "known_label": false
         },
         {
             "id": 277,
@@ -2628,7 +3202,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 9.472577067182186e-08,
+            "known_label": false
         },
         {
             "id": 726,
@@ -2637,7 +3213,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 1.0267515064832367e-06,
+            "known_label": false
         },
         {
             "id": 153,
@@ -2647,7 +3225,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 3.035285589536585e-08,
+            "known_label": true
         },
         {
             "id": 346,
@@ -2656,7 +3236,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 6.455613178912856e-06,
+            "known_label": false
         },
         {
             "id": 571,
@@ -2665,7 +3247,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 2.8386386295986554e-06,
+            "known_label": false
         },
         {
             "id": 28,
@@ -2674,7 +3258,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 2.8386386295986554e-06,
+            "known_label": false
         },
         {
             "id": 799,
@@ -2683,7 +3269,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 1.5700867097567794e-06,
+            "known_label": false
         },
         {
             "id": 514,
@@ -2692,7 +3280,9 @@ net={
             ],
             "label": 1,
             "prediction": 0,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.8459858723753104,
+            "known_label": true
         },
         {
             "id": 35,
@@ -2701,7 +3291,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.153916582607468,
+            "known_label": false
         },
         {
             "id": 228,
@@ -2710,7 +3302,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.15420603786718579,
+            "known_label": false
         },
         {
             "id": 424,
@@ -2719,7 +3313,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.15420603786718579,
+            "known_label": false
         },
         {
             "id": 892,
@@ -2728,7 +3324,9 @@ net={
             ],
             "label": 1,
             "prediction": 0,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.15432626545793393,
+            "known_label": false
         },
         {
             "id": 525,
@@ -2737,7 +3335,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.22834640640823833,
+            "known_label": false
         },
         {
             "id": 111,
@@ -2746,7 +3346,9 @@ net={
             ],
             "label": 1,
             "prediction": 0,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.15387570197810974,
+            "known_label": false
         },
         {
             "id": 80,
@@ -2755,7 +3357,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.4604209062977611,
+            "known_label": false
         },
         {
             "id": 335,
@@ -2764,7 +3368,9 @@ net={
             ],
             "label": 1,
             "prediction": 0,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.15398443794386085,
+            "known_label": false
         },
         {
             "id": 944,
@@ -2774,7 +3380,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.8877649735426015,
+            "known_label": false
         },
         {
             "id": 692,
@@ -2783,7 +3391,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0830470502882592,
+            "known_label": true
         },
         {
             "id": 54,
@@ -2792,7 +3402,9 @@ net={
             ],
             "label": 1,
             "prediction": 0,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.153916582607468,
+            "known_label": false
         },
         {
             "id": 217,
@@ -2801,7 +3413,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.4410448563576965,
+            "known_label": false
         },
         {
             "id": 955,
@@ -2811,7 +3425,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.8560853135692852,
+            "known_label": false
         },
         {
             "id": 92,
@@ -2820,7 +3436,9 @@ net={
             ],
             "label": 1,
             "prediction": 0,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.4604209062977611,
+            "known_label": false
         },
         {
             "id": 414,
@@ -2830,7 +3448,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.8448014285134631,
+            "known_label": false
         },
         {
             "id": 133,
@@ -2839,7 +3459,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 780,
@@ -2848,7 +3470,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 916,
@@ -2857,7 +3481,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 280,
@@ -2866,7 +3492,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 37,
@@ -2876,7 +3504,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 952,
@@ -2885,7 +3515,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 58,
@@ -2894,7 +3526,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 71,
@@ -2903,7 +3537,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 714,
@@ -2912,7 +3548,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 603,
@@ -2921,7 +3559,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 120,
@@ -2930,7 +3570,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 348,
@@ -2939,7 +3581,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 735,
@@ -2948,7 +3592,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 234,
@@ -2957,7 +3603,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 492,
@@ -2967,7 +3615,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 2.9977586968321646e-08,
+            "known_label": false
         },
         {
             "id": 624,
@@ -2976,7 +3626,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 496,
@@ -2985,7 +3637,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 370,
@@ -2994,7 +3648,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 504,
@@ -3003,7 +3659,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 767,
@@ -3012,7 +3670,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 770,
@@ -3021,7 +3681,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 900,
@@ -3030,7 +3692,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 746,
@@ -3039,7 +3703,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 331,
@@ -3049,7 +3715,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 618,
@@ -3058,7 +3726,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 686,
@@ -3068,7 +3738,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 695,
@@ -3078,7 +3750,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 859,
@@ -3087,7 +3761,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 223,
@@ -3096,7 +3772,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 642,
@@ -3105,7 +3783,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.00018916640379884608,
+            "known_label": false
         },
         {
             "id": 412,
@@ -3115,7 +3795,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.01225110576863564,
+            "known_label": false
         },
         {
             "id": 286,
@@ -3124,7 +3806,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 8.103749340027111e-05,
+            "known_label": true
         },
         {
             "id": 672,
@@ -3133,7 +3817,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.14931371727914,
+            "known_label": false
         },
         {
             "id": 38,
@@ -3142,7 +3828,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.12698292882183349,
+            "known_label": true
         },
         {
             "id": 813,
@@ -3151,7 +3839,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0001091108072941438,
+            "known_label": false
         },
         {
             "id": 317,
@@ -3160,7 +3850,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.036911515632368386,
+            "known_label": false
         },
         {
             "id": 573,
@@ -3169,7 +3861,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 4.5409078265779e-05,
+            "known_label": false
         },
         {
             "id": 838,
@@ -3179,7 +3873,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 1.3229222031174714e-06,
+            "known_label": true
         },
         {
             "id": 84,
@@ -3188,7 +3884,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.3007321979854669,
+            "known_label": false
         },
         {
             "id": 340,
@@ -3197,7 +3895,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.006567653110583382,
+            "known_label": false
         },
         {
             "id": 854,
@@ -3207,7 +3907,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.001362042107561745,
+            "known_label": false
         },
         {
             "id": 602,
@@ -3216,7 +3918,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0002814361997752757,
+            "known_label": false
         },
         {
             "id": 988,
@@ -3226,7 +3930,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 1.8223782146664647e-05,
+            "known_label": false
         },
         {
             "id": 861,
@@ -3235,7 +3941,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 8.256094246772427e-05,
+            "known_label": true
         },
         {
             "id": 613,
@@ -3245,7 +3953,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 4.7154770587587436e-05,
+            "known_label": false
         },
         {
             "id": 747,
@@ -3254,7 +3964,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.00016846574568096795,
+            "known_label": false
         },
         {
             "id": 246,
@@ -3263,7 +3975,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.00014520083749980373,
+            "known_label": false
         },
         {
             "id": 633,
@@ -3272,7 +3986,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.000753031618295652,
+            "known_label": true
         },
         {
             "id": 124,
@@ -3281,7 +3997,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.12698292882183349,
+            "known_label": true
         },
         {
             "id": 126,
@@ -3290,7 +4008,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.6771152370453227,
+            "known_label": true
         },
         {
             "id": 227,
@@ -3299,7 +4019,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 39,
@@ -3308,7 +4030,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 745,
@@ -3317,7 +4041,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 563,
@@ -3326,7 +4052,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 211,
@@ -3335,7 +4063,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 668,
@@ -3344,7 +4074,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 225,
@@ -3353,7 +4085,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 609,
@@ -3363,7 +4097,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 390,
@@ -3373,7 +4109,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 199,
@@ -3383,7 +4121,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 231,
@@ -3393,7 +4133,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 41,
@@ -3402,7 +4144,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 651,
@@ -3411,7 +4155,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 652,
@@ -3420,7 +4166,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 206,
@@ -3429,7 +4177,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": true
         },
         {
             "id": 181,
@@ -3438,7 +4188,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 951,
@@ -3448,7 +4200,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 378,
@@ -3457,7 +4211,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 155,
@@ -3466,7 +4222,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 44,
@@ -3476,7 +4234,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 85,
@@ -3485,7 +4245,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 172,
@@ -3495,7 +4257,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 257,
@@ -3504,7 +4268,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 291,
@@ -3513,7 +4279,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 647,
@@ -3523,7 +4291,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 787,
@@ -3532,7 +4302,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 909,
@@ -3541,7 +4313,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 149,
@@ -3550,7 +4324,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 218,
@@ -3559,7 +4335,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 327,
@@ -3568,7 +4346,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 376,
@@ -3577,7 +4357,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 419,
@@ -3586,7 +4368,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 446,
@@ -3595,7 +4379,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 578,
@@ -3604,7 +4390,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 822,
@@ -3614,7 +4402,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 45,
@@ -3624,7 +4414,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 131,
@@ -3634,7 +4426,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 150,
@@ -3643,7 +4437,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 182,
@@ -3652,7 +4448,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 230,
@@ -3662,7 +4460,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 267,
@@ -3671,7 +4471,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 323,
@@ -3680,7 +4482,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 375,
@@ -3689,7 +4493,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 540,
@@ -3698,7 +4504,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 645,
@@ -3707,7 +4515,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 656,
@@ -3716,7 +4526,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 662,
@@ -3725,7 +4537,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 701,
@@ -3734,7 +4548,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 903,
@@ -3743,7 +4559,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 956,
@@ -3752,7 +4570,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 986,
@@ -3761,7 +4581,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 236,
@@ -3770,7 +4592,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 265,
@@ -3779,7 +4603,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 268,
@@ -3788,7 +4614,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 304,
@@ -3798,7 +4626,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 339,
@@ -3807,7 +4637,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 344,
@@ -3817,7 +4649,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 430,
@@ -3826,7 +4660,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 432,
@@ -3835,7 +4671,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 447,
@@ -3844,7 +4682,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 465,
@@ -3853,7 +4693,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 684,
@@ -3862,7 +4704,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 728,
@@ -3871,7 +4715,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 910,
@@ -3880,7 +4726,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 977,
@@ -3889,7 +4737,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 832,
@@ -3898,7 +4748,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 420,
@@ -3907,7 +4759,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 708,
@@ -3916,7 +4770,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 742,
@@ -3925,7 +4781,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 872,
@@ -3934,7 +4792,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 46,
@@ -3943,7 +4803,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 569,
@@ -3952,7 +4814,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 319,
@@ -3961,7 +4825,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 480,
@@ -3970,7 +4836,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 65,
@@ -3979,7 +4847,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 449,
@@ -3988,7 +4858,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 615,
@@ -3997,7 +4869,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 140,
@@ -4006,7 +4880,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 303,
@@ -4015,7 +4891,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 431,
@@ -4024,7 +4902,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 50,
@@ -4033,7 +4913,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 723,
@@ -4042,7 +4924,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 882,
@@ -4051,7 +4935,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 282,
@@ -4060,7 +4946,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 989,
@@ -4069,7 +4957,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 64,
@@ -4078,7 +4968,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 897,
@@ -4087,7 +4979,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 545,
@@ -4096,7 +4990,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 868,
@@ -4105,7 +5001,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 773,
@@ -4114,7 +5012,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 488,
@@ -4123,7 +5023,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 680,
@@ -4132,7 +5034,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 106,
@@ -4141,7 +5045,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 108,
@@ -4150,7 +5056,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 463,
@@ -4159,7 +5067,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 399,
@@ -4168,7 +5078,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 113,
@@ -4177,7 +5089,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 51,
@@ -4186,7 +5100,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 979,
@@ -4195,7 +5111,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 699,
@@ -4204,7 +5122,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 863,
@@ -4213,7 +5133,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 162,
@@ -4222,7 +5144,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 891,
@@ -4231,7 +5155,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 548,
@@ -4240,7 +5166,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 805,
@@ -4249,7 +5177,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 107,
@@ -4258,7 +5188,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 76,
@@ -4267,7 +5199,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 205,
@@ -4276,7 +5210,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 238,
@@ -4285,7 +5221,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 368,
@@ -4294,7 +5232,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 720,
@@ -4303,7 +5243,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 82,
@@ -4312,7 +5254,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 115,
@@ -4321,7 +5265,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 884,
@@ -4330,7 +5276,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 53,
@@ -4339,7 +5287,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 730,
@@ -4348,7 +5298,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 187,
@@ -4357,7 +5309,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 189,
@@ -4366,7 +5320,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 542,
@@ -4375,7 +5331,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 580,
@@ -4384,7 +5342,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 809,
@@ -4393,7 +5353,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 810,
@@ -4402,7 +5364,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 207,
@@ -4411,7 +5375,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 912,
@@ -4420,7 +5386,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 862,
@@ -4429,7 +5397,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 81,
@@ -4438,7 +5408,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 947,
@@ -4447,7 +5419,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 471,
@@ -4456,7 +5430,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 600,
@@ -4465,7 +5441,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 57,
@@ -4474,7 +5452,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 635,
@@ -4483,7 +5463,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 285,
@@ -4492,7 +5474,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 350,
@@ -4501,7 +5485,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 193,
@@ -4510,7 +5496,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 382,
@@ -4519,7 +5507,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 769,
@@ -4528,7 +5518,9 @@ net={
             ],
             "label": 1,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 388,
@@ -4537,7 +5529,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 860,
@@ -4546,7 +5540,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 428,
@@ -4555,7 +5551,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 908,
@@ -4564,7 +5562,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 60,
@@ -4573,7 +5573,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 657,
@@ -4582,7 +5584,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 626,
@@ -4591,7 +5595,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 534,
@@ -4600,7 +5606,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 858,
@@ -4609,7 +5617,9 @@ net={
             ],
             "label": 1,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 156,
@@ -4618,7 +5628,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 959,
@@ -4627,7 +5639,9 @@ net={
             ],
             "label": 1,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 161,
@@ -4636,7 +5650,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 66,
@@ -4645,7 +5661,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 678,
@@ -4654,7 +5672,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 744,
@@ -4663,7 +5683,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 840,
@@ -4672,7 +5694,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 585,
@@ -4681,7 +5705,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 621,
@@ -4690,7 +5716,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 749,
@@ -4699,7 +5727,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 15,
@@ -4708,7 +5738,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 917,
@@ -4717,7 +5749,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 373,
@@ -4726,7 +5760,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 764,
@@ -4735,7 +5771,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 416,
@@ -4744,7 +5782,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 68,
@@ -4753,7 +5793,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 396,
@@ -4762,7 +5804,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 718,
@@ -4771,7 +5815,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 894,
@@ -4780,7 +5826,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 275,
@@ -4789,7 +5837,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 788,
@@ -4798,7 +5848,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 502,
@@ -4807,7 +5859,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 254,
@@ -4816,7 +5870,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 70,
@@ -4826,7 +5882,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 171,
@@ -4835,7 +5893,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 229,
@@ -4844,7 +5904,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 272,
@@ -4853,7 +5915,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 324,
@@ -4863,7 +5927,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 328,
@@ -4872,7 +5938,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 477,
@@ -4882,7 +5950,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 547,
@@ -4892,7 +5962,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 614,
@@ -4901,7 +5973,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 703,
@@ -4911,7 +5985,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 899,
@@ -4920,7 +5996,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 938,
@@ -4930,7 +6008,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 201,
@@ -4939,7 +6019,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 209,
@@ -4948,7 +6030,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 261,
@@ -4957,7 +6041,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 643,
@@ -4966,7 +6052,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 132,
@@ -4975,7 +6063,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 869,
@@ -4984,7 +6074,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 710,
@@ -4993,7 +6085,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 583,
@@ -5002,7 +6096,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 72,
@@ -5011,7 +6107,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 1.4724807595456468e-08,
+            "known_label": false
         },
         {
             "id": 741,
@@ -5020,7 +6118,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 1.088499847001767e-05,
+            "known_label": false
         },
         {
             "id": 743,
@@ -5029,7 +6129,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 6.604360964779232e-07,
+            "known_label": false
         },
         {
             "id": 715,
@@ -5038,7 +6140,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 876,
@@ -5047,7 +6151,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 2.303207025100562e-08,
+            "known_label": false
         },
         {
             "id": 469,
@@ -5056,7 +6162,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 7.028305715195415e-08,
+            "known_label": false
         },
         {
             "id": 438,
@@ -5065,7 +6173,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 154,
@@ -5074,7 +6184,9 @@ net={
             ],
             "label": 2,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 1.118261433674661e-06,
+            "known_label": false
         },
         {
             "id": 667,
@@ -5083,7 +6195,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 1.609752686704269e-08,
+            "known_label": false
         },
         {
             "id": 29,
@@ -5092,7 +6206,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 3.922682512147446e-08,
+            "known_label": false
         },
         {
             "id": 62,
@@ -5101,7 +6217,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 1.4452932295405674e-08,
+            "known_label": false
         },
         {
             "id": 795,
@@ -5110,7 +6228,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 705,
@@ -5119,7 +6239,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 258,
@@ -5128,7 +6250,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 867,
@@ -5137,7 +6261,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 484,
@@ -5146,7 +6272,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 135,
@@ -5155,7 +6283,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 74,
@@ -5164,7 +6294,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 782,
@@ -5173,7 +6305,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 176,
@@ -5182,7 +6316,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 593,
@@ -5191,7 +6327,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 820,
@@ -5201,7 +6339,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 729,
@@ -5211,7 +6351,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 475,
@@ -5220,7 +6362,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 670,
@@ -5229,7 +6373,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 536,
@@ -5238,7 +6384,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 298,
@@ -5247,7 +6395,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 77,
@@ -5256,7 +6406,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 655,
@@ -5265,7 +6417,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 177,
@@ -5274,7 +6428,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 467,
@@ -5283,7 +6439,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 756,
@@ -5292,7 +6450,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 660,
@@ -5301,7 +6461,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 216,
@@ -5310,7 +6472,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 925,
@@ -5319,7 +6483,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 639,
@@ -5328,7 +6494,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 87,
@@ -5337,7 +6505,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 118,
@@ -5346,7 +6516,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 147,
@@ -5356,7 +6528,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 284,
@@ -5366,7 +6540,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 302,
@@ -5376,7 +6552,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 389,
@@ -5386,7 +6564,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 599,
@@ -5395,7 +6575,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 640,
@@ -5404,7 +6586,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 681,
@@ -5413,7 +6597,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 802,
@@ -5422,7 +6608,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 847,
@@ -5431,7 +6619,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 982,
@@ -5441,7 +6631,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 88,
@@ -5450,7 +6642,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 152,
@@ -5459,7 +6653,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 259,
@@ -5468,7 +6664,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 270,
@@ -5477,7 +6675,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 353,
@@ -5486,7 +6686,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 401,
@@ -5495,7 +6697,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 433,
@@ -5504,7 +6708,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 470,
@@ -5513,7 +6719,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 572,
@@ -5522,7 +6730,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 631,
@@ -5531,7 +6741,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 690,
@@ -5540,7 +6752,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 732,
@@ -5549,7 +6763,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 776,
@@ -5558,7 +6774,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 806,
@@ -5567,7 +6785,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 824,
@@ -5576,7 +6796,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 999,
@@ -5585,7 +6807,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 965,
@@ -5594,7 +6818,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 486,
@@ -5603,7 +6829,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 136,
@@ -5612,7 +6840,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 968,
@@ -5621,7 +6851,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 179,
@@ -5630,7 +6862,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 595,
@@ -5639,7 +6873,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 89,
@@ -5648,7 +6884,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 314,
@@ -5657,7 +6895,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 251,
@@ -5666,7 +6906,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 604,
@@ -5675,7 +6917,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 91,
@@ -5685,7 +6929,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 5
+            "cid": 5,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 119,
@@ -5694,7 +6940,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 5
+            "cid": 5,
+            "error_est": 1.0,
+            "known_label": true
         },
         {
             "id": 125,
@@ -5703,7 +6951,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 5
+            "cid": 5,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 237,
@@ -5712,7 +6962,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 5
+            "cid": 5,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 707,
@@ -5722,7 +6974,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.9999999972376586,
+            "known_label": false
         },
         {
             "id": 954,
@@ -5731,7 +6985,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 5
+            "cid": 5,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 134,
@@ -5740,7 +6996,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.999999996866533,
+            "known_label": false
         },
         {
             "id": 47,
@@ -5749,7 +7007,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.9999999994970482,
+            "known_label": true
         },
         {
             "id": 495,
@@ -5759,7 +7019,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.9999960848468403,
+            "known_label": false
         },
         {
             "id": 531,
@@ -5768,7 +7030,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.9999999966282969,
+            "known_label": false
         },
         {
             "id": 661,
@@ -5777,7 +7041,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 5
+            "cid": 5,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 727,
@@ -5786,7 +7052,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 5
+            "cid": 5,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 665,
@@ -5795,7 +7063,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.9999999414362825,
+            "known_label": false
         },
         {
             "id": 906,
@@ -5804,7 +7074,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 658,
@@ -5813,7 +7085,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 538,
@@ -5822,7 +7096,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 283,
@@ -5832,7 +7108,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 669,
@@ -5841,7 +7119,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 170,
@@ -5850,7 +7130,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 941,
@@ -5859,7 +7141,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 562,
@@ -5868,7 +7152,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 702,
@@ -5877,7 +7163,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 197,
@@ -5886,7 +7174,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 204,
@@ -5895,7 +7185,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 213,
@@ -5904,7 +7196,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 601,
@@ -5913,7 +7207,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 93,
@@ -5922,7 +7218,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 482,
@@ -5931,7 +7229,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 740,
@@ -5940,7 +7240,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 879,
@@ -5949,7 +7251,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 755,
@@ -5958,7 +7262,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 885,
@@ -5967,7 +7273,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 99,
@@ -5976,7 +7284,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.008847551723306313,
+            "known_label": false
         },
         {
             "id": 292,
@@ -5985,7 +7295,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.008847551723306313,
+            "known_label": false
         },
         {
             "id": 338,
@@ -5995,7 +7307,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0009293677316483118,
+            "known_label": true
         },
         {
             "id": 636,
@@ -6005,7 +7319,9 @@ net={
             ],
             "label": 0,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.09100543346844958,
+            "known_label": false
         },
         {
             "id": 649,
@@ -6014,7 +7330,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.008847551723306313,
+            "known_label": false
         },
         {
             "id": 797,
@@ -6023,7 +7341,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.008847551723306313,
+            "known_label": false
         },
         {
             "id": 943,
@@ -6032,7 +7352,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.020891061940303768,
+            "known_label": false
         },
         {
             "id": 369,
@@ -6041,7 +7363,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 596,
@@ -6050,7 +7374,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 792,
@@ -6059,7 +7385,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 896,
@@ -6068,7 +7396,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 450,
@@ -6077,7 +7407,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 163,
@@ -6086,7 +7418,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 102,
@@ -6095,7 +7429,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 586,
@@ -6104,7 +7440,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 598,
@@ -6113,7 +7451,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 186,
@@ -6122,7 +7462,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 554,
@@ -6131,7 +7473,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 870,
@@ -6140,7 +7484,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 256,
@@ -6149,7 +7495,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.4437783439113099,
+            "known_label": false
         },
         {
             "id": 269,
@@ -6158,7 +7506,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.8909732609486075,
+            "known_label": false
         },
         {
             "id": 546,
@@ -6167,7 +7517,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.11198529924183365,
+            "known_label": false
         },
         {
             "id": 311,
@@ -6176,7 +7528,9 @@ net={
             ],
             "label": 2,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.892939655418631,
+            "known_label": true
         },
         {
             "id": 576,
@@ -6185,7 +7539,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.8903118694746069,
+            "known_label": false
         },
         {
             "id": 834,
@@ -6194,7 +7550,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.07886252460887577,
+            "known_label": true
         },
         {
             "id": 195,
@@ -6203,7 +7561,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.8618582547576152,
+            "known_label": false
         },
         {
             "id": 712,
@@ -6212,7 +7572,9 @@ net={
             ],
             "label": 2,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.8903618191836004,
+            "known_label": false
         },
         {
             "id": 208,
@@ -6221,7 +7583,9 @@ net={
             ],
             "label": 2,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.8919256936592246,
+            "known_label": false
         },
         {
             "id": 724,
@@ -6230,7 +7594,9 @@ net={
             ],
             "label": 2,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.8876952945415801,
+            "known_label": false
         },
         {
             "id": 343,
@@ -6239,7 +7605,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.8906543763045505,
+            "known_label": false
         },
         {
             "id": 984,
@@ -6248,7 +7616,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.2850740239346925,
+            "known_label": false
         },
         {
             "id": 481,
@@ -6257,7 +7627,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.08617081916825975,
+            "known_label": false
         },
         {
             "id": 994,
@@ -6266,7 +7638,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.12954205569866206,
+            "known_label": false
         },
         {
             "id": 866,
@@ -6275,7 +7649,9 @@ net={
             ],
             "label": 2,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.8921611462395069,
+            "known_label": false
         },
         {
             "id": 105,
@@ -6284,7 +7660,9 @@ net={
             ],
             "label": 2,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.8909732609486075,
+            "known_label": false
         },
         {
             "id": 239,
@@ -6293,7 +7671,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0983878114965947,
+            "known_label": true
         },
         {
             "id": 753,
@@ -6302,7 +7682,9 @@ net={
             ],
             "label": 2,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.8906371962832818,
+            "known_label": false
         },
         {
             "id": 627,
@@ -6311,7 +7693,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.1362902763138979,
+            "known_label": false
         },
         {
             "id": 761,
@@ -6320,7 +7704,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.8903618191836004,
+            "known_label": false
         },
         {
             "id": 890,
@@ -6329,7 +7715,9 @@ net={
             ],
             "label": 2,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.8663340665692825,
+            "known_label": false
         },
         {
             "id": 110,
@@ -6338,7 +7726,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.02669758791907839,
+            "known_label": true
         },
         {
             "id": 114,
@@ -6347,7 +7737,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.9616905723486191,
+            "known_label": false
         },
         {
             "id": 247,
@@ -6356,7 +7748,9 @@ net={
             ],
             "label": 1,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.9951936635318266,
+            "known_label": true
         },
         {
             "id": 380,
@@ -6365,7 +7759,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.033362155127557136,
+            "known_label": false
         },
         {
             "id": 391,
@@ -6374,7 +7770,9 @@ net={
             ],
             "label": 1,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.9847024141757744,
+            "known_label": true
         },
         {
             "id": 411,
@@ -6383,7 +7781,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.9616905723486191,
+            "known_label": false
         },
         {
             "id": 674,
@@ -6392,7 +7792,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.9616905723486191,
+            "known_label": false
         },
         {
             "id": 733,
@@ -6401,7 +7803,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.8003363072358889,
+            "known_label": false
         },
         {
             "id": 980,
@@ -6410,7 +7814,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.6795647027669759,
+            "known_label": false
         },
         {
             "id": 987,
@@ -6419,7 +7825,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.962623868502746,
+            "known_label": false
         },
         {
             "id": 997,
@@ -6428,7 +7836,9 @@ net={
             ],
             "label": 1,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 0.9438270252661207,
+            "known_label": false
         },
         {
             "id": 96,
@@ -6437,7 +7847,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 993,
@@ -6446,7 +7858,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 356,
@@ -6455,7 +7869,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 294,
@@ -6464,7 +7880,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 266,
@@ -6473,7 +7891,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 526,
@@ -6482,7 +7902,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 437,
@@ -6491,7 +7913,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 629,
@@ -6500,7 +7924,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 801,
@@ -6509,7 +7935,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 200,
@@ -6518,7 +7946,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 360,
@@ -6527,7 +7957,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 843,
@@ -6536,7 +7968,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 462,
@@ -6545,7 +7979,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 116,
@@ -6554,7 +7990,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 734,
@@ -6563,7 +8001,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 673,
@@ -6572,7 +8012,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 612,
@@ -6581,7 +8023,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 516,
@@ -6590,7 +8034,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 198,
@@ -6599,7 +8045,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 679,
@@ -6608,7 +8056,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 841,
@@ -6617,7 +8067,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 687,
@@ -6626,7 +8078,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 117,
@@ -6635,7 +8089,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 630,
@@ -6644,7 +8100,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 245,
@@ -6653,7 +8111,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 570,
@@ -6662,7 +8122,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 128,
@@ -6671,7 +8133,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 676,
@@ -6680,7 +8144,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 581,
@@ -6689,7 +8155,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 646,
@@ -6698,7 +8166,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 165,
@@ -6707,7 +8177,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 588,
@@ -6717,7 +8189,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 654,
@@ -6726,7 +8200,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 945,
@@ -6735,7 +8211,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 210,
@@ -6744,7 +8222,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 851,
@@ -6753,7 +8233,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 659,
@@ -6762,7 +8244,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 183,
@@ -6771,7 +8255,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 248,
@@ -6780,7 +8266,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 185,
@@ -6789,7 +8277,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 510,
@@ -6798,7 +8288,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 129,
@@ -6807,7 +8299,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 3.309798113360074e-08,
+            "known_label": false
         },
         {
             "id": 898,
@@ -6816,7 +8310,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 1.7548200529349245e-06,
+            "known_label": false
         },
         {
             "id": 273,
@@ -6825,7 +8321,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 535,
@@ -6834,7 +8332,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 6.934763874255623e-10,
+            "known_label": false
         },
         {
             "id": 26,
@@ -6843,7 +8343,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 7.906920995726097e-08,
+            "known_label": false
         },
         {
             "id": 929,
@@ -6852,7 +8354,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 4.4331602766511935e-07,
+            "known_label": false
         },
         {
             "id": 675,
@@ -6861,7 +8365,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 6.738702928998919e-10,
+            "known_label": false
         },
         {
             "id": 677,
@@ -6870,7 +8376,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 808,
@@ -6879,7 +8387,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 2.596286186040686e-09,
+            "known_label": false
         },
         {
             "id": 429,
@@ -6888,7 +8398,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 4.7575994122084353e-07,
+            "known_label": false
         },
         {
             "id": 434,
@@ -6897,7 +8409,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 7.347876751495619e-10,
+            "known_label": false
         },
         {
             "id": 819,
@@ -6906,7 +8420,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 7.591549611163373e-11,
+            "known_label": true
         },
         {
             "id": 957,
@@ -6915,7 +8431,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 7.362176424052791e-10,
+            "known_label": false
         },
         {
             "id": 192,
@@ -6924,7 +8442,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 1.2017182027257434e-08,
+            "known_label": false
         },
         {
             "id": 325,
@@ -6933,7 +8453,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 8.393405168671819e-07,
+            "known_label": false
         },
         {
             "id": 969,
@@ -6942,7 +8464,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 461,
@@ -6951,7 +8475,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 336,
@@ -6960,7 +8486,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 7.876882479607161e-10,
+            "known_label": false
         },
         {
             "id": 625,
@@ -6969,7 +8497,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 501,
@@ -6978,7 +8508,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 7.664469059420753e-11,
+            "known_label": true
         },
         {
             "id": 887,
@@ -6987,7 +8519,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 417,
@@ -6996,7 +8530,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 837,
@@ -7005,7 +8541,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 901,
@@ -7014,7 +8552,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 551,
@@ -7023,7 +8563,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 232,
@@ -7032,7 +8574,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 137,
@@ -7041,7 +8585,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 713,
@@ -7050,7 +8596,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 873,
@@ -7059,7 +8607,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 556,
@@ -7068,7 +8618,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 493,
@@ -7077,7 +8629,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 524,
@@ -7087,7 +8641,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 821,
@@ -7096,7 +8652,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 790,
@@ -7105,7 +8663,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 226,
@@ -7114,7 +8674,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 393,
@@ -7123,7 +8685,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 138,
@@ -7132,7 +8696,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 590,
@@ -7141,7 +8707,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 913,
@@ -7150,7 +8718,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 920,
@@ -7159,7 +8729,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 141,
@@ -7169,7 +8741,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 1.2517387015797965e-08,
+            "known_label": false
         },
         {
             "id": 443,
@@ -7179,7 +8753,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 1.4315720830992973e-08,
+            "known_label": false
         },
         {
             "id": 485,
@@ -7189,7 +8765,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 2.09361483705095e-09,
+            "known_label": true
         },
         {
             "id": 513,
@@ -7199,7 +8777,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 3.6617009424588787e-09,
+            "known_label": true
         },
         {
             "id": 752,
@@ -7209,7 +8789,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 6.549232267616389e-10,
+            "known_label": false
         },
         {
             "id": 738,
@@ -7218,7 +8800,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 3.204858600724947e-11,
+            "known_label": false
         },
         {
             "id": 364,
@@ -7227,7 +8811,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 1.0422884777483432e-11,
+            "known_label": true
         },
         {
             "id": 473,
@@ -7236,7 +8822,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 2.199808779579371e-09,
+            "known_label": false
         },
         {
             "id": 985,
@@ -7245,7 +8833,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 1
+            "cid": 1,
+            "error_est": 2.199808779579371e-09,
+            "known_label": false
         },
         {
             "id": 704,
@@ -7254,7 +8844,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 641,
@@ -7264,7 +8856,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 2.668737497901752e-05,
+            "known_label": true
         },
         {
             "id": 579,
@@ -7274,7 +8868,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.002678228574323427,
+            "known_label": false
         },
         {
             "id": 167,
@@ -7283,7 +8879,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.00017202467502608343,
+            "known_label": false
         },
         {
             "id": 904,
@@ -7292,7 +8890,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.005060274540837684,
+            "known_label": false
         },
         {
             "id": 617,
@@ -7301,7 +8901,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.000716717758876495,
+            "known_label": false
         },
         {
             "id": 685,
@@ -7310,7 +8912,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.009071682671102144,
+            "known_label": false
         },
         {
             "id": 142,
@@ -7319,7 +8923,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.000716717758876495,
+            "known_label": false
         },
         {
             "id": 402,
@@ -7329,7 +8935,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 2.3030828130155e-05,
+            "known_label": false
         },
         {
             "id": 404,
@@ -7338,7 +8946,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 2.497480652285944e-07,
+            "known_label": false
         },
         {
             "id": 886,
@@ -7347,7 +8957,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 1.670394111918938e-08,
+            "known_label": true
         },
         {
             "id": 315,
@@ -7356,7 +8968,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 9.93011874950156e-08,
+            "known_label": true
         },
         {
             "id": 188,
@@ -7366,7 +8980,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 1.0048058316503017e-06,
+            "known_label": true
         },
         {
             "id": 145,
@@ -7375,7 +8991,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 168,
@@ -7384,7 +9002,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 553,
@@ -7393,7 +9013,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 736,
@@ -7402,7 +9024,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 757,
@@ -7411,7 +9035,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 320,
@@ -7420,7 +9046,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 644,
@@ -7429,7 +9057,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 934,
@@ -7438,7 +9068,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 998,
@@ -7447,7 +9079,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 457,
@@ -7456,7 +9090,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 409,
@@ -7465,7 +9101,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 300,
@@ -7474,7 +9112,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 494,
@@ -7483,7 +9123,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 814,
@@ -7492,7 +9134,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 561,
@@ -7501,7 +9145,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 279,
@@ -7510,7 +9156,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 281,
@@ -7519,7 +9167,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 444,
@@ -7528,7 +9178,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 151,
@@ -7537,7 +9189,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 249,
@@ -7546,7 +9200,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 333,
@@ -7555,7 +9211,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 337,
@@ -7564,7 +9222,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 374,
@@ -7573,7 +9233,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 383,
@@ -7582,7 +9244,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 466,
@@ -7591,7 +9255,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 478,
@@ -7600,7 +9266,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 528,
@@ -7609,7 +9277,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 568,
@@ -7618,7 +9288,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 693,
@@ -7627,7 +9299,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 721,
@@ -7636,7 +9310,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 852,
@@ -7645,7 +9321,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 880,
@@ -7654,7 +9332,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 942,
@@ -7663,7 +9343,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 961,
@@ -7672,7 +9354,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 0
+            "cid": 0,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 157,
@@ -7681,7 +9365,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 287,
@@ -7690,7 +9376,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 305,
@@ -7699,7 +9387,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 549,
@@ -7708,7 +9398,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 564,
@@ -7717,7 +9409,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 577,
@@ -7726,7 +9420,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 722,
@@ -7735,7 +9431,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 32,
@@ -7744,7 +9442,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 352,
@@ -7753,7 +9453,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 962,
@@ -7762,7 +9464,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 452,
@@ -7771,7 +9475,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 932,
@@ -7780,7 +9486,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 440,
@@ -7789,7 +9497,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 811,
@@ -7798,7 +9508,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 178,
@@ -7807,7 +9519,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 888,
@@ -7816,7 +9530,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 789,
@@ -7825,7 +9541,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 214,
@@ -7834,7 +9552,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 760,
@@ -7843,7 +9563,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 313,
@@ -7852,7 +9574,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 923,
@@ -7861,7 +9585,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 828,
@@ -7870,7 +9596,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 606,
@@ -7879,7 +9607,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 159,
@@ -7888,7 +9618,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 260,
@@ -7897,7 +9629,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 781,
@@ -7906,7 +9640,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 918,
@@ -7915,7 +9651,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 796,
@@ -7924,7 +9662,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 541,
@@ -7933,7 +9673,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 550,
@@ -7942,7 +9684,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 169,
@@ -7951,7 +9695,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 557,
@@ -7960,7 +9706,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 307,
@@ -7969,7 +9717,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 180,
@@ -7978,7 +9728,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 59,
@@ -7987,7 +9739,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 318,
@@ -7996,7 +9750,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 448,
@@ -8005,7 +9761,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 597,
@@ -8014,7 +9772,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 855,
@@ -8023,7 +9783,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 366,
@@ -8032,7 +9794,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 622,
@@ -8041,7 +9805,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 762,
@@ -8050,7 +9816,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 765,
@@ -8059,7 +9827,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 173,
@@ -8068,7 +9838,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 233,
@@ -8077,7 +9849,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 296,
@@ -8086,7 +9860,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 349,
@@ -8095,7 +9871,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 387,
@@ -8104,7 +9882,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 423,
@@ -8113,7 +9893,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 451,
@@ -8122,7 +9904,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 555,
@@ -8131,7 +9915,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 759,
@@ -8140,7 +9926,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 936,
@@ -8149,7 +9937,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 436,
@@ -8158,7 +9948,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 2.497325898187519e-05,
+            "known_label": false
         },
         {
             "id": 459,
@@ -8167,7 +9959,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 5.604198120789938e-06,
+            "known_label": false
         },
         {
             "id": 700,
@@ -8176,7 +9970,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 2.497325898187519e-05,
+            "known_label": false
         },
         {
             "id": 737,
@@ -8185,7 +9981,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 771,
@@ -8195,7 +9993,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 67,
@@ -8204,7 +10004,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 455,
@@ -8214,7 +10016,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 263,
@@ -8224,7 +10028,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 589,
@@ -8234,7 +10040,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 750,
@@ -8243,7 +10051,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 766,
@@ -8253,7 +10063,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 848,
@@ -8262,7 +10074,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 500,
@@ -8272,7 +10086,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 250,
@@ -8281,7 +10097,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 379,
@@ -8290,7 +10108,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 222,
@@ -8299,7 +10119,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 190,
@@ -8309,7 +10131,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 607,
@@ -8319,7 +10143,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 865,
@@ -8328,7 +10154,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 194,
@@ -8337,7 +10165,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 458,
@@ -8346,7 +10176,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 825,
@@ -8355,7 +10187,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 666,
@@ -8364,7 +10198,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 2
+            "cid": 2,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 960,
@@ -8373,7 +10209,9 @@ net={
             ],
             "label": 0,
             "prediction": 1,
-            "cid": 4
+            "cid": 4,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 196,
@@ -8382,7 +10220,9 @@ net={
             ],
             "label": 0,
             "prediction": 1,
-            "cid": 4
+            "cid": 4,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 933,
@@ -8391,7 +10231,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 4
+            "cid": 4,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 456,
@@ -8400,7 +10242,9 @@ net={
             ],
             "label": 0,
             "prediction": 1,
-            "cid": 4
+            "cid": 4,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 874,
@@ -8409,7 +10253,9 @@ net={
             ],
             "label": 0,
             "prediction": 1,
-            "cid": 4
+            "cid": 4,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 975,
@@ -8418,7 +10264,9 @@ net={
             ],
             "label": 0,
             "prediction": 2,
-            "cid": 4
+            "cid": 4,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 240,
@@ -8427,7 +10275,9 @@ net={
             ],
             "label": 0,
             "prediction": 1,
-            "cid": 4
+            "cid": 4,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 921,
@@ -8436,7 +10286,9 @@ net={
             ],
             "label": 0,
             "prediction": 1,
-            "cid": 4
+            "cid": 4,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 410,
@@ -8445,7 +10297,9 @@ net={
             ],
             "label": 0,
             "prediction": 1,
-            "cid": 4
+            "cid": 4,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 671,
@@ -8454,7 +10308,9 @@ net={
             ],
             "label": 0,
             "prediction": 1,
-            "cid": 4
+            "cid": 4,
+            "error_est": 1.0,
+            "known_label": false
         },
         {
             "id": 244,
@@ -8463,7 +10319,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 489,
@@ -8472,7 +10330,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 533,
@@ -8481,7 +10341,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 2
+            "cid": 2,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 224,
@@ -8490,7 +10352,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 512,
@@ -8500,7 +10364,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 804,
@@ -8509,7 +10375,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 295,
@@ -8518,7 +10386,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 329,
@@ -8527,7 +10397,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 748,
@@ -8536,7 +10408,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 829,
@@ -8545,7 +10419,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 174,
@@ -8554,7 +10430,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 497,
@@ -8563,7 +10441,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 785,
@@ -8572,7 +10452,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 341,
@@ -8581,7 +10463,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 508,
@@ -8590,7 +10474,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 445,
@@ -8599,7 +10485,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 242,
@@ -8608,7 +10496,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.9999931393082547,
+            "known_label": false
         },
         {
             "id": 255,
@@ -8617,7 +10507,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.999990279511128,
+            "known_label": false
         },
         {
             "id": 289,
@@ -8626,7 +10518,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.999996288106612,
+            "known_label": false
         },
         {
             "id": 425,
@@ -8635,7 +10529,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.9999925085318268,
+            "known_label": false
         },
         {
             "id": 522,
@@ -8644,7 +10540,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.9999930604098787,
+            "known_label": false
         },
         {
             "id": 763,
@@ -8653,7 +10551,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.9999835800350126,
+            "known_label": false
         },
         {
             "id": 823,
@@ -8662,7 +10562,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.9999934928214864,
+            "known_label": false
         },
         {
             "id": 844,
@@ -8671,7 +10573,9 @@ net={
             ],
             "label": 2,
             "prediction": 0,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.9999934928214864,
+            "known_label": false
         },
         {
             "id": 418,
@@ -8680,7 +10584,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 3.461638522472832e-05,
+            "known_label": false
         },
         {
             "id": 775,
@@ -8689,7 +10595,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 1.0244317548813164e-05,
+            "known_label": false
         },
         {
             "id": 264,
@@ -8698,7 +10606,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 4.610412899563876e-05,
+            "known_label": false
         },
         {
             "id": 875,
@@ -8707,7 +10617,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.00034333490379345744,
+            "known_label": true
         },
         {
             "id": 395,
@@ -8716,7 +10628,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 8.029811851550939e-06,
+            "known_label": true
         },
         {
             "id": 558,
@@ -8725,7 +10639,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 4.610412899563876e-05,
+            "known_label": false
         },
         {
             "id": 271,
@@ -8734,7 +10650,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.00011699612765359024,
+            "known_label": false
         },
         {
             "id": 784,
@@ -8743,7 +10661,9 @@ net={
             ],
             "label": 0,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 1.245758367696137e-05,
+            "known_label": false
         },
         {
             "id": 306,
@@ -8752,7 +10672,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 5.1843214141755745e-05,
+            "known_label": false
         },
         {
             "id": 83,
@@ -8761,7 +10683,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 3.305233698591703e-05,
+            "known_label": false
         },
         {
             "id": 342,
@@ -8770,7 +10694,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0003400902351735624,
+            "known_label": false
         },
         {
             "id": 86,
@@ -8779,7 +10705,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 2.1422795487557877e-06,
+            "known_label": true
         },
         {
             "id": 958,
@@ -8788,7 +10716,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 2.506961086234938e-05,
+            "known_label": false
         },
         {
             "id": 293,
@@ -8797,7 +10727,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 322,
@@ -8806,7 +10738,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 454,
@@ -8815,7 +10749,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 517,
@@ -8824,7 +10760,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 623,
@@ -8833,7 +10771,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 653,
@@ -8842,7 +10782,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 907,
@@ -8851,7 +10793,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 299,
@@ -8860,7 +10804,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 358,
@@ -8869,7 +10815,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 490,
@@ -8878,7 +10826,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 605,
@@ -8887,7 +10837,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 698,
@@ -8896,7 +10848,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 974,
@@ -8905,7 +10859,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 800,
@@ -8914,7 +10870,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.8569664573774441,
+            "known_label": false
         },
         {
             "id": 833,
@@ -8923,7 +10881,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.8626337025247333,
+            "known_label": false
         },
         {
             "id": 930,
@@ -8932,7 +10892,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.9159075889861752,
+            "known_label": false
         },
         {
             "id": 359,
@@ -8941,7 +10903,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.6596325466097571,
+            "known_label": false
         },
         {
             "id": 967,
@@ -8950,7 +10914,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.9843492632018813,
+            "known_label": false
         },
         {
             "id": 632,
@@ -8959,7 +10925,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.8241068664801856,
+            "known_label": false
         },
         {
             "id": 334,
@@ -8968,7 +10936,9 @@ net={
             ],
             "label": 0,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.9762258744084331,
+            "known_label": false
         },
         {
             "id": 367,
@@ -8977,7 +10947,9 @@ net={
             ],
             "label": 0,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.9982418447646018,
+            "known_label": true
         },
         {
             "id": 472,
@@ -8986,7 +10958,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.9885178582257913,
+            "known_label": false
         },
         {
             "id": 441,
@@ -8995,7 +10969,9 @@ net={
             ],
             "label": 1,
             "prediction": 1,
-            "cid": 3
+            "cid": 3,
+            "error_est": 0.7164516201335446,
+            "known_label": false
         },
         {
             "id": 351,
@@ -9004,7 +10980,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0022397341810420635,
+            "known_label": false
         },
         {
             "id": 381,
@@ -9013,7 +10991,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0022397341810420635,
+            "known_label": false
         },
         {
             "id": 392,
@@ -9022,7 +11002,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0024708248976431646,
+            "known_label": false
         },
         {
             "id": 422,
@@ -9031,7 +11013,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0024708248976431646,
+            "known_label": false
         },
         {
             "id": 786,
@@ -9040,7 +11024,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0024708248976431646,
+            "known_label": false
         },
         {
             "id": 831,
@@ -9049,7 +11035,9 @@ net={
             ],
             "label": 2,
             "prediction": 2,
-            "cid": 5
+            "cid": 5,
+            "error_est": 0.0024708248976431646,
+            "known_label": false
         },
         {
             "id": 357,
@@ -9058,7 +11046,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 405,
@@ -9067,7 +11057,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 950,
@@ -9076,7 +11068,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 895,
@@ -9085,7 +11079,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": true
         },
         {
             "id": 991,
@@ -9094,7 +11090,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         },
         {
             "id": 927,
@@ -9103,7 +11101,9 @@ net={
             ],
             "label": 0,
             "prediction": 0,
-            "cid": 4
+            "cid": 4,
+            "error_est": 0.0,
+            "known_label": false
         }
     ],
     "links": [
