@@ -360,7 +360,7 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
     
     
     d3.select("#apply").on("click", function() {
-        let text = document.getElementById("cids").value;
+        var text = document.getElementById("cids").value;
         for (var k in expand){
             expand[k] = false;
         }
@@ -376,8 +376,9 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
                 selected_components[parseInt(d)] = true;
             });
         }
-        text = name_to_id[document.getElementById("selectButton").value];
+        text = document.getElementById("selectButton").value;
         if (text != "all"){
+            text = name_to_id[text];
             var selected_class = parseInt(text);
             Object.keys(selected_components).forEach(function(k){
                 selected_components[k] = selected_components[k] & (component_labels[k] == selected_class);
