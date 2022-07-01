@@ -249,6 +249,7 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
             // console.log(d);
             if (expand[d.group[0]]){
                 expand[d.group[0]] = !expand[d.group[0]];
+                simulation.stop();
                 draw_graph(data, init_nodes, graph, expand, groups, is_initial, d.id, component_init_pos, selected_components, gDraw,parentWidth,parentHeight);
                 if (selectedGroup != "class") update_color_scheme(selectedGroup);
                 if (show_training != false) update_training_stroke(show_training);
@@ -292,6 +293,7 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
             // console.log(d);
             if (expand[d.group[0]] == false){
                 expand[d.group[0]] = !expand[d.group[0]];
+                simulation.stop();
                 draw_graph(data, init_nodes, graph, expand, groups, is_initial, d.id, component_init_pos, selected_components, gDraw,parentWidth,parentHeight);
                 if (selectedGroup != "class") update_color_scheme(selectedGroup);
                 if (show_training != false) update_training_stroke(show_training);
@@ -316,6 +318,7 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
             }else{
                 num = "Reeb node id: "+d.group[0].toString();
                 num += "<br>Component id: "+d.cid.toString();
+                num += "<br>Most common prediction: "+class_names[component_labels[d.cid]];
             }
             tooltip.html(num)
                .style("left", (d3.event.pageX + 10) + "px")
@@ -384,6 +387,7 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
                 selected_components[k] = selected_components[k] & (component_labels[k] == selected_class);
             });
         }
+        simulation.stop();
         draw_graph(data, init_nodes, graph, expand, groups, is_initial, null, component_init_pos, selected_components, gDraw,parentWidth,parentHeight);
         if (selectedGroup != "class") update_color_scheme(selectedGroup);
         if (show_training != false) update_training_stroke(show_training);
@@ -683,6 +687,7 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
             });
             group_meta[k] = piechart;
         });
+        simulation.stop();
         draw_graph(data, init_nodes, graph, expand, groups, is_initial, null, component_init_pos, selected_components, gDraw,parentWidth,parentHeight);
         if (selectedGroup != "class") update_color_scheme(selectedGroup);
         if (show_training != false) update_training_stroke(show_training);
@@ -752,7 +757,6 @@ function createV4SelectableForceDirectedGraph(svg, graph, document) {
     nrows = Math.min(Math.round(ncomponents/nrows),nrows);
     var block_size = [0.5*parentWidth/nrows,0.5*parentHeight/nrows];
     var center_loc = [0,0];
-    var cnt = 0;
     var blocks = [], size_total = 0;
     for (l in components_by_label){
         components_by_label[l].forEach(function(k){
@@ -787,6 +791,7 @@ function createV4SelectableForceDirectedGraph(svg, graph, document) {
         });
     }
     console.log(packer);
+    var cnt = 0;
     for (l in components_by_label){
         components_by_label[l].forEach(function(k){
             var block = blocks[cnt];
