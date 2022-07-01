@@ -3,7 +3,7 @@ var is_dragging = false;
 var show_legend = true, show_training = false, color_training = false;
 const component_labels = {}, group_meta = {};
 var zoom, selectedGroup = "class";
-var nclass = 0;
+var nclass = 0, node_size_scale = 1, node_dist_scale = 1;
 var name_to_id = {};
 var node, link, hull;
 
@@ -83,7 +83,7 @@ function update_network(data, init_nodes, graph, expand, groups, is_initial, dbl
             // console.log(nodes);
             // console.log(groups[i]);
         }else{
-            var node = {"id":n+i,"group":[i],"pieChart":group_meta[i],"size":groups[i].length,"node_type":"copmponent","cid":groups[i][0].cid};
+            var node = {"id":n+i,"group":[i],"pieChart":group_meta[i],"size":groups[i].length,"node_type":"component","cid":groups[i][0].cid};
             if (node.id in prev_locs) {
                 node.x = prev_locs[node.id][0];
                 node.y = prev_locs[node.id][1];
@@ -337,7 +337,7 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
     /* Draw the respective pie chart for each node */
     node.each(function (d) {
         NodePieBuilder.drawNodePie(d3.select(this), d.pieChart, {
-            radius: Math.min(Math.pow(d.size,0.25)*10,50),
+            radius: Math.min(Math.pow(d.size,0.25)*10*node_size_scale,50),
             outerStrokeWidth: 3,
             parentNodeColor: "white",
             showPieChartBorder: false,
@@ -416,67 +416,6 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
         //     .attr("cy", function(d) { return d.y; });
     }
 
-    // var brushMode = false;
-    // var brushing = false;
-
-    // var brush = d3.brush()
-    //     .on("start", brushstarted)
-    //     .on("brush", brushed)
-    //     .on("end", brushended);
-
-    // function brushstarted() {
-    //     // keep track of whether we're actively brushing so that we
-    //     // don't remove the brush on keyup in the middle of a selection
-    //     brushing = true;
-
-    //     node.each(function(d) { 
-    //         d.previouslySelected = shiftKey && d.selected; 
-    //     });
-    // }
-
-    // rect.on('click', () => {
-    //     node.each(function(d) {
-    //         d.selected = false;
-    //         d.previouslySelected = false;
-    //         d3.select(this).selectAll('circle').attr("stroke","white");
-    //     });
-    //     node.classed("selected", false);
-    //     // document.getElementById("demo").innerHTML = "";
-    // });
-
-    // function brushed() {
-    //     if (!d3.event.sourceEvent) return;
-    //     if (!d3.event.selection) return;
-
-    //     var extent = d3.event.selection;
-
-    //     node.classed("selected", function(d) {
-    //         return d.selected = d.previouslySelected ^
-    //         (extent[0][0] <= d.x && d.x < extent[1][0]
-    //          && extent[0][1] <= d.y && d.y < extent[1][1]);
-    //     });
-    //     node.filter(function(d) { return d.selected; })
-    //         .each(function(d) { //d.fixed |= 2; 
-    //             d3.select(this).selectAll('circle').attr("stroke","black");
-    //     })
-    // }
-
-    // function brushended() {
-    //     if (!d3.event.sourceEvent) return;
-    //     if (!d3.event.selection) return;
-    //     if (!gBrush) return;
-
-    //     gBrush.call(brush.move, null);
-
-    //     if (!brushMode) {
-    //         // the shift key has been release before we ended our brushing
-    //         gBrush.remove();
-    //         gBrush = null;
-    //     }
-
-    //     brushing = false;
-    // }
-
     d3.select('body').on('keydown', keydown);
     d3.select('body').on('keyup', keyup);
 
@@ -486,33 +425,10 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
         if (is_dragging == false) {
             shiftKey = d3.event.shiftKey;
         }
-        // if (shiftKey) {
-        //     // if we already have a brush, don't do anything
-        //     if (gBrush)
-        //         return;
-
-        //     brushMode = true;
-
-        //     if (!gBrush) {
-        //         gBrush = gBrushHolder.append('g');
-        //         gBrush.call(brush);
-        //     }
-        // }
     }
 
     function keyup() {
         shiftKey = false;
-        // brushMode = false;
-
-        // if (!gBrush)
-        //     return;
-
-        // if (!brushing) {
-        //     // only remove the brush if we're not actively brushing
-        //     // otherwise it'll be removed when the brushing ends
-        //     gBrush.remove();
-        //     gBrush = null;
-        // }
     }
 
     function dragstarted(k) {
@@ -591,19 +507,21 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
             component_init_pos[k.cid] = [
                 component_init_pos[k.cid][0]+k.dx,
                 component_init_pos[k.cid][1]+k.dy];
-            console.log(component_init_pos[k.cid]);
+            // console.log(component_init_pos[k.cid]);
             simulation.force("x").initialize(graph.nodes);
             simulation.force("y").initialize(graph.nodes);
         }
     }
     d3.select("#select_color").on("change", function(d){
-        selectedGroup = this.value
-        update_color_scheme(selectedGroup)});
+        selectedGroup = this.value;
+        update_color_scheme(selectedGroup);
+        if (show_training != false) update_training_stroke(show_training);
+    });
     
     function update_color_scheme(v){
-        console.log("update");
+        // console.log("update");
         if (v=="class") {
-            console.log("class");
+            // console.log("class");
             node.each(function (d) {
                 for (var p in d.pieChart){
                     d3.select(this)
@@ -637,22 +555,25 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
     }
 
     function update_training_stroke(show_training){
-        if (selectedGroup == "class"){
-            if (show_training){
-                node.each(function (d) {
-                    if (d.node_type == "node" & d.known_label){
-                        d3.select(this)
-                        .selectAll("circle#parent-pie").attr("stroke","black").attr("stroke-width",5);
-                    }
-                });
-            }else{
-                node.each(function (d) {
-                    if (d.node_type == "node" & d.known_label){
+        if (show_training){
+            node.each(function (d) {
+                if (d.node_type == "node" & d.known_label){
+                    d3.select(this)
+                    .selectAll("circle#parent-pie").attr("stroke","black").attr("stroke-width",5);
+                }
+            });
+        }else{
+            node.each(function (d) {
+                if (d.node_type == "node" & d.known_label){
+                    if (selectedGroup == "class"){
                         d3.select(this)
                         .selectAll("circle#parent-pie").attr("stroke","white").attr("stroke-width",3);
+                    }else{
+                        d3.select(this)
+                        .selectAll("circle#parent-pie").attr("stroke","transparent").attr("stroke-width",3);
                     }
-                });
-            }
+                }
+            });
         }
     }
 
@@ -692,22 +613,74 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
         if (selectedGroup != "class") update_color_scheme(selectedGroup);
         if (show_training != false) update_training_stroke(show_training);
     });
-
-    // var texts = ['Use the scroll wheel to zoom',
-    //             //  'Hold the shift key to select nodes',
-    //             'Double click a hull to collapse',
-    //             'Double click a Reeb net node to expand',
-    //             'Click and hold empty area to pan the entire graph',
-    //             'Click and hold a node while pressing shift key to pan a single component'];
-    // // console.log(parentWidth);
-    // // console.log(parentHeight);
-    // d3.select('svg').selectAll('text')
-    //     .data(texts)
-    //     .enter()
-    //     .append('text')
-    //     .attr('x', parentWidth-10)
-    //     .attr('y', function(d,i) { return parentHeight - 19*texts.length + i * 18; })
-    //     .text(function(d) { return d; });
+    
+    d3.select("#smaller_node_size").on("click", function() {
+        node_size_scale -= 0.05;
+        node.each(function (d) {
+            let radius = Math.min(Math.pow(d.size,0.25)*10*node_size_scale,50);
+            let halfRadius = radius / 2;
+            let halfCircumference = 2 * Math.PI * halfRadius;
+            var percentToDraw = 0;
+            for (var p in d.pieChart){
+                percentToDraw += d.pieChart[p].percent;
+                d3.select(this)
+                .selectAll("circle#child-pie-"+p.toString())
+                .attr("r", halfRadius)
+                .style('stroke-width', radius)
+                .style('stroke-dasharray',
+                    halfCircumference * percentToDraw / 100
+                    + ' '
+                    + halfCircumference);
+            }
+            d3.select(this)
+            .selectAll("circle#parent-pie").attr("r",radius);
+        });
+    });
+    d3.select("#larger_node_size").on("click", function() {
+        node_size_scale += 0.05;
+        node.each(function (d) {
+            let radius = Math.min(Math.pow(d.size,0.25)*10*node_size_scale,50);
+            let halfRadius = radius / 2;
+            let halfCircumference = 2 * Math.PI * halfRadius;
+            var percentToDraw = 0;
+            for (var p in d.pieChart){
+                percentToDraw += d.pieChart[p].percent;
+                d3.select(this)
+                .selectAll("circle#child-pie-"+p.toString())
+                .attr("r", halfRadius)
+                .style('stroke-width', radius)
+                .style('stroke-dasharray',
+                    halfCircumference * percentToDraw / 100
+                    + ' '
+                    + halfCircumference);
+            }
+            d3.select(this)
+            .selectAll("circle#parent-pie").attr("r",radius);
+        });
+    });
+    d3.select("#output")
+    .on('click', function(){
+        var coords = [];
+        node.each(function(d){
+            if (d.node_type == "component") {
+                coords.push({
+                    "id": d.group[0],
+                    "type": "Reeb net node",
+                    "x": d.x,
+                    "y": d.y
+                });
+            }else{
+                coords.push({
+                    "id": d.id,
+                    "type": "original graph node",
+                    "x": d.x,
+                    "y": d.y
+                });
+            }
+        });
+        var blob = new Blob([JSON.stringify({"coords":coords})], {type: "text/plain;charset=utf-8"});  
+        saveAs(blob, "coordinates.json");
+    });
 
     return graph;
 }
@@ -790,7 +763,7 @@ function createV4SelectableForceDirectedGraph(svg, graph, document) {
             }
         });
     }
-    console.log(packer);
+    // console.log(packer);
     var cnt = 0;
     for (l in components_by_label){
         components_by_label[l].forEach(function(k){
@@ -817,7 +790,7 @@ function createV4SelectableForceDirectedGraph(svg, graph, document) {
         var curr_loc = component_init_pos[k];
         component_init_pos[k] = [curr_loc[0]-center_loc[0]+parentWidth/2,curr_loc[1]-center_loc[1]+parentHeight/2];
     });
-    console.log(component_init_pos);
+    // console.log(component_init_pos);
     Object.keys(groups).forEach(function(k){
         g = groups[k];
         counter[k] = {};
@@ -933,7 +906,6 @@ function createV4SelectableForceDirectedGraph(svg, graph, document) {
             legend.selectAll("text").remove();
         }
     });
-    // Handmade legend
      
     var ret = draw_graph(data,init_nodes,graph,expand,groups,is_initial,null,component_init_pos,selected_components,gDraw,parentWidth,parentHeight);
     setTimeout(zoomFit, 3000, 1000);
