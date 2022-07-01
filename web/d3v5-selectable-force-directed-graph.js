@@ -541,10 +541,18 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
                 }
                 var opacity_level = 0;
                 if (d.node_type == "node") {
-                    opacity_level = d.error_est;
+                    if (selectedGroup == "estimated_error") {
+                        opacity_level += d.error_est;
+                    }else{
+                        opacity_level += (d.prediction != d.label);
+                    }
                 }else{
                     groups[d.group[0]].forEach(function(n){
-                        opacity_level += n.error_est;
+                        if (selectedGroup == "estimated_error") {
+                            opacity_level += n.error_est;
+                        }else{
+                            opacity_level += (n.prediction != n.label);
+                        }
                     });
                     opacity_level /= groups[d.group[0]].length;
                 }
@@ -686,15 +694,18 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
 }
 
 function createV4SelectableForceDirectedGraph(svg, graph, document) {
-    // var class_names = {0:"0",1:"1",2:"2"};
+    // map each class id to its name
     for (var i in class_names){
         name_to_id[class_names[i]] = i;
     }
+    // find the number of classes
     graph.nodes.forEach(function(d){nclass = Math.max(nclass,parseInt(d.label)+1);});
     let parentWidth = d3.select('#drawing').node().parentNode.clientWidth;
     let parentHeight = d3.select('#drawing').node().parentNode.clientHeight;
     const groups = {}, expand = {}, init_nodes = {}, counter = {}, component_init_pos = {}, selected_components = {}, components_by_label = {}, components_size={};
+    // save a copy of the original data
     const data = JSON.parse(JSON.stringify(graph));
+    // find out most common prediction in each component
     graph.nodes.forEach(function(d){
         d.group.forEach(function(g){
             if (g in groups) {
@@ -716,7 +727,6 @@ function createV4SelectableForceDirectedGraph(svg, graph, document) {
         }
         selected_components[d.cid] = true;
     });
-    // console.log(component_labels[0].indexOf(Math.max(...component_labels[0])));
     for (k in component_labels){
         var l = component_labels[k].indexOf(Math.max(...component_labels[k]));
         if (l in components_by_label == false){
@@ -728,7 +738,10 @@ function createV4SelectableForceDirectedGraph(svg, graph, document) {
     var ncomponents = Object.keys(component_init_pos).length;
     var nrows = Math.round(Math.sqrt(ncomponents));
     nrows = Math.min(Math.round(ncomponents/nrows),nrows);
-    var block_size = [0.5*parentWidth/nrows,0.5*parentHeight/nrows];
+    // we assume each component can be fit into a square and 
+    // we use packer to pack these squares as compact as possible
+    // after packing, we use the square center as the force center for each component
+    // this can avoid components colliding
     var center_loc = [0,0];
     var blocks = [], size_total = 0;
     for (l in components_by_label){
@@ -736,34 +749,28 @@ function createV4SelectableForceDirectedGraph(svg, graph, document) {
             var s = Math.round(Math.sqrt(components_size[k]));
             size_total += s;
             blocks.push({"w":s,"h":s});
-            // component_init_pos[k] = [block_size[0]/2+Math.floor(cnt/nrows)*block_size[0],block_size[1]/2+cnt%nrows*block_size[1]];
-            // center_loc[0] += component_init_pos[k][0];
-            // center_loc[1] += component_init_pos[k][1];
-            // cnt += 1;
         });
     }
     var fit_cnt = 0, fit_scale = 1;
     var packer = new Packer(size_total*fit_scale, size_total*fit_scale);
-    // blocks.sort(function(a,b) { return (b.h < a.h); });
     packer.fit(blocks);
     blocks.forEach(function(b){
         if (b.fit){
             fit_cnt += 1;
         }
     });
+    // this means the packer size is too small to fit all squares, so we make it larger and retry
     while (fit_cnt < ncomponents){
         fit_cnt = 0;
         fit_scale += 0.1;
         packer = new Packer(size_total*fit_scale, size_total*fit_scale);
         packer.fit(blocks);
-        // console.log(fit_scale,blocks);
         blocks.forEach(function(b){
             if (b.fit){
                 fit_cnt += 1;
             }
         });
     }
-    // console.log(packer);
     var cnt = 0;
     for (l in components_by_label){
         components_by_label[l].forEach(function(k){
@@ -779,18 +786,13 @@ function createV4SelectableForceDirectedGraph(svg, graph, document) {
             cnt += 1;
         });
     }
-    // Object.keys(component_init_pos).forEach(function(k){
-    //     component_init_pos[k] = [block_size[0]/2+Math.floor(k/nrows)*block_size[0],block_size[1]/2+k%nrows*block_size[1]];
-    //     center_loc[0] += component_init_pos[k][0];
-    //     center_loc[1] += component_init_pos[k][1];
-    // });
     center_loc[0] /= ncomponents;
     center_loc[1] /= ncomponents;
     Object.keys(component_init_pos).forEach(function(k){
         var curr_loc = component_init_pos[k];
         component_init_pos[k] = [curr_loc[0]-center_loc[0]+parentWidth/2,curr_loc[1]-center_loc[1]+parentHeight/2];
     });
-    // console.log(component_init_pos);
+    // for each Reeb net node, compute its prediction proportion
     Object.keys(groups).forEach(function(k){
         g = groups[k];
         counter[k] = {};
@@ -886,7 +888,7 @@ function createV4SelectableForceDirectedGraph(svg, graph, document) {
     for (var i = 0; i < nclass; i++){
         d3.select("#selectButton").append("option").text(class_names[i]);
     }
-    var allGroup = ["class","estimated_error"];
+    var allGroup = ["class","estimated_error","true_error"];
     d3.select("#select_color")
         .selectAll('myOptions')
         .data(allGroup)
