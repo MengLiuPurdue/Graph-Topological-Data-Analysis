@@ -4,7 +4,7 @@ var show_legend = true, show_training = false, color_training = false;
 const component_labels = {}, group_meta = {};
 var zoom, selectedGroup = "class";
 var nclass = 0, node_size_scale = 1, node_dist_scale = 1;
-var name_to_id = {};
+var name_to_id = {}, sort_block = false;
 var node, link, hull;
 
 var curve = d3.line()
@@ -740,52 +740,127 @@ function createV4SelectableForceDirectedGraph(svg, graph, document) {
     nrows = Math.min(Math.round(ncomponents/nrows),nrows);
     // we assume each component can be fit into a square and 
     // we use packer to pack these squares as compact as possible
+    // we first pack components within each class then combine components from different classes
     // after packing, we use the square center as the force center for each component
     // this can avoid components colliding
-    var center_loc = [0,0];
-    var blocks = [], size_total = 0;
-    for (l in components_by_label){
-        components_by_label[l].forEach(function(k){
-            var s = Math.round(Math.sqrt(components_size[k]));
+    function pack_components(sizes){
+        var blocks = [], size_total = 0, ncomponents = sizes.length;
+        sizes.forEach(function(k){
+            var s = 15*Math.round(Math.sqrt(k[0]));
             size_total += s;
             blocks.push({"w":s,"h":s});
         });
-    }
-    var fit_cnt = 0, fit_scale = 1;
-    var packer = new Packer(size_total*fit_scale, size_total*fit_scale);
-    packer.fit(blocks);
-    blocks.forEach(function(b){
-        if (b.fit){
-            fit_cnt += 1;
+        if (sort_block){
+            blocks.sort(function(a,b) { return (b.h < a.h); });
         }
-    });
-    // this means the packer size is too small to fit all squares, so we make it larger and retry
-    while (fit_cnt < ncomponents){
-        fit_cnt = 0;
-        fit_scale += 0.1;
-        packer = new Packer(size_total*fit_scale, size_total*fit_scale);
+        var fit_cnt = 0, fit_scale = 0.5;
+        var packer = new Packer(size_total*fit_scale, size_total*fit_scale);
         packer.fit(blocks);
         blocks.forEach(function(b){
             if (b.fit){
                 fit_cnt += 1;
             }
         });
+        // this means the packer size is too small to fit all squares, so we make it larger and retry
+        while (fit_cnt < ncomponents){
+            fit_cnt = 0;
+            fit_scale += 0.1;
+            packer = new Packer(size_total*fit_scale, size_total*fit_scale);
+            packer.fit(blocks);
+            blocks.forEach(function(b){
+                if (b.fit){
+                    fit_cnt += 1;
+                }
+            });
+        }
+        return [blocks, size_total*fit_scale];
     }
-    var cnt = 0;
-    for (l in components_by_label){
-        components_by_label[l].forEach(function(k){
-            var block = blocks[cnt];
+
+    function update_init_positions(blocks, sizes){
+        if (sort_block){
+            sizes.sort((a,b) => b[0]-a[0]);
+        }
+        var cnt = 0, block;
+        for (var i = 0; i < sizes.length; i ++){
             while (true){
-                if (block.fit) break;
-                cnt += 1;
                 block = blocks[cnt];
+                cnt += 1;
+                if (block.fit) break;
             }
-            component_init_pos[k] = [15*block.fit.y+15*block.w/2,15*block.fit.x+15*block.h/2];
+            component_init_pos[sizes[i][1]] = [block.fit.y+block.w/2,block.fit.x+block.h/2];
+        }
+    }
+
+    var packer_sizes = [];
+    for (l in components_by_label){
+        var sizes = [], tmp, blocks;
+        components_by_label[l].forEach(function(k){
+            sizes.push([components_size[k],k]);
+        });
+        tmp = pack_components(sizes);
+        blocks = tmp[0];
+        packer_sizes.push([5*tmp[1],l]);
+        update_init_positions(blocks, sizes);
+    }
+    var tmp = pack_components(packer_sizes);
+    var blocks = tmp[0];
+    // if (sort_block){
+    //     sizes.sort((a,b) => b[0]-a[0]);
+    // }
+    if (sort_block){
+        packer_sizes.sort((a,b) => b[0]-a[0]);
+    }
+    var cnt = 0, block, center_loc = [0,0];
+    for (var i = 0; i < packer_sizes.length; i ++){
+        while (true){
+            block = blocks[cnt];
+            cnt += 1;
+            if (block.fit) break;
+        }
+        // component_init_pos[sizes[i][1]] = [block.fit.y+block.w/2,block.fit.x+block.h/2];
+        // center_loc[0] += component_init_pos[k][0];
+        // center_loc[1] += component_init_pos[k][1];
+        components_by_label[packer_sizes[i][1]].forEach(function(k){
+            component_init_pos[k] = [component_init_pos[k][0]+block.fit.y,component_init_pos[k][1]+block.fit.x];
             center_loc[0] += component_init_pos[k][0];
             center_loc[1] += component_init_pos[k][1];
-            cnt += 1;
-        });
+        })
     }
+    // var fit_cnt = 0, fit_scale = 1;
+    // var packer = new Packer(size_total*fit_scale, size_total*fit_scale);
+    // packer.fit(blocks);
+    // blocks.forEach(function(b){
+    //     if (b.fit){
+    //         fit_cnt += 1;
+    //     }
+    // });
+    // // this means the packer size is too small to fit all squares, so we make it larger and retry
+    // while (fit_cnt < ncomponents){
+    //     fit_cnt = 0;
+    //     fit_scale += 0.1;
+    //     packer = new Packer(size_total*fit_scale, size_total*fit_scale);
+    //     packer.fit(blocks);
+    //     blocks.forEach(function(b){
+    //         if (b.fit){
+    //             fit_cnt += 1;
+    //         }
+    //     });
+    // }
+    // var cnt = 0, center_loc = [0,0];
+    // for (l in components_by_label){
+    //     components_by_label[l].forEach(function(k){
+    //         var block = blocks[cnt];
+    //         while (true){
+    //             if (block.fit) break;
+    //             cnt += 1;
+    //             block = blocks[cnt];
+    //         }
+    //         component_init_pos[k] = [15*block.fit.y+15*block.w/2,15*block.fit.x+15*block.h/2];
+    //         center_loc[0] += component_init_pos[k][0];
+    //         center_loc[1] += component_init_pos[k][1];
+    //         cnt += 1;
+    //     });
+    // }
     center_loc[0] /= ncomponents;
     center_loc[1] /= ncomponents;
     Object.keys(component_init_pos).forEach(function(k){
@@ -910,6 +985,6 @@ function createV4SelectableForceDirectedGraph(svg, graph, document) {
     });
      
     var ret = draw_graph(data,init_nodes,graph,expand,groups,is_initial,null,component_init_pos,selected_components,gDraw,parentWidth,parentHeight);
-    setTimeout(zoomFit, 3000, 1000);
+    setTimeout(zoomFit, Math.min(Math.sqrt(Object.keys(groups).length)*40,3000), 1000);
     return ret;
 };
