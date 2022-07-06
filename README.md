@@ -90,3 +90,26 @@ To run the chest X-ray experiment, all X-ray images and expert labels should be 
 ### Files: 
 * ```train_analyze_imagenet_1k.py``` preprocesses downloaded files and build the Reeb network
 * ```train_analyze_chest_xray.py``` preprocesses downloaded files, train a DenseNet-121 model from scratch, build the Reeb network and find potential labeling errors for images with expert labels
+
+## Interactive web interface for better exploration
+Once we have computed the Reeb net, other than examing the results in traditional figures, we have also created an interactive web interface using D3 library to explore the results in a web browser. To transform the GTDA results into the format compatible with the web interface, the following function needs to be called:
+
+```python
+from GTDA.GTDA_utils import save_to_json
+savepath = "web/"
+save_to_json(GTDA_record, nn_model, savepath)
+```
+This function will save the results to ```web/reeb_net.js```. Currently, this interface doesn't support another filename as ```reeb_net.js``` is hard coded in the code. This is to facilitate running the interface locally. Once the function is called, we can open ```web/index.html``` to explore the results. An example of the interactive figure for the swiss roll dataset is shown below.
+<img src="web/imgs/demo.png"/>
+### Supported operations:
+* use mouse wheel or ```+/-``` buttons to zoom in/out, drag white areas to pan the entire grah, use ```fit``` button to fit to the window
+* double click a Reeb net node to expand or double click a hull to collapse
+* hover over a node to show information
+* drag a node to change the layout
+<img src="web/imgs/drag.gif"/>
+* drag a node while pressing ```shift``` key to pan an entire component
+* filter components by class or by id, click ```apply``` to apply the filters
+* change color scheme
+* highlight training/validation and/or color them by true labels
+* adjust node size
+* export the figure or the coordinates to a file
