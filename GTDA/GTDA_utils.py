@@ -258,6 +258,7 @@ def knn_cuda_batched(features,train_features,k,batch_size,device='cuda'):
 """
 This function builds a KNN graph with 'X', which is num_samples-by-num_embedding_dim, using GPU. 
 It only supports cosine similarity. Consider to reduce batch_size or batch_size_training if GPU memory is not big enough.
+This function assumes X has already been normalized such that the l2 norm of each row equals to 1.
 """
 def knn_cuda_graph(X,knn,batch_size,thd=0,device=None,batch_training=False,batch_size_training=50000):
     ei,ej = [],[]
