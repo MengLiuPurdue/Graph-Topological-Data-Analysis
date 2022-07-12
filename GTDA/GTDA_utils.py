@@ -586,7 +586,7 @@ def remove_img_bg(img):
     new_img = remove(img,session=new_session('u2netp'))
     return new_img
 
-def save_to_json(GTDA_record,nn_model,savepath,filename="reeb_net.js"):
+def save_to_json(GTDA_record,nn_model,savepath,class_names,filename="reeb_net.js"):
     json_object = {}
     nodes = []
     links = []
@@ -612,5 +612,7 @@ def save_to_json(GTDA_record,nn_model,savepath,filename="reeb_net.js"):
     json_object["nodes"] = nodes
     json_object["links"] = links
     json_object = json.dumps(json_object, indent = 4) 
+    class_names = json.dumps(class_names, indent = 4)
     with open(f"{savepath}/{filename}","w") as f:
         f.write(f"net={json_object};")
+        f.write(f"class_names={class_names};")
