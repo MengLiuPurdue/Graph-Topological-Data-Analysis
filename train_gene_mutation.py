@@ -3,7 +3,7 @@ This file creates the gene variants KNN graph and trains a logistic regression m
 gene variants from variants embeddings.
 'mutation_dataset.py' needs to be run first to extract embeddings from a pretrained Enformer model.
 See 'dataset/precomputed/variants' for precomputed graph and lens to reproduce figures from the paper.
-The graphs and lens might be different among different runs due to randomness of model training. 
+Your results might be different from precomputed ones due to randomness of model training as well as hardware difference. 
 """
 #%%
 import pickle

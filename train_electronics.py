@@ -3,7 +3,7 @@ This file creates the Amazon electronics graph from reviews data and trains a 2-
 All products under 'Electronics' from the 2014 version of Amazon reviews data from http://jmcauley.ucsd.edu/data/amazon/index_2014.html 
 needs to be put under 'dataset' folder to run this file.
 See 'dataset/precomputed/electronics' for precomputed graph and lens to reproduce figures from the paper.
-The graphs and lens might be different among different runs due to randomness of model training. 
+Your results might be different from precomputed ones due to randomness of model training as well as hardware difference. 
 """
 #%%
 import pandas as pd

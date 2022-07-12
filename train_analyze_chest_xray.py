@@ -1,9 +1,9 @@
 """
 This file trains a DenseNet-121 model to predict diseases from chest X-ray images and then use GTDA to find 
 which test image labels might be wrong and compare with expert labels.
+We use the CheXNet implementation from 'https://github.com/zoogzog/chexnet', which should be downloaded and put under the same directory of this file.
 This file assumes the chest X-ray images are put under 'dataset/chest_xray/images' and expert labels under 'dataset/chest_xray'.
 Such files can be obtained from 'https://cloud.google.com/healthcare-api/docs/resources/public-datasets/nih-chest'.
-The results might be different among different runs due to randomness of model training. 
 """
 #%%
 import numpy as np

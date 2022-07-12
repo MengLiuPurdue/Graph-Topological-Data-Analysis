@@ -105,11 +105,11 @@ This function will save the results to ```web/reeb_net.js```. Currently, this in
 
 * use mouse wheel or ```+/-``` buttons to zoom in/out, drag white areas to pan the entire grah, use ```fit``` button to fit to the window
 * double click a Reeb net node to expand or double click a hull to collapse
-* hover over a node to show information
+* hover over a node to show information, show/hide legend
 * drag a node to change the layout <img src="web/imgs/drag.gif"/>
 * drag a node while pressing ```shift``` key to pan an entire component
 * filter components by class or by id, click ```apply``` to apply the filters
-* change color scheme
+* change color scheme to estimated errors or true errors
 * highlight training/validation and/or color them by true labels
 * adjust node size
 * export the figure or the coordinates to a file

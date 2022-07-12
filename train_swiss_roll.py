@@ -1,7 +1,7 @@
 """
 This is a self-contained file that creates a synthetic 3-class Swiss Roll dataset and train a 2-layer GCN model to predict node labels. 
 See 'dataset/precomputed/swiss_roll' for precomputed graph and lens to reproduce figures from the paper. 
-The graphs and lens might be different among different runs due to randomness of model training. 
+Your results might be different from precomputed ones due to randomness of model training as well as hardware difference. 
 """
 #%%
 from GTDA.models import GCN

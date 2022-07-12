@@ -2,7 +2,7 @@
 This file retrains the last layer of a pretrained ResNet50 model on 10 easy classes of ImageNet.
 Images need to be downloaded from https://github.com/fastai/imagenette and put under 'dataset/imagenette' folder.
 See 'dataset/precomputed/imagenette' for precomputed graph and lens to reproduce figures from the paper.
-The graphs and lens might be different among different runs due to randomness of model training. 
+Your results might be different from precomputed ones due to randomness of model training as well as hardware difference. 
 """
 #%%
 import glob
