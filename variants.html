@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+    .container {
+        position: relative;
+        width: 1600px;
+        height: 960px;
+        margin: auto;
+        margin-bottom: 12px;
+    }
+    .topright {
+        position: absolute;
+        top: -5px;
+        left: 1600px;
+        font-size: 18px;
+        background-color: white;
+        width: 500px;
+        height: 958px;
+        border: 2px solid black;
+        padding-top: 0px;
+        padding-left: 10px;
+        margin: 5px;
+    }     
+    .legend {
+        position: absolute;
+        top: 0px;
+        left: -400px;
+        width: 400px;
+        height: 960px;
+        margin: 0px;
+    }    
+    .zoom_in {
+       top:935px;
+       left:10px;
+       position: absolute;
+       z-index: 2;
+       width: 25px;
+       height: 20px;
+    }
+    .zoom_out {
+       top:935px;
+       left:40px;
+       position: absolute;
+       z-index: 2;
+       width: 25px;
+       height: 20px;
+    }
+    .fit {
+       top:935px;
+       left:70px;
+       position: absolute;
+       z-index: 2;
+       width: 25px;
+       height: 20px;
+    }
+    .apply_button {
+       font-size: 15px;
+    }
+</style>
+</head>
+<body>
+<div align='center' id="d3_selectable_force_directed_graph" class="container">
+    <svg id="drawing" height=1600 width=960></svg>
+    <div align='left'><svg id="drawing_legend" class="legend"></svg></div>
+    
+    <div align='left' class="topright", id="options">
+        <h2>Instructions</h2>
+        <ul>
+            <li>Use the scroll wheel or "+/-" buttons below to zoom.</li>
+            <li>Use the "fit" button to zoom to fit the window.</li>
+            <li>Double click a Reeb net node to expand.</li>
+            <li>Double click a hull to collapse.</li>
+            <li>Click and hold empty area to pan the entire graph.</li>
+            <li>Click and hold a node while pressing shift key to pan a single component.</li>
+        </ul>
+        <h2>Options</h2>
+        <ul>
+        <li>
+            Zoom in/out: <button id="zoom_in", class="apply_button">+</button>
+            <button id="zoom_out", class="apply_button">-</button>
+            <button id="fit", class="apply_button">fit</button>
+        </li>
+        <li>Select by:
+            <br>class: <select id="selectButton"></select>
+            <br>AND
+            <br>component ids: <input type="text" id="cids" placeholder="type 0 or 0,1,2 etc.">
+            <br><button id="apply" class="apply_button">apply</button>
+        </li>
+        <li>Color scheme: <select id="select_color"></select>
+        </li>
+        <li>Show legend: <input type="checkbox" id="show_legend">
+            <!-- <input type="text" id="cids" placeholder="0 or 0,1,2 etc."> -->
+        </li>
+        <li>Show training and validation: <input type="checkbox" id="show_training">
+            <!-- <input type="text" id="cids" placeholder="0 or 0,1,2 etc."> -->
+        </li>
+        <li>Color training and validation in true labels: <input type="checkbox" id="color_training">
+            <!-- <input type="text" id="cids" placeholder="0 or 0,1,2 etc."> -->
+        </li>
+        <li>
+            Adjust node size:
+            <button id="larger_node_size", class="apply_button">+</button>
+            <button id="smaller_node_size", class="apply_button">-</button>
+        </li>
+        </ul>
+        <p>
+            <button id="save_fig" class="apply_button">save figure</button>
+            <button id="output" class="apply_button">save coordinates</button>
+        </p>
+    </div>
+    <!-- <div align='left' class="topright", id="demo", contenteditable="true">
+        Reeb net node ids: [1,2,3,4,5,6,7,8,9,10,11,12,13,1,2,3,4,5,6,7,8,9,10,11,12,13]
+        <br><br>
+        Graph node ids: [1,2,3,4,5,6,7,8,9,10,11,12,13,1,2,3,4,5,6,7,8,9,10,11,12,13]
+    </div>
+    <div class="legend">
+        Selected nodes info:
+    </div> -->
+</div>
+
+<link rel='stylesheet' href='d3v5-selectable-zoomable-force-directed-graph.css'>
+<script src="https://d3js.org/d3.v5.js"></script>
+<!-- <script src="d3v5-brush-lite.js"></script> -->
+<script src="node-pie.js"></script>
+<script src="d3v5-selectable-force-directed-graph.js"></script>
+<script src='bin-packing/js/packer.growing.js'></script>
+<script src='bin-packing/js/packer.js'></script>
+<script src="https://cdn.rawgit.com/eligrey/canvas-toBlob.js/f1a01896135ab378aa5c0118eadd81da55e698d8/canvas-toBlob.js"></script>
+<script src="https://cdn.rawgit.com/eligrey/FileSaver.js/e9d941381475b5df8b7d7691013401e171014e89/FileSaver.min.js"></script>
+<script src="save_figure.js"></script>
+<script src="variants.js"></script>
+
+
+<script>
+    // var color = d3.scaleOrdinal(d3.schemeCategory10);
+    var svg = d3.select('#d3_selectable_force_directed_graph');
+    var graph = createV4SelectableForceDirectedGraph(svg, net, document);
+    let parentWidth = d3.select('#drawing').node().parentNode.clientWidth;
+    let parentHeight = d3.select('#drawing').node().parentNode.clientHeight;
+    d3.select("#save_fig")
+    .on('click', function(){
+        var svgString = getSVGString(d3.select('#drawing').node());
+        svgString2Image( svgString, 2*parentWidth, 2*parentHeight, 'png', save ); // passes Blob and filesize String to the callback
+        function save( dataBlob, filesize ){
+            saveAs( dataBlob, 'drawing.png' ); // FileSaver.js function
+        }
+    });
+</script>
+
+</body>
+</html>
