@@ -1,0 +1,37 @@
+#d3_selectable_force_directed_graph svg {
+    border: 1px solid;
+    font: 13px sans-serif;
+    text-anchor: end;
+}
+
+#d3_selectable_force_directed_graph .node {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+.node .selected {
+  stroke: black;
+}
+
+.link {
+  stroke: #999;
+}
+
+.hull {
+  fill: lightgreen;
+  stroke: steelblue;
+  stroke-width: 2px;
+  stroke-linejoin: round;
+}
+
+div.tooltip {	
+  position: absolute;			
+  text-align: center;								
+  padding: .5rem;				
+  background: #FFFFFF;
+  color: #313639;	
+  border: 1px solid #313639;		
+  border-radius: 8px;			
+  pointer-events: none;
+  font-size: 1.3rem;	
+}
