@@ -328,6 +328,8 @@ max_merge_iters: Int
 degree_normalize_preprocess: Int, choose among 1, 2, 3
     -- an experimental parameter to normalize the graph in different ways during preprocess and error estimation
     -- default is Dinv@A, set to 2 to use A@Dinv, set to 3 to use np.sqrt(Dinv)@A@np.sqrt(Dinv), where A is adjacency matrix, Dinv is inverse degree matrix
+
+Note: if the original graph is not connected, it's possible that some components cannot pass the splitting or minimum reeb net component threshold and hence not included in the reeb net
 """
 def compute_reeb(GTDA,nn_model,labels_to_eval,smallest_component,overlap,extra_lens=None,
     node_size_thd=5,reeb_component_thd=5,alpha=0.5,nsteps_preprocess=5,nsteps_mixing=10,is_merging=True,
@@ -602,10 +604,18 @@ def save_to_json(GTDA_record,nn_model,savepath,class_names,filename="reeb_net.js
     for i in range(len(gtda.filtered_nodes)):
         for node_id in gtda.final_components_filtered[gtda.filtered_nodes[i]]:
             node_set[int(node_id)].append(int(i))
+    # if the original graph is not connected, it's possible that some components cannot pass the 
+    # splitting or minimum reeb net component threshold and hence not included in the reeb net
+    # which means the size of node_set could be smaller than the original graph size
     for i,v in node_set.items():
-        nodes.append({"id":i, "group":v, "label":int(labels[i]), "prediction":int(pred_labels[i]), "cid":int(node_to_cid[i])})
+        nodes.append({
+            "id":i, "group":v, "label":int(labels[i]), 
+            "prediction":int(pred_labels[i]), "cid":int(node_to_cid[i]),
+            "error_est":gtda.sample_colors_mixing[i],"known_label":bool(1-nn_model.test_mask[i])})
     A_reeb = gtda.A_reeb.tocoo()
     for ei,ej in zip(A_reeb.row,A_reeb.col):
+        if ei not in node_set or ej not in node_set:
+            continue
         if (ei,ej) not in link_set and (ej,ei) not in link_set:
             link_set.add((ei,ej))
             links.append({"source":int(ei),"target":int(ej),"value":1})
