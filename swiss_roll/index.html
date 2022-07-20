@@ -136,7 +136,13 @@
             </ul>
             <br>
             <a class="pure-menu-heading" href="#company">Credits</a>
-            <p>We use<a href="https://d3js.org/">d3.js</a> based on<a href="https://observablehq.com/@rymarchikbot/d3-js-force-layout-click-to-group-bundle-nodes">[1]</a>,<a href="https://bl.ocks.org/pkerpedjiev/f2e6ebb2532dae603de13f0606563f5b">[2]</a>,<a href="https://github.com/jakesgordon/bin-packing">[3]</a>,<a href="https://bl.ocks.org/kgeorgiou/68f864364f277720252d0329408433ae">[4]</a> to visualize the graph and<a href="https://purecss.io/">pure.css</a> for the page layout.</p>
+            <ul class="pure-menu-list">
+                <li>
+                    We use<a href="https://d3js.org/">d3.js</a> based on<a href="https://observablehq.com/@rymarchikbot/d3-js-force-layout-click-to-group-bundle-nodes">[1]</a>,<a href="https://bl.ocks.org/pkerpedjiev/f2e6ebb2532dae603de13f0606563f5b">[2]</a>,
+                <a href="https://github.com/jakesgordon/bin-packing">[3]</a>,<a href="https://bl.ocks.org/kgeorgiou/68f864364f277720252d0329408433ae">[4]</a>,<a href="http://bl.ocks.org/rokotyan/0556f8facbaf344507cdc45dc3622177">[5]</a> to visualize and save the graph and<a href="https://purecss.io/">pure.css</a> for the page layout.
+                </li>
+            </ul>
+            
         </div>
     </div>
 
@@ -169,12 +175,12 @@
     // var color = d3.scaleOrdinal(d3.schemeCategory10);
     // var svg = d3.select('#d3_selectable_force_directed_graph');
     var graph = createV4SelectableForceDirectedGraph(net, document);
-    let parentWidth = d3.select('#drawing').node().parentNode.clientWidth;
-    let parentHeight = d3.select('#drawing').node().parentNode.clientHeight;
+    let parentWidth = 3000;
+    let parentHeight = 1800;
     d3.select("#save_fig")
     .on('click', function(){
         var svgString = getSVGString(d3.select('#drawing').node());
-        svgString2Image( svgString, 2*parentWidth, 2*parentHeight, 'png', save ); // passes Blob and filesize String to the callback
+        svgString2Image( svgString, parentWidth, parentHeight, 'png', save ); // passes Blob and filesize String to the callback
         function save( dataBlob, filesize ){
             saveAs( dataBlob, 'drawing.png' ); // FileSaver.js function
         }
