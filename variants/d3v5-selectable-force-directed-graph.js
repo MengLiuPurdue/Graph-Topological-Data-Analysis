@@ -693,15 +693,17 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
     return graph;
 }
 
-function createV4SelectableForceDirectedGraph(svg, graph, document) {
+function createV4SelectableForceDirectedGraph(graph, document) {
     // map each class id to its name
     for (var i in class_names){
         name_to_id[class_names[i]] = i;
     }
     // find the number of classes
     graph.nodes.forEach(function(d){nclass = Math.max(nclass,parseInt(d.label)+1);});
-    let parentWidth = d3.select('#drawing').node().parentNode.clientWidth;
-    let parentHeight = d3.select('#drawing').node().parentNode.clientHeight;
+    // let parentWidth = d3.select('#drawing').node().parentNode.clientWidth;
+    // let parentHeight = d3.select('#drawing').node().parentNode.clientHeight;
+    var parentWidth = 100;
+    var parentHeight = 60;
     const groups = {}, expand = {}, init_nodes = {}, counter = {}, component_init_pos = {}, selected_components = {}, components_by_label = {}, components_size={};
     // save a copy of the original data
     const data = JSON.parse(JSON.stringify(graph));
@@ -890,14 +892,14 @@ function createV4SelectableForceDirectedGraph(svg, graph, document) {
     const is_initial = true;
 
     var svg = d3.select('#drawing')
-    .attr('width', parentWidth)
-    .attr('height', parentHeight);
+    // .attr('width', parentWidth)
+    // .attr('height', parentHeight);
 
     // remove any previous graphs
     // svg.selectAll('.g-main').remove();
 
     var gMain = svg.append('g')
-    .classed('g-main', true);
+    // .classed('g-main', true);
 
     var rect = gMain.append('rect')
     .attr('width', parentWidth)
@@ -925,9 +927,11 @@ function createV4SelectableForceDirectedGraph(svg, graph, document) {
     
     function zoomFit(transitionDuration) {
         var bounds = gDraw.node().getBBox();
-        var parent = gDraw.node().parentElement;
-        var fullWidth  = parent.clientWidth  || parent.parentNode.clientWidth,
-            fullHeight = parent.clientHeight || parent.parentNode.clientHeight;
+        // var parent = gDraw.node().parentElement;
+        // console.log(svg);
+        // var fullWidth  = parent.clientWidth  || parent.parentNode.clientWidth,
+        //     fullHeight = parent.clientHeight || parent.parentNode.clientHeight;
+        var fullWidth = 100, fullHeight = 60;
         var width  = bounds.width,
             height = bounds.height;
         var midX = bounds.x + width / 2,
@@ -950,9 +954,16 @@ function createV4SelectableForceDirectedGraph(svg, graph, document) {
     }
 
     function draw_legend(legend){
+        var left = 5, top = 5;
         for (var i=0; i<nclass; i++){
-            legend.append("circle").attr("cx",50).attr("cy",50+45*i).attr("r", 20).style("fill", d3.interpolateRainbow(i/nclass));
-            legend.append("text").attr("x", 350).attr("y", 50+45*i).text(class_names[i]).style("font-size", "15px").attr("alignment-baseline","right");
+            legend.append("circle").attr("cx",left).attr("cy",top).attr("r", 2).style("fill", d3.interpolateRainbow(i/nclass));
+            legend.append("text").attr("x", left+3).attr("y", top).text(class_names[i]).style("font-size", "2px").style("text-anchor","start").style("dominant-baseline","middle");
+            if (left+25>100){
+                left = 5;
+                top += 5;
+            }else{
+                left += 25;
+            }
         }
     }
 
@@ -986,5 +997,8 @@ function createV4SelectableForceDirectedGraph(svg, graph, document) {
      
     var ret = draw_graph(data,init_nodes,graph,expand,groups,is_initial,null,component_init_pos,selected_components,gDraw,parentWidth,parentHeight);
     setTimeout(zoomFit, Math.min(Math.sqrt(Object.keys(groups).length)*40,3000), 1000);
+    // window.addEventListener("resize", function(event){
+    //     createV4SelectableForceDirectedGraph(graph, document);
+    // });
     return ret;
 };
