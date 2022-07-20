@@ -113,3 +113,6 @@ This function will save the results to ```web/reeb_net.js```. Currently, this in
 * highlight training/validation and/or color them by true labels
 * adjust node size
 * export the figure or the coordinates to a file
+
+### Demos:
+<https://mengliupurdue.github.io/Graph-Topological-Data-Analysis/>
