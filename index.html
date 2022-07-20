@@ -1,9 +1,40 @@
-<h1>List of demos</h1>
-<h2>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" "http://www.w3.org/TR/MathML2/dtd/xhtml-math11-f.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>GTDA and Reeb Net Analysis - Meng Liu, Tamal Dey, David Gleich</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@2.1.0/build/pure-min.css" integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@2.1.0/build/grids-responsive-min.css" />
+
+    <link rel="stylesheet" href="/css/pure/pure-min.css">
+    <link rel="stylesheet" href="/css/pure/grids-responsive-min.css">
+</head>
+<body> 
+<div class="content-wrapper">   
+<div class="content">
+    <h2> What is GTDA and Reeb net analysis? </h2>
+    <p><a href="https://en.wikipedia.org/wiki/Topological_data_analysis">Topological Data Analysis (TDA)</a> applies ideas from topology to study real-world data. GTDA or Graph-based TDA, is a related concept we derived that utilizes graph structure instead of point cloud structure for TDA.</p>
+    
+    <h2>What does this have to do with complex predictive models? </h2>
+    <p>We use GTDA and the Reeb network structure it produces in order to analyze the results of neural network-like methods. Given a set of data points and their relationships as a graph (or created via a nearest neighbor computation) and a predictive model that outputs the probability that each datapoint belongs to a class. (This can typically be extracted from the last layer of a deep learning model.) Then the Reeb network analyzes the interaction between the structure of the data and the structure of the predictions.
+ </p>
+ <p>This makes it easy to flag problematic points.</p>
+    
+    <h2> Where are the demos? </h2>
+    <p>In order to appreciate these demos, you may want to familiarize yourself with a quick overview of the idea in our manuscript. We are working on more self-contained introductions to the idea.</p>
+    
 <ul>
-    <li><a href="swiss_roll/index.html">Demo on Swiss Roll</a></li>
+    <li><a href="swiss_roll/index.html">Demostration on Swiss Roll using a Graph Convolution Network (GCN) </a></li>
     <li><a href="amazon/index.html">Demo on Amazon product categories with GCN</a></li>
     <li><a href="imagenette/index.html">Demo on Imagenette</a></li>
     <li><a href="variants/index.html">Demo on BRCA1 gene variants</a></li>
 </ul>
-</h2>
+</div>
+</div>
+</body>
+</html>
