@@ -98,6 +98,7 @@
                 <li>Click and hold empty area to pan the entire graph.</li>
                 <li>Click and hold a node while pressing shift key to pan a single component.</li>
             </ul>
+            <br>
             <a class="pure-menu-heading" href="#company">Options</a>
 
             <ul class="pure-menu-list">
@@ -133,10 +134,9 @@
                     <button id="output" class="apply_button">save coordinates</button>
                 </li>
             </ul>
+            <br>
             <a class="pure-menu-heading" href="#company">Credits</a>
-            <ul class="pure-menu-list">
-                <li>d3.js</li>
-            </ul>
+            <p>We use<a href="https://d3js.org/">d3.js</a> based on<a href="https://observablehq.com/@rymarchikbot/d3-js-force-layout-click-to-group-bundle-nodes">[1]</a>,<a href="https://bl.ocks.org/pkerpedjiev/f2e6ebb2532dae603de13f0606563f5b">[2]</a>,<a href="https://github.com/jakesgordon/bin-packing">[3]</a>,<a href="https://bl.ocks.org/kgeorgiou/68f864364f277720252d0329408433ae">[4]</a> to visualize the graph and<a href="https://purecss.io/">pure.css</a> for the page layout.</p>
         </div>
     </div>
 
@@ -153,16 +153,15 @@
         </div> -->
     </div>
 </div>
-<link rel='stylesheet' href='d3v5-selectable-zoomable-force-directed-graph.css'>
+<link rel='stylesheet' href='../d3-graph.css'>
 <script src="https://d3js.org/d3.v5.js"></script>
-<!-- <script src="d3v5-brush-lite.js"></script> -->
-<script src="node-pie.js"></script>
-<script src="d3v5-selectable-force-directed-graph.js"></script>
-<script src='bin-packing/js/packer.growing.js'></script>
-<script src='bin-packing/js/packer.js'></script>
+<script src="../node-pie.js"></script>
+<script src="../d3-graph.js"></script>
+<script src='../bin-packing/js/packer.growing.js'></script>
+<script src='../bin-packing/js/packer.js'></script>
 <script src="https://cdn.rawgit.com/eligrey/canvas-toBlob.js/f1a01896135ab378aa5c0118eadd81da55e698d8/canvas-toBlob.js"></script>
 <script src="https://cdn.rawgit.com/eligrey/FileSaver.js/e9d941381475b5df8b7d7691013401e171014e89/FileSaver.min.js"></script>
-<script src="save_figure.js"></script>
+<script src="../save_figure.js"></script>
 <script src="reeb_net.js"></script>
 
 
