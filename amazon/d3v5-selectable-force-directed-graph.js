@@ -8,7 +8,7 @@ var name_to_id = {}, sort_block = false;
 var node, link, hull;
 
 var curve = d3.line()
-    .curve(d3.curveCardinal.tension(0.85));
+    .curve(d3.curveLinearClosed);
 function drawCluster(d) {
     return curve(d.path);
 }      
@@ -891,7 +891,7 @@ function createV4SelectableForceDirectedGraph(graph, document) {
     // console.log(group_meta);
     const is_initial = true;
 
-    var svg = d3.select('#drawing')
+    var svg = d3.select('#drawing').style("border","0px solid black");
     // .attr('width', parentWidth)
     // .attr('height', parentHeight);
 
