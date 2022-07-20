@@ -612,6 +612,12 @@ def save_to_json(GTDA_record,nn_model,savepath,class_names,filename="reeb_net.js
             "id":i, "group":v, "label":int(labels[i]), 
             "prediction":int(pred_labels[i]), "cid":int(node_to_cid[i]),
             "error_est":gtda.sample_colors_mixing[i],"known_label":bool(1-nn_model.test_mask[i])})
+    missing_nodes = np.setdiff1d(range(len(labels)),list(node_set.keys()))
+    for i in missing_nodes:
+        nodes.append({
+            "id":int(i), "group":[], "label":int(labels[i]), 
+            "prediction":int(pred_labels[i]), "cid":int(node_to_cid[i]),
+            "error_est":gtda.sample_colors_mixing[i],"known_label":bool(1-nn_model.test_mask[i])})
     A_reeb = gtda.A_reeb.tocoo()
     for ei,ej in zip(A_reeb.row,A_reeb.col):
         if ei not in node_set or ej not in node_set:
