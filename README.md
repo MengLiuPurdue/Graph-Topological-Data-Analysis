@@ -1,7 +1,7 @@
 # Graph-Topological-Data-Analysis
 This repo contains code for "Topological structure of complex predictions". 
 ### packages requirement
-* pytorch
+* pytorch (with GPU support)
 * torchvision
 * scikit-learn
 * numpy
