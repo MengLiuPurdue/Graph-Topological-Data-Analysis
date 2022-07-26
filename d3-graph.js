@@ -695,6 +695,7 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
     });
 
     d3.select('#drawing').on("touchstart",function(e){
+        console.log("touch");
         const d = d3.pointers(e, this);
         var t2 = e.timeStamp;
         var t1 = d.data('lastTouch') || t2;
