@@ -261,7 +261,7 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
             var dt = t2 - t1;
             fingers = e.originalEvent.touches.length;
             $(this).data('lastTouch', t2);
-            console.log(t1,t2,dt);
+            console.log(t1,t2,dt,fingers);            
             if (!dt || dt > 500 || fingers > 1) return; // not double-tap
             e.preventDefault();
             if (expand[d.group[0]]){
@@ -322,6 +322,7 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
             var dt = t2 - t1;
             fingers = e.originalEvent.touches.length;
             $(this).data('lastTouch', t2);
+            console.log(t1,t2,dt,fingers);
             if (!dt || dt > 500 || fingers > 1) return; // not double-tap
             e.preventDefault();
             tooltip.transition()
