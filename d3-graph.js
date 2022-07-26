@@ -255,24 +255,6 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
                 if (selectedGroup != "class") update_color_scheme(selectedGroup);
                 if (show_training != false) update_training_stroke(show_training);
             }
-        })
-        .on("touchstart",function(e){
-            const d = d3.pointers(e, this);
-            var t2 = e.timeStamp;
-            var t1 = d.data('lastTouch') || t2;
-            var dt = t2 - t1;
-            var fingers = e.originalEvent.touches.length;
-            d.data('lastTouch', t2);
-            console.log(t1,t2,dt,fingers,d);            
-            if (!dt || dt > 500 || fingers > 1) return; // not double-tap
-            e.preventDefault();
-            if (expand[d.group[0]]){
-                expand[d.group[0]] = !expand[d.group[0]];
-                simulation.stop();
-                draw_graph(data, init_nodes, graph, expand, groups, is_initial, d.id, component_init_pos, selected_components, gDraw,parentWidth,parentHeight);
-                if (selectedGroup != "class") update_color_scheme(selectedGroup);
-                if (show_training != false) update_training_stroke(show_training);
-            }
         });
 
     link = gDraw.append("g")
@@ -306,28 +288,6 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
         //     console.log(d);
         // })
         .on("dblclick", function(d){
-            tooltip.transition()
-                .duration(50)
-                .style("opacity", 0);
-            // console.log(d);
-            if (expand[d.group[0]] == false){
-                expand[d.group[0]] = !expand[d.group[0]];
-                simulation.stop();
-                draw_graph(data, init_nodes, graph, expand, groups, is_initial, d.id, component_init_pos, selected_components, gDraw,parentWidth,parentHeight);
-                if (selectedGroup != "class") update_color_scheme(selectedGroup);
-                if (show_training != false) update_training_stroke(show_training);
-            }
-        })
-        .on("touchstart",function(e){
-            const d = d3.pointers(e, this);
-            var t2 = e.timeStamp;
-            var t1 = d.data('lastTouch') || t2;
-            var dt = t2 - t1;
-            var fingers = e.originalEvent.touches.length;
-            d.data('lastTouch', t2);
-            console.log(t1,t2,dt,fingers,d); 
-            if (!dt || dt > 500 || fingers > 1) return; // not double-tap
-            e.preventDefault();
             tooltip.transition()
                 .duration(50)
                 .style("opacity", 0);
@@ -732,6 +692,39 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
         });
         var blob = new Blob([JSON.stringify({"coords":coords})], {type: "text/plain;charset=utf-8"});  
         saveAs(blob, "coordinates.json");
+    });
+
+    d3.select('#drawing').on("touchstart",function(e){
+        const d = d3.pointers(e, this);
+        var t2 = e.timeStamp;
+        var t1 = d.data('lastTouch') || t2;
+        var dt = t2 - t1;
+        var fingers = e.originalEvent.touches.length;
+        d.data('lastTouch', t2);
+        console.log(t1,t2,dt,fingers,d);            
+        if (!dt || dt > 500 || fingers > 1) return; // not double-tap
+        e.preventDefault();
+        if (d.node_type == "component"){
+            tooltip.transition()
+                .duration(50)
+                .style("opacity", 0);
+            // console.log(d);
+            if (expand[d.group[0]] == false){
+                expand[d.group[0]] = !expand[d.group[0]];
+                simulation.stop();
+                draw_graph(data, init_nodes, graph, expand, groups, is_initial, d.id, component_init_pos, selected_components, gDraw,parentWidth,parentHeight);
+                if (selectedGroup != "class") update_color_scheme(selectedGroup);
+                if (show_training != false) update_training_stroke(show_training);
+            }
+        }else{
+            if (expand[d.group[0]]){
+                expand[d.group[0]] = !expand[d.group[0]];
+                simulation.stop();
+                draw_graph(data, init_nodes, graph, expand, groups, is_initial, d.id, component_init_pos, selected_components, gDraw,parentWidth,parentHeight);
+                if (selectedGroup != "class") update_color_scheme(selectedGroup);
+                if (show_training != false) update_training_stroke(show_training);
+            }
+        };
     });
 
     return graph;
