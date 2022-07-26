@@ -255,13 +255,14 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
                 if (show_training != false) update_training_stroke(show_training);
             }
         })
-        .on("touchstart",function(d){
+        .on("touchstart",function(e){
+            const d = d3.pointers(e, this);
             var t2 = e.timeStamp;
-            var t1 = $(this).data('lastTouch') || t2;
+            var t1 = d.data('lastTouch') || t2;
             var dt = t2 - t1;
             var fingers = e.originalEvent.touches.length;
-            $(this).data('lastTouch', t2);
-            console.log(t1,t2,dt,fingers);            
+            d.data('lastTouch', t2);
+            console.log(t1,t2,dt,fingers,d);            
             if (!dt || dt > 500 || fingers > 1) return; // not double-tap
             e.preventDefault();
             if (expand[d.group[0]]){
@@ -316,13 +317,14 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
                 if (show_training != false) update_training_stroke(show_training);
             }
         })
-        .on("touchstart",function(d){
+        .on("touchstart",function(e){
+            const d = d3.pointers(e, this);
             var t2 = e.timeStamp;
-            var t1 = $(this).data('lastTouch') || t2;
+            var t1 = d.data('lastTouch') || t2;
             var dt = t2 - t1;
             var fingers = e.originalEvent.touches.length;
-            $(this).data('lastTouch', t2);
-            console.log(t1,t2,dt,fingers);
+            d.data('lastTouch', t2);
+            console.log(t1,t2,dt,fingers,d); 
             if (!dt || dt > 500 || fingers > 1) return; // not double-tap
             e.preventDefault();
             tooltip.transition()
