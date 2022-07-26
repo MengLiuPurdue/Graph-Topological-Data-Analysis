@@ -315,6 +315,9 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
                 num += "<br>Prediction: "+class_names[d.prediction];
                 num += "<br>Truth: "+class_names[d.label];
                 num += "<br>Component id: "+d.cid.toString();
+                if (window.location.pathname.includes('imagenette')){
+                    num += "<br><img src='../all_imgs/"+d.id.toString()+".png'>";
+                }
             }else{
                 num = "Reeb node id: "+d.group[0].toString();
                 num += "<br>Component id: "+d.cid.toString();
