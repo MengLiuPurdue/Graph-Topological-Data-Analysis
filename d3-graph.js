@@ -180,6 +180,7 @@ function update_network(data, init_nodes, graph, expand, groups, is_initial, dbl
     // console.log(links);
     // console.log(nodes);
     // console.log(hulls);
+    console.log("updated");
     return {"nodes":nodes, "links":links, "hulls":create_hulls(groups,expand,offset)};
 }
 
