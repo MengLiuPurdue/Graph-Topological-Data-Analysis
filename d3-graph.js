@@ -254,6 +254,22 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
                 if (selectedGroup != "class") update_color_scheme(selectedGroup);
                 if (show_training != false) update_training_stroke(show_training);
             }
+        })
+        .on("touchstart",function(d){
+            var t2 = e.timeStamp;
+            var t1 = $(this).data('lastTouch') || t2;
+            var dt = t2 - t1;
+            fingers = e.originalEvent.touches.length;
+            $(this).data('lastTouch', t2);
+            if (!dt || dt > 500 || fingers > 1) return; // not double-tap
+            e.preventDefault();
+            if (expand[d.group[0]]){
+                expand[d.group[0]] = !expand[d.group[0]];
+                simulation.stop();
+                draw_graph(data, init_nodes, graph, expand, groups, is_initial, d.id, component_init_pos, selected_components, gDraw,parentWidth,parentHeight);
+                if (selectedGroup != "class") update_color_scheme(selectedGroup);
+                if (show_training != false) update_training_stroke(show_training);
+            }
         });
 
     link = gDraw.append("g")
@@ -287,6 +303,26 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
         //     console.log(d);
         // })
         .on("dblclick", function(d){
+            tooltip.transition()
+                .duration(50)
+                .style("opacity", 0);
+            // console.log(d);
+            if (expand[d.group[0]] == false){
+                expand[d.group[0]] = !expand[d.group[0]];
+                simulation.stop();
+                draw_graph(data, init_nodes, graph, expand, groups, is_initial, d.id, component_init_pos, selected_components, gDraw,parentWidth,parentHeight);
+                if (selectedGroup != "class") update_color_scheme(selectedGroup);
+                if (show_training != false) update_training_stroke(show_training);
+            }
+        })
+        .on("touchstart",function(d){
+            var t2 = e.timeStamp;
+            var t1 = $(this).data('lastTouch') || t2;
+            var dt = t2 - t1;
+            fingers = e.originalEvent.touches.length;
+            $(this).data('lastTouch', t2);
+            if (!dt || dt > 500 || fingers > 1) return; // not double-tap
+            e.preventDefault();
             tooltip.transition()
                 .duration(50)
                 .style("opacity", 0);
