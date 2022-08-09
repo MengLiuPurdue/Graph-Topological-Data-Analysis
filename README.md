@@ -1,5 +1,5 @@
 # Graph-Topological-Data-Analysis
-This repo contains code for "Topological structure of complex predictions". 
+This repo contains code for [Topological structure of complex predictions](https://arxiv.org/abs/2207.14358). 
 ### packages requirement
 * pytorch (with cuda)
 * torchvision
