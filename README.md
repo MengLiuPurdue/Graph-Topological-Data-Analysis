@@ -110,8 +110,8 @@ This function will save the results to ```web/reeb_net.js```. Currently, this in
 ### Demos:
 <https://mengliupurdue.github.io/Graph-Topological-Data-Analysis/> 
 
-<img src="web/imgs/open.gif" width="600"/>
-
+<!--<img src="web/imgs/open.gif" width="600"/>
+-->
 ### Supported operations:
 
 * Hover over a node to get more information, show or hide legend
