@@ -124,13 +124,13 @@ This function will save the results to ```web/reeb_net.js```. Currently, this in
 
 * Drag while pressing SHIFT to pan components, use buttons to change node size
 
-<img src="web/imgs/pan_components.gif" width="400"/> <img src="web/imgs/node_size.gif" width="400"/>
+<img src="web/imgs/pan_components.gif" width="400"/> 
 
 * Check estimated errors or true errors, filter components by class or id
 
-<img src="web/imgs/colors.gif" width="400"/> <img src="web/imgs/filter_class.gif" width="400"/>
+<img src="web/imgs/filter_class.gif" width="400"/>
 
 * Expand to samples or collapse to Reeb net nodes, understand estimated errors by highlighting training/validation
 
-<img src="web/imgs/expand_collapse.gif" width="400"/> <img src="web/imgs/understand_errors.gif" width="400"/>
+<img src="web/imgs/understand_errors.gif" width="400"/>
 
