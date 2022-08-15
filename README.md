@@ -13,6 +13,12 @@ This repo contains code for [Topological structure of complex predictions](https
 * seaborn
 * rembg
 
+### install using conda
+The easiest way to setup the environment required by GTDA is to use the included ```GTDA.yml``` file. Run this file with the following command:
+
+```conda env create --file GTDA.yml```
+
+which will create a virtual environment under the current working directory.
 ### create a Reeb network
 
 ```python
@@ -99,20 +105,32 @@ from GTDA.GTDA_utils import save_to_json
 savepath = "web/"
 save_to_json(GTDA_record, nn_model, savepath)
 ```
-This function will save the results to ```web/reeb_net.js```. Currently, this interface doesn't support another filename as ```reeb_net.js``` is hard coded in the code. This is to facilitate running the interface locally. Once the function is called, we can open ```web/index.html``` to explore the results. An example of the interactive figure for the swiss roll dataset is shown below.
-<img src="web/imgs/demo.png"/>
-### Supported operations:
-
-* use mouse wheel or ```+/-``` buttons to zoom in/out, drag white areas to pan the entire grah, use ```fit``` button to fit to the window
-* double click a Reeb net node to expand or double click a hull to collapse
-* hover over a node to show information, show/hide legend
-* drag a node to change the layout <img src="web/imgs/drag.gif"/>
-* drag a node while pressing ```shift``` key to pan an entire component
-* filter components by class or by id, click ```apply``` to apply the filters
-* change color scheme to estimated errors or true errors
-* highlight training/validation and/or color them by true labels
-* adjust node size
-* export the figure or the coordinates to a file
+This function will save the results to ```web/reeb_net.js```. Currently, this interface doesn't support another filename as ```reeb_net.js``` is hard coded in the code. This is to facilitate running the interface locally. Once the function is called, we can open ```web/index.html``` to explore the results. 
 
 ### Demos:
-<https://mengliupurdue.github.io/Graph-Topological-Data-Analysis/>
+<https://mengliupurdue.github.io/Graph-Topological-Data-Analysis/> 
+
+<img src="web/imgs/open.gif" width="600"/>
+
+### Supported operations:
+
+* Hover over a node to get more information, show or hide legend
+
+<!--<img src="web/imgs/hover.gif" width="400"/> <img src="web/imgs/legend.gif" width="400"/>
+-->
+* Use mouse wheel or buttons to zoom, move and fit to window, click and hold a node to drag to tweak layout
+
+<img src="web/imgs/zoom_pan_fit.gif" width="400"/> <img src="web/imgs/drag.gif" width="400"/>
+
+* Drag while pressing SHIFT to pan components, use buttons to change node size
+
+<img src="web/imgs/pan_components.gif" width="400"/> <img src="web/imgs/node_size.gif" width="400"/>
+
+* Check estimated errors or true errors, filter components by class or id
+
+<img src="web/imgs/colors.gif" width="400"/> <img src="web/imgs/filter_class.gif" width="400"/>
+
+* Expand to samples or collapse to Reeb net nodes, understand estimated errors by highlighting training/validation
+
+<img src="web/imgs/expand_collapse.gif" width="400"/> <img src="web/imgs/understand_errors.gif" width="400"/>
+
