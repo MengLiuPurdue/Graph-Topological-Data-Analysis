@@ -8,7 +8,7 @@ var name_to_id = {}, sort_block = false;
 var node, link, hull;
 
 var curve = d3.line()
-    .curve(d3.curveCardinal.tension(0.85));
+    .curve(d3.curveLinearClosed);
 function drawCluster(d) {
     return curve(d.path);
 }      
@@ -180,6 +180,7 @@ function update_network(data, init_nodes, graph, expand, groups, is_initial, dbl
     // console.log(links);
     // console.log(nodes);
     // console.log(hulls);
+    console.log("updated");
     return {"nodes":nodes, "links":links, "hulls":create_hulls(groups,expand,offset)};
 }
 
@@ -315,6 +316,9 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
                 num += "<br>Prediction: "+class_names[d.prediction];
                 num += "<br>Truth: "+class_names[d.label];
                 num += "<br>Component id: "+d.cid.toString();
+                if (window.location.pathname.includes('imagenette')){
+                    num += "<br><img src='../all_imgs/"+d.id.toString()+".png'>";
+                }
             }else{
                 num = "Reeb node id: "+d.group[0].toString();
                 num += "<br>Component id: "+d.cid.toString();
@@ -690,18 +694,54 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
         saveAs(blob, "coordinates.json");
     });
 
+    d3.select('#drawing').on("touchstart",function(e){
+        console.log("touch");
+        const d = d3.pointers(e, this);
+        var t2 = e.timeStamp;
+        var t1 = d.data('lastTouch') || t2;
+        var dt = t2 - t1;
+        var fingers = e.originalEvent.touches.length;
+        d.data('lastTouch', t2);
+        console.log(t1,t2,dt,fingers,d);            
+        if (!dt || dt > 500 || fingers > 1) return; // not double-tap
+        e.preventDefault();
+        if (d.node_type == "component"){
+            tooltip.transition()
+                .duration(50)
+                .style("opacity", 0);
+            // console.log(d);
+            if (expand[d.group[0]] == false){
+                expand[d.group[0]] = !expand[d.group[0]];
+                simulation.stop();
+                draw_graph(data, init_nodes, graph, expand, groups, is_initial, d.id, component_init_pos, selected_components, gDraw,parentWidth,parentHeight);
+                if (selectedGroup != "class") update_color_scheme(selectedGroup);
+                if (show_training != false) update_training_stroke(show_training);
+            }
+        }else{
+            if (expand[d.group[0]]){
+                expand[d.group[0]] = !expand[d.group[0]];
+                simulation.stop();
+                draw_graph(data, init_nodes, graph, expand, groups, is_initial, d.id, component_init_pos, selected_components, gDraw,parentWidth,parentHeight);
+                if (selectedGroup != "class") update_color_scheme(selectedGroup);
+                if (show_training != false) update_training_stroke(show_training);
+            }
+        };
+    });
+
     return graph;
 }
 
-function createV4SelectableForceDirectedGraph(svg, graph, document) {
+function createV4SelectableForceDirectedGraph(graph, document) {
     // map each class id to its name
     for (var i in class_names){
         name_to_id[class_names[i]] = i;
     }
     // find the number of classes
     graph.nodes.forEach(function(d){nclass = Math.max(nclass,parseInt(d.label)+1);});
-    let parentWidth = d3.select('#drawing').node().parentNode.clientWidth;
-    let parentHeight = d3.select('#drawing').node().parentNode.clientHeight;
+    // let parentWidth = d3.select('#drawing').node().parentNode.clientWidth;
+    // let parentHeight = d3.select('#drawing').node().parentNode.clientHeight;
+    var parentWidth = 100;
+    var parentHeight = 60;
     const groups = {}, expand = {}, init_nodes = {}, counter = {}, component_init_pos = {}, selected_components = {}, components_by_label = {}, components_size={};
     // save a copy of the original data
     const data = JSON.parse(JSON.stringify(graph));
@@ -889,15 +929,15 @@ function createV4SelectableForceDirectedGraph(svg, graph, document) {
     // console.log(group_meta);
     const is_initial = true;
 
-    var svg = d3.select('#drawing')
-    .attr('width', parentWidth)
-    .attr('height', parentHeight);
+    var svg = d3.select('#drawing').style("border","0px solid black");
+    // .attr('width', parentWidth)
+    // .attr('height', parentHeight);
 
     // remove any previous graphs
     // svg.selectAll('.g-main').remove();
 
     var gMain = svg.append('g')
-    .classed('g-main', true);
+    // .classed('g-main', true);
 
     var rect = gMain.append('rect')
     .attr('width', parentWidth)
@@ -925,9 +965,11 @@ function createV4SelectableForceDirectedGraph(svg, graph, document) {
     
     function zoomFit(transitionDuration) {
         var bounds = gDraw.node().getBBox();
-        var parent = gDraw.node().parentElement;
-        var fullWidth  = parent.clientWidth  || parent.parentNode.clientWidth,
-            fullHeight = parent.clientHeight || parent.parentNode.clientHeight;
+        // var parent = gDraw.node().parentElement;
+        // console.log(svg);
+        // var fullWidth  = parent.clientWidth  || parent.parentNode.clientWidth,
+        //     fullHeight = parent.clientHeight || parent.parentNode.clientHeight;
+        var fullWidth = 100, fullHeight = 60;
         var width  = bounds.width,
             height = bounds.height;
         var midX = bounds.x + width / 2,
@@ -950,9 +992,16 @@ function createV4SelectableForceDirectedGraph(svg, graph, document) {
     }
 
     function draw_legend(legend){
+        var left = 5, top = 5;
         for (var i=0; i<nclass; i++){
-            legend.append("circle").attr("cx",50).attr("cy",50+45*i).attr("r", 20).style("fill", d3.interpolateRainbow(i/nclass));
-            legend.append("text").attr("x", 350).attr("y", 50+45*i).text(class_names[i]).style("font-size", "15px").attr("alignment-baseline","right");
+            legend.append("circle").attr("cx",left).attr("cy",top).attr("r", 2).style("fill", d3.interpolateRainbow(i/nclass));
+            legend.append("text").attr("x", left+3).attr("y", top).text(class_names[i]).style("font-size", "2px").style("text-anchor","start").style("dominant-baseline","middle");
+            if (left+25>100){
+                left = 5;
+                top += 5;
+            }else{
+                left += 25;
+            }
         }
     }
 
@@ -986,5 +1035,8 @@ function createV4SelectableForceDirectedGraph(svg, graph, document) {
      
     var ret = draw_graph(data,init_nodes,graph,expand,groups,is_initial,null,component_init_pos,selected_components,gDraw,parentWidth,parentHeight);
     setTimeout(zoomFit, Math.min(Math.sqrt(Object.keys(groups).length)*40,3000), 1000);
+    // window.addEventListener("resize", function(event){
+    //     createV4SelectableForceDirectedGraph(graph, document);
+    // });
     return ret;
 };

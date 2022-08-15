@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@2.1.0/build/pure-min.css" integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH" crossorigin="anonymous">
+<link rel="stylesheet" href="side-menu.css">
 <meta charset="utf-8" />
 <style>
     .container {
+        /* position: relative; */
+        /* width: 1600px;
+        height: 960px; */
+        /* position: fixed; */
+        /* left: 100px;
+        right: 1000px;
+        top: 0px;
+        bottom: 1000px;
+        margin: auto;   
+        margin-bottom: 12px; */
+        display: inline-block;
         position: relative;
-        width: 1600px;
-        height: 960px;
-        margin: auto;
-        margin-bottom: 12px;
+        width: 80%;
+        padding-left: 10%;
+        padding-bottom: 0%; /* aspect ratio */
+        vertical-align: top;
+        /* horizontal-align: center; */
+        overflow: hidden;
     }
     .topright {
         position: absolute;
@@ -24,12 +39,7 @@
         margin: 5px;
     }     
     .legend {
-        position: absolute;
-        top: 0px;
-        left: -400px;
-        width: 400px;
-        height: 960px;
-        margin: 0px;
+        position: relative;
     }    
     .zoom_in {
        top:935px;
@@ -58,73 +68,101 @@
     .apply_button {
        font-size: 15px;
     }
+    ul {
+        list-style-type: none;
+        padding: 0;
+        border: 0px solid #ddd;
+    }
+
+    ul li {
+        padding: 8px 16px;
+    }
 </style>
 </head>
 <body>
-<div align='center' id="d3_selectable_force_directed_graph" class="container">
-    <svg id="drawing" height=1600 width=960></svg>
-    <div align='left'><svg id="drawing_legend" class="legend"></svg></div>
-    
-    <div align='left' class="topright", id="options">
-        <h2>Instructions</h2>
-        <ul>
-            <li>Use the scroll wheel or "+/-" buttons below to zoom.</li>
-            <li>Use the "fit" button to zoom to fit the window.</li>
-            <li>Double click a Reeb net node to expand.</li>
-            <li>Double click a hull to collapse.</li>
-            <li>Click and hold empty area to pan the entire graph.</li>
-            <li>Click and hold a node while pressing shift key to pan a single component.</li>
-        </ul>
-        <h2>Options</h2>
-        <ul>
-        <li>
-            Zoom in/out: <button id="zoom_in", class="apply_button">+</button>
-            <button id="zoom_out", class="apply_button">-</button>
-            <button id="fit", class="apply_button">fit</button>
-        </li>
-        <li>Select by:
-            <br>class: <select id="selectButton"></select>
-            <br>AND
-            <br>component ids: <input type="text" id="cids" placeholder="type 0 or 0,1,2 etc.">
-            <br><button id="apply" class="apply_button">apply</button>
-        </li>
-        <li>Color scheme: <select id="select_color"></select>
-        </li>
-        <li>Show legend: <input type="checkbox" id="show_legend">
-            <!-- <input type="text" id="cids" placeholder="0 or 0,1,2 etc."> -->
-        </li>
-        <li>Show training and validation: <input type="checkbox" id="show_training">
-            <!-- <input type="text" id="cids" placeholder="0 or 0,1,2 etc."> -->
-        </li>
-        <li>Color training and validation in true labels: <input type="checkbox" id="color_training">
-            <!-- <input type="text" id="cids" placeholder="0 or 0,1,2 etc."> -->
-        </li>
-        <li>
-            Adjust node size:
-            <button id="larger_node_size", class="apply_button">+</button>
-            <button id="smaller_node_size", class="apply_button">-</button>
-        </li>
-        </ul>
-        <p>
-            <button id="save_fig" class="apply_button">save figure</button>
-            <button id="output" class="apply_button">save coordinates</button>
-        </p>
-    </div>
-    <!-- <div align='left' class="topright", id="demo", contenteditable="true">
-        Reeb net node ids: [1,2,3,4,5,6,7,8,9,10,11,12,13,1,2,3,4,5,6,7,8,9,10,11,12,13]
-        <br><br>
-        Graph node ids: [1,2,3,4,5,6,7,8,9,10,11,12,13,1,2,3,4,5,6,7,8,9,10,11,12,13]
-    </div>
-    <div class="legend">
-        Selected nodes info:
-    </div> -->
-</div>
+<div id="layout">
+    <!-- Menu toggle -->
+    <a href="#menu" id="menuLink" class="menu-link">
+        <!-- Hamburger icon -->
+        <span></span>
+    </a>
 
-<link rel='stylesheet' href='d3v5-selectable-zoomable-force-directed-graph.css'>
+    <div id="menu">
+        <div class="pure-menu">
+            <a class="pure-menu-heading" href="#company">Instructions</a>
+            <ul class="pure-menu-list">
+                <li>Use the scroll wheel or "+/-" buttons below to zoom.</li>
+                <li>Use the "fit" button to zoom to fit the window.</li>
+                <li>Double click a Reeb net node to expand.</li>
+                <li>Double click a hull to collapse.</li>
+                <li>Click and hold empty area to pan the entire graph.</li>
+                <li>Click and hold a node while pressing shift key to pan a single component.</li>
+            </ul>
+            <br>
+            <a class="pure-menu-heading" href="#company">Options</a>
+
+            <ul class="pure-menu-list">
+                <li>
+                    Zoom in/out: <button id="zoom_in", class="apply_button">+</button>
+                    <button id="zoom_out", class="apply_button">-</button>
+                    <button id="fit", class="apply_button">fit</button>
+                </li>
+                <li>Select by:
+                    <br>class: <select id="selectButton"></select>
+                    <br>AND
+                    <br>component ids: <input type="text" id="cids" placeholder="type 0 or 0,1,2 etc.">
+                    <br><button id="apply" class="apply_button">apply</button>
+                </li>
+                <li>Color scheme: <select id="select_color"></select>
+                </li>
+                <li>Show legend: <input type="checkbox" id="show_legend">
+                    <!-- <input type="text" id="cids" placeholder="0 or 0,1,2 etc."> -->
+                </li>
+                <li>Show training and validation: <input type="checkbox" id="show_training">
+                    <!-- <input type="text" id="cids" placeholder="0 or 0,1,2 etc."> -->
+                </li>
+                <li>Color training and validation nodes by given labels instead of predicted labels: <input type="checkbox" id="color_training">
+                    <!-- <input type="text" id="cids" placeholder="0 or 0,1,2 etc."> -->
+                </li>
+                <li>
+                    Adjust node size:
+                    <button id="larger_node_size", class="apply_button">+</button>
+                    <button id="smaller_node_size", class="apply_button">-</button>
+                </li>
+                <li>
+                    <button id="save_fig" class="apply_button">save figure</button>
+                    <button id="output" class="apply_button">save coordinates</button>
+                </li>
+            </ul>
+            <br>
+            <a class="pure-menu-heading" href="#company">Credits</a>
+            <ul class="pure-menu-list">
+                <li>
+                    We use<a href="https://d3js.org/">d3.js</a> based on<a href="https://observablehq.com/@rymarchikbot/d3-js-force-layout-click-to-group-bundle-nodes">[1]</a>,<a href="https://bl.ocks.org/pkerpedjiev/f2e6ebb2532dae603de13f0606563f5b">[2]</a>,
+                <a href="https://github.com/jakesgordon/bin-packing">[3]</a>,<a href="https://bl.ocks.org/kgeorgiou/68f864364f277720252d0329408433ae">[4]</a>,<a href="http://bl.ocks.org/rokotyan/0556f8facbaf344507cdc45dc3622177">[5]</a> to visualize and save the graph and<a href="https://purecss.io/">pure.css</a> for the page layout.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+
+    <div align='center' id="d3_selectable_force_directed_graph" class="container">
+        <svg id="drawing" viewBox="0 0 100 60"></svg>
+        <svg id="drawing_legend" viewBox="0 0 100 1000" class="legend" ></svg>
+        <!-- <div align='left' class="topright", id="demo", contenteditable="true">
+            Reeb net node ids: [1,2,3,4,5,6,7,8,9,10,11,12,13,1,2,3,4,5,6,7,8,9,10,11,12,13]
+            <br><br>
+            Graph node ids: [1,2,3,4,5,6,7,8,9,10,11,12,13,1,2,3,4,5,6,7,8,9,10,11,12,13]
+        </div>
+        <div class="legend">
+            Selected nodes info:
+        </div> -->
+    </div>
+</div>
+<link rel='stylesheet' href='d3-graph.css'>
 <script src="https://d3js.org/d3.v5.js"></script>
-<!-- <script src="d3v5-brush-lite.js"></script> -->
 <script src="node-pie.js"></script>
-<script src="d3v5-selectable-force-directed-graph.js"></script>
+<script src="d3-graph.js"></script>
 <script src='bin-packing/js/packer.growing.js'></script>
 <script src='bin-packing/js/packer.js'></script>
 <script src="https://cdn.rawgit.com/eligrey/canvas-toBlob.js/f1a01896135ab378aa5c0118eadd81da55e698d8/canvas-toBlob.js"></script>
@@ -135,19 +173,19 @@
 
 <script>
     // var color = d3.scaleOrdinal(d3.schemeCategory10);
-    var svg = d3.select('#d3_selectable_force_directed_graph');
-    var graph = createV4SelectableForceDirectedGraph(svg, net, document);
-    let parentWidth = d3.select('#drawing').node().parentNode.clientWidth;
-    let parentHeight = d3.select('#drawing').node().parentNode.clientHeight;
+    // var svg = d3.select('#d3_selectable_force_directed_graph');
+    var graph = createV4SelectableForceDirectedGraph(net, document);
+    let parentWidth = 3000;
+    let parentHeight = 1800;
     d3.select("#save_fig")
     .on('click', function(){
         var svgString = getSVGString(d3.select('#drawing').node());
-        svgString2Image( svgString, 2*parentWidth, 2*parentHeight, 'png', save ); // passes Blob and filesize String to the callback
+        svgString2Image( svgString, parentWidth, parentHeight, 'png', save ); // passes Blob and filesize String to the callback
         function save( dataBlob, filesize ){
             saveAs( dataBlob, 'drawing.png' ); // FileSaver.js function
         }
     });
 </script>
-
+<script src="ui.js"></script>
 </body>
 </html>

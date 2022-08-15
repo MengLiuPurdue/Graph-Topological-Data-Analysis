@@ -24068,8 +24068,7 @@ net={
             "value": 1
         }
     ]
-};
-class_names={
+};class_names={
     "0": "first class",
     "1": "second class",
     "2": "third class"
