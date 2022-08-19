@@ -320,7 +320,7 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
                     num += "<br><img src='../all_imgs/"+d.id.toString()+".png'>";
                 }
                 if (extra_info) {
-                    num = "Extra info: "+extra_info[d.id.toString()];
+                    num += "<br>Extra info: "+extra_info[d.id.toString()];
                 }
             }else{
                 num = "Reeb node id: "+d.group[0].toString();
