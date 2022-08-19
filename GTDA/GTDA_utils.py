@@ -20,8 +20,8 @@ import gc
 import os
 import os.path as osp
 import time
-from rembg import remove
-from rembg.session_factory import new_session
+# from rembg import remove
+# from rembg.session_factory import new_session
 import json
 from collections import defaultdict
 
@@ -189,7 +189,7 @@ def compute_recall(labels,pre_labels,pred,test_only=True,test_nodes=None):
 
 def SPoC(model,dataloaders,key_map=None,is_normalize=False,indices_to_ignore=None,pooling="max",device='cuda'):
     model = model.to(device)
-    X = None
+    X = []
     y = []
     preds = []
     for dataloader in dataloaders:
@@ -584,11 +584,11 @@ def align_images(start_pos,end_pos,scale,images,ax,nrows,is_padding,flipped=Fals
     return num_images_embeded
 
 
-def remove_img_bg(img):
-    new_img = remove(img,session=new_session('u2netp'))
-    return new_img
+# def remove_img_bg(img):
+#     new_img = remove(img,session=new_session('u2netp'))
+#     return new_img
 
-def save_to_json(GTDA_record,nn_model,savepath,class_names,filename="reeb_net.js"):
+def save_to_json(GTDA_record,nn_model,savepath,class_names,filename="reeb_net.js",extra_info=None):
     json_object = {}
     nodes = []
     links = []
@@ -629,6 +629,12 @@ def save_to_json(GTDA_record,nn_model,savepath,class_names,filename="reeb_net.js
     json_object["links"] = links
     json_object = json.dumps(json_object, indent = 4) 
     class_names = json.dumps(class_names, indent = 4)
+    if extra_info is not None:
+        extra_info = json.dumps(extra_info, indent = 4) 
     with open(f"{savepath}/{filename}","w") as f:
         f.write(f"net={json_object};")
         f.write(f"class_names={class_names};")
+        if extra_info is not None:
+            f.write(f"extra_info={extra_info};")
+        else:
+            f.write(f"extra_info=null;")
