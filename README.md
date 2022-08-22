@@ -95,7 +95,7 @@ To run the CNN model comparison experiment, all training and validation images o
 To run the chest X-ray experiment, all X-ray images and expert labels should be downloaded from <https://cloud.google.com/healthcare-api/docs/resources/public-datasets/nih-chest>. We also use the implementation from <https://github.com/zoogzog/chexnet> to train a DenseNet-121 model.
 ### Files: 
 * ```train_analyze_imagenet_1k.py``` preprocesses downloaded files and build the Reeb network
-* ```train_analyze_chest_xray.py``` preprocesses downloaded files, train a DenseNet-121 model from scratch, build the Reeb network and find potential labeling errors for images with expert labels
+* ```train_chest_xray.py``` preprocesses downloaded files, train a DenseNet-121 model from scratch, build the Reeb network and ```analyze_chest_xray.ipynb``` uses precomputed data to find potential labeling errors for images with expert labels
 
 ## Interactive web interface for better exploration
 Once we have computed the Reeb net, other than examing the results in traditional figures, we have also created an interactive web interface using D3 library to explore the results in a web browser. To transform the GTDA results into the format compatible with the web interface, the following function needs to be called:
