@@ -134,9 +134,9 @@ with open(f"{savepath}/edge_list.txt","w") as f:
         f.write(f"{ei} {ej} 1\n")
 np.save(f"{savepath}/prediction_lens.npy",preds_orig)
 np.save(f"{savepath}/labels.npy",y)
-train_nodes = np.nonzero(data.train_mask.cpu().detach().numpy())[0]
-val_nodes = np.nonzero(data.val_mask.cpu().detach().numpy())[0]
-test_nodes = np.nonzero(data.test_mask.cpu().detach().numpy())[0]
+train_nodes = list(range(len(trainset_orig)))
+val_nodes = []
+test_nodes = list(range(len(trainset_orig),len(testset_orig)))
 with open(f"{savepath}/train_nodes.txt","w") as f:
     for node in train_nodes:
         f.write(f"{node}\n")

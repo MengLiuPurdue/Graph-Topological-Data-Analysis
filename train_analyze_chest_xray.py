@@ -4,6 +4,7 @@ which test image labels might be wrong and compare with expert labels.
 We use the CheXNet implementation from 'https://github.com/zoogzog/chexnet', which should be downloaded and put under the same directory of this file.
 This file assumes the chest X-ray images are put under 'dataset/chest_xray/images' and expert labels under 'dataset/chest_xray'.
 Such files can be obtained from 'https://cloud.google.com/healthcare-api/docs/resources/public-datasets/nih-chest'.
+The precomputed models and graphs are not included due to large file size and can be provided upon request.
 """
 #%%
 import numpy as np
