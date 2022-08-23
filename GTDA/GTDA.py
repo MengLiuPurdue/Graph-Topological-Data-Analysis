@@ -1,3 +1,4 @@
+from logging import warning
 from .GTDA_utils import find_components
 from bisect import bisect_right
 import numpy as np
@@ -9,6 +10,7 @@ from tqdm import tqdm
 from joblib import Parallel, delayed
 import copy
 import time
+import warnings
 
 def is_overlap(x,y):
     for i in range(len(x)):
@@ -260,6 +262,8 @@ class GTDA(object):
                 print(f"Splitting took {t2-t1} seconds")
             self.component_counts.append(len(self.component_records))
         if len(curr_level) > 0:
+            if iters >= max_iters:
+                warnings.warn("Stopped early, try increasing max number of iterations for splitting")
             for i in curr_level:
                 self.final_components[num_final_components] = self.component_records[i]
                 num_final_components += 1
