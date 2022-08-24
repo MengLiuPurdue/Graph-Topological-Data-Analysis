@@ -6,6 +6,7 @@ var zoom, selectedGroup = "class";
 var nclass = 0, node_size_scale = 1, node_dist_scale = 1;
 var name_to_id = {}, sort_block = false;
 var node, link, hull;
+var expanded_nodes = new Set();
 
 var curve = d3.line()
     .curve(d3.curveLinearClosed);
@@ -22,14 +23,11 @@ class MySet extends Set{
     }
 }
 
-function create_hulls(groups,expands,offset) {
+function create_hulls(groups,offset) {
     // create point sets
     var hulls = [];
-    for (var i = 0; i < Object.keys(groups).length; i++) {
+    expanded_nodes.forEach(function(i){
         var l = [];
-        if (expands[i] == false){
-            continue;
-        }
         for (var k = 0; k < groups[i].length; k++) {
             var n = groups[i][k];
             l.push([n.x-offset, n.y-offset]);
@@ -38,7 +36,7 @@ function create_hulls(groups,expands,offset) {
             l.push([n.x+offset, n.y+offset]);
         }   
         hulls.push({"group":[i], "path":d3.polygonHull(l)});
-    }
+    });
   
     // create convex hulls
     return hulls;
@@ -58,6 +56,7 @@ function update_network(data, init_nodes, graph, expand, groups, is_initial, dbl
         var i = parseInt(k);
         if (selected_components[groups[i][0].cid] == false) continue;
         if (expand[i]) {
+            expanded_nodes.add(i);
             for (var j=0; j<groups[i].length; j++){
                 var node = groups[i][j];
                 node.size = 1;
@@ -181,10 +180,11 @@ function update_network(data, init_nodes, graph, expand, groups, is_initial, dbl
     // console.log(nodes);
     // console.log(hulls);
     console.log("updated");
-    return {"nodes":nodes, "links":links, "hulls":create_hulls(groups,expand,offset)};
+    return {"nodes":nodes, "links":links, "hulls":create_hulls(groups,offset)};
 }
 
 function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclick_id, component_init_pos, selected_components,gDraw,parentWidth,parentHeight){
+    expanded_nodes.clear();
     graph = update_network(data, init_nodes, graph, expand, groups, is_initial, dblclick_id, component_init_pos, selected_components);
     is_initial = false;
 
@@ -316,8 +316,10 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
                 num += "<br>Prediction: "+class_names[d.prediction];
                 num += "<br>Truth: "+class_names[d.label];
                 num += "<br>Component id: "+d.cid.toString();
-                if (window.location.pathname.includes('imagenette')){
-                    num += "<br><img src='../all_imgs/"+d.id.toString()+".png'>";
+                if (extra_info == "show_img") {
+                    num += "<br><img src='all_imgs/"+d.id.toString()+".png'>";
+                }else{
+                    num += "<br>Extra info: "+extra_info[d.id.toString()];
                 }
             }else{
                 num = "Reeb node id: "+d.group[0].toString();
@@ -399,7 +401,7 @@ function draw_graph(data, init_nodes, graph, expand, groups, is_initial, dblclic
 
     function ticked() {
         if (graph.hulls.length>0){
-            hull.data(create_hulls(groups,expand,offset))
+            hull.data(create_hulls(groups,offset))
                 .attr("d",drawCluster);
         }
         // update node and line positions at every step of 
