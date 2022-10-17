@@ -458,7 +458,7 @@ def plot_reeb_component(
                     [ycoords[i]],
                     edgecolors=[0,0,0,0.2],
                     linewidths=nodelinewidths,
-                    color=to_rgba(all_class_colors[np.argmax(node_colors[i,:])],alphas[i] if alphas else 1),
+                    color=all_class_colors[np.argmax(node_colors[i,:])],
                     s=df.sizes.values[i],zorder=node_zorder
                 )
             else:
