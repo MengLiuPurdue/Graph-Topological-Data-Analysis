@@ -90,5 +90,3 @@ dependencies:
     - timm==0.6.7
     - torchmetrics==0.6.2
     - virtualenv==20.13.0
-
-prefix: /homes/liu1740/miniconda3/envs

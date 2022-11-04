@@ -18,7 +18,10 @@ The easiest way to setup the environment required by GTDA is to use the included
 
 ```conda env create --file GTDA.yml```
 
-which will create a virtual environment under the current working directory.
+which will create a virtual environment under the current working directory. The installation can take up to one or two hours depending on network speed. Then, the code can be run after activating the conda environment using the following command:
+
+```conda activate GTDA```
+
 ### create a Reeb network
 
 ```python
@@ -57,6 +60,9 @@ None, self contained
 * ```dataset/precomputed/swiss_roll``` contains precomputed lens and graph to run ```analyze_swiss_roll.ipynb``` directly
 
 
+### Expected running time:
+* A few minutes.
+
 
 ## Amazon Electronics experiment
 ### Prerequisites:
@@ -81,6 +87,9 @@ Download from <https://github.com/fastai/imagenette> and put under ```dataset/im
 Download ```variant_summary.txt``` from <https://ftp.ncbi.nlm.nih.gov/pub/clinvar/tab_delimited/> and put under ```dataset/variants``` folder 
 
 Download human reference genome ```hg19.fa```, ```hg38.fa``` and put under ```dataset/variants``` folder 
+
+Install ```tensorflow``` and setup ```Enformer``` based on instructions of <https://github.com/deepmind/deepmind-research/tree/master/enformer>. GPU with cuda support is highly recommended.
+
 ### Files: 
 * ```mutation_dataset.py``` preprocesses downloaded files, tensorflow is required
 * ```train_gene_mutation.py``` generates the dataset and trains the model
