@@ -50,7 +50,7 @@ gtda.A_reeb # projected Reeb network with the same set of nodes as the original 
 gtda.sample_colors_mixing # GTDA estimated errors for each sample
 ```
 
-## Swiss Roll experiment
+## Swiss Roll experiment (demo)
 ### Prerequisites: 
 None, self contained
 ### Files: 
