@@ -99,9 +99,29 @@ Install ```tensorflow``` and setup ```Enformer``` based on instructions of <http
 
 ## Additional experiments in supplement
 ### Prerequisites:
-To run the CNN model comparison experiment, all training and validation images of ImageNet-1k dataset must be downloaded from <https://www.image-net.org/>. It also requires to install ```timm``` package to get the pretrained VOLO model.
+To run the CNN model comparison experiment, all training and validation images of ImageNet-1k dataset must be downloaded from <https://www.image-net.org/> and put under ```dataset/imagenet_1k```. The folder should be organized as:
 
-To run the chest X-ray experiment, all X-ray images and expert labels should be downloaded from <https://cloud.google.com/healthcare-api/docs/resources/public-datasets/nih-chest>. We also use the implementation from <https://github.com/zoogzog/chexnet> to train a DenseNet-121 model.
+```
+dataset/imagenet_1k/
+    train/
+        class1/
+            img1
+            img2
+            ...
+        class2/
+        ...
+    val/
+        class1/
+            img1
+            img2
+            ...
+        class2/
+        ...
+```
+
+ It also requires to install ```timm``` package to get the pretrained VOLO model.
+
+To run the chest X-ray experiment, all X-ray images and expert labels should be downloaded from <https://cloud.google.com/healthcare-api/docs/resources/public-datasets/nih-chest>. The images should be put under ```dataset/chest_xray/images``` and expert labels under ```dataset/chest_xray```. We also use the implementation from <https://github.com/zoogzog/chexnet> to train a DenseNet-121 model.
 ### Files: 
 * ```train_analyze_imagenet_1k.py``` preprocesses downloaded files and build the Reeb network
 * ```train_chest_xray.py``` preprocesses downloaded files, train a DenseNet-121 model from scratch, build the Reeb network and ```analyze_chest_xray.ipynb``` uses precomputed data to find potential labeling errors for images with expert labels
